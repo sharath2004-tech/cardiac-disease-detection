@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Module 3 - Corrected DFD Shapes">
+    <mxGraphModel dx="1420" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="2" value="Patient Data Collection&#10;(Module 2)" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="3" value="3.0&#10;Data Pre-Processing" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="300" y="190" width="180" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="4" value="3.1&#10;Handle Missing Values" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="5" value="3.2&#10;Encode Categorical Data" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="200" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="6" value="3.3&#10;Feature Scaling &amp;&#10;Normalization" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="580" y="300" width="180" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="7" value="D3: Patient Database" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="900" y="110" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="8" value="D4: Medical Records" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="900" y="210" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="9" value="D5: Cleaned Data" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="900" y="310" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="10" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="11" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="12" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="13" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="15" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="16" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

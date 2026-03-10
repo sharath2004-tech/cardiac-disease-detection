@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 17%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 152 60% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Custom healthcare tokens */
+    --healthcare-gradient: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(152 60% 52%) 100%);
+    --healthcare-gradient-soft: linear-gradient(135deg, hsl(199 89% 95%) 0%, hsl(152 60% 95%) 100%);
+    --shadow-healthcare: 0 4px 20px -4px hsl(199 89% 48% / 0.15);
+    --shadow-card: 0 2px 12px -2px hsl(215 25% 17% / 0.08);
+    --shadow-card-hover: 0 8px 24px -4px hsl(215 25% 17% / 0.12);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 215 25% 17%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 199 89% 48%;
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 28% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 28% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 215 28% 10%;
+
+    --secondary: 215 28% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 28% 18%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 152 60% 52%;
+    --accent-foreground: 215 28% 10%;
+
+    --success: 152 60% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 22%;
+    --input: 215 28% 22%;
+    --ring: 199 89% 55%;
+
+    --sidebar-background: 215 28% 12%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 199 89% 55%;
+    --sidebar-primary-foreground: 215 28% 10%;
+    --sidebar-accent: 215 28% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 22%;
+    --sidebar-ring: 199 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .healthcare-gradient {
+    background: var(--healthcare-gradient);
+  }
+
+  .healthcare-gradient-soft {
+    background: var(--healthcare-gradient-soft);
+  }
+
+  .shadow-healthcare {
+    box-shadow: var(--shadow-healthcare);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

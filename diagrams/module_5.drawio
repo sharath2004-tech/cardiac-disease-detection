@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Module 5 - Corrected Report Generation">
+    <mxGraphModel dx="1000" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="Prediction Results&#10;(Module 4)" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="20" y="160" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="3" value="5.0&#10;Report Generation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="280" y="145" width="200" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="4" value="D6: Medical Report DB" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="5" value="Raw Prediction" style="endArrow=block;endFill=1;strokeWidth=2;verticalAlign=bottom;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="6" value="Formatted Report" style="endArrow=block;endFill=1;strokeWidth=2;verticalAlign=bottom;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
