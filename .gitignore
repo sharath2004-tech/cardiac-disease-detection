@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.backup
+
+# Dataset (too large for git)
+ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3/
+
+# Models
+models/
+*.pth
+*.pkl
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
