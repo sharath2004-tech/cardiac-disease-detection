@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Full Workflow DFD - Corrected Shapes">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="patient_fw" value="Patient" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="doctor_fw" value="Doctor" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m1" value="1.0&#10;User Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="2.0&#10;Patient Data Collection" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="3.0&#10;Data Pre-Processing" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="780" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="4.0&#10;AI Model Prediction" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="250" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m5" value="5.0&#10;Report Generation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="780" y="400" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m6" value="6.0&#10;History &amp; File Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="200" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="db_user" value="D1: User Database" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="260" y="140" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_history" value="D2: Patient History DB" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="530" y="540" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f1" value="Credentials" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="patient_fw" target="m1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f2" value="Auth Requests" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="doctor_fw" target="m1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f3" value="User Profiles" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m1" target="db_user">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f4" value="Auth User" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m1" target="m2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f5" value="Raw Data" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m2" target="m3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f6" value="Clean Dataset" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m3" target="m4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f7" value="AI Diagnosis" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m4" target="m5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f8" value="Final Report" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m5" target="m6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f9" value="Store Archive" style="endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="m6" target="db_history">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
