@@ -1,13 +1,22 @@
 import { cn } from "@/lib/utils";
-import { AlertTriangle, CheckCircle, AlertCircle } from "lucide-react";
+import { AlertCircle, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
+
+type RiskLevel = "low" | "moderate" | "medium" | "high" | "critical";
 
 interface RiskIndicatorProps {
-  level: "low" | "medium" | "high";
+  level: RiskLevel;
   score: number;
   className?: string;
 }
 
-const riskConfig = {
+const riskConfig: Record<RiskLevel, {
+  label: string;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  icon: React.ElementType;
+  gradient: string;
+}> = {
   low: {
     label: "Low Risk",
     color: "text-success",
@@ -16,8 +25,17 @@ const riskConfig = {
     icon: CheckCircle,
     gradient: "from-success/20 to-success/5",
   },
+  // "medium" kept for backward compatibility; backend uses "moderate"
   medium: {
     label: "Medium Risk",
+    color: "text-warning",
+    bgColor: "bg-warning/10",
+    borderColor: "border-warning/30",
+    icon: AlertTriangle,
+    gradient: "from-warning/20 to-warning/5",
+  },
+  moderate: {
+    label: "Moderate Risk",
     color: "text-warning",
     bgColor: "bg-warning/10",
     borderColor: "border-warning/30",
@@ -31,6 +49,14 @@ const riskConfig = {
     borderColor: "border-destructive/30",
     icon: AlertCircle,
     gradient: "from-destructive/20 to-destructive/5",
+  },
+  critical: {
+    label: "Critical Risk",
+    color: "text-destructive",
+    bgColor: "bg-destructive/20",
+    borderColor: "border-destructive",
+    icon: XCircle,
+    gradient: "from-destructive/30 to-destructive/10",
   },
 };
 

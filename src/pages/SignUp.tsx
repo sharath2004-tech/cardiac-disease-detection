@@ -1,15 +1,63 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Heart, Mail, Lock, Eye, EyeOff, User, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { authAPI } from "@/lib/api";
 import { cn } from "@/lib/utils";
+import { Eye, EyeOff, Heart, Lock, Mail, Stethoscope, User } from "lucide-react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [accountType, setAccountType] = useState<"patient" | "doctor">("patient");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (!firstName.trim() || !lastName.trim()) {
+      setError("First and last name are required.");
+      return;
+    }
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("A valid email address is required.");
+      return;
+    }
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters.");
+      return;
+    }
+    if (!termsAccepted) {
+      setError("You must accept the Terms of Service to continue.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await authAPI.register({
+        name: `${firstName.trim()} ${lastName.trim()}`,
+        email: email.trim(),
+        password,
+      });
+      const { token, ...user } = response.data;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/dashboard", { replace: true });
+    } catch (err: any) {
+      setError(err?.response?.data?.message ?? "Registration failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -96,15 +144,34 @@ export default function SignUp() {
             </button>
           </div>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+            {error && (
+              <div role="alert" className="text-sm text-destructive bg-destructive/10 border border-destructive/30 rounded-lg px-4 py-3">
+                {error}
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName">First Name</Label>
-                <Input id="firstName" placeholder="John" />
+                <Input
+                  id="firstName"
+                  placeholder="John"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  autoComplete="given-name"
+                  required
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="lastName">Last Name</Label>
-                <Input id="lastName" placeholder="Doe" />
+                <Input
+                  id="lastName"
+                  placeholder="Doe"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  autoComplete="family-name"
+                  required
+                />
               </div>
             </div>
 
@@ -117,6 +184,10 @@ export default function SignUp() {
                   type="email"
                   placeholder="you@example.com"
                   className="pl-10"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
+                  required
                 />
               </div>
             </div>
@@ -130,10 +201,16 @@ export default function SignUp() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Create a strong password"
                   className="pl-10 pr-10"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="new-password"
+                  required
+                  minLength={8}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -145,17 +222,22 @@ export default function SignUp() {
             </div>
 
             <div className="flex items-start space-x-2">
-              <Checkbox id="terms" className="mt-1" />
+              <Checkbox
+                id="terms"
+                className="mt-1"
+                checked={termsAccepted}
+                onCheckedChange={(checked) => setTermsAccepted(checked === true)}
+              />
               <Label htmlFor="terms" className="text-sm cursor-pointer leading-relaxed">
                 I agree to the{" "}
-                <a href="#" className="text-primary hover:underline">Terms of Service</a>
+                <span className="text-primary">Terms of Service</span>
                 {" "}and{" "}
-                <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+                <span className="text-primary">Privacy Policy</span>
               </Label>
             </div>
 
-            <Button type="submit" className="w-full" size="lg">
-              Create Account
+            <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+              {isLoading ? "Creating account…" : "Create Account"}
             </Button>
 
             <div className="relative">
