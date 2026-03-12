@@ -1,38 +1,52 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
+import { authenticate } from '../middleware/auth.js';
 import User from '../models/User.js';
 
 const router = express.Router();
 
-// Generate JWT Token
+// Shared token helper — uses process.env.JWT_SECRET (validated at startup)
 const generateToken = (userId) => {
-  return jwt.sign({ id: userId }, process.env.JWT_SECRET || 'your-secret-key', {
-    expiresIn: '30d'
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
+    expiresIn: '7d',
   });
 };
+
+// Simple input validator
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 // @route   POST /api/auth/register
 // @desc    Register a new user
 // @access  Public
 router.post('/register', async (req, res) => {
   try {
-    const { email, password, name, role } = req.body;
+    const { email, password, name } = req.body;
+
+    // Input validation
+    if (!name || typeof name !== 'string' || name.trim().length < 2) {
+      return res.status(400).json({ message: 'Name must be at least 2 characters.' });
+    }
+    if (!email || !isValidEmail(email)) {
+      return res.status(400).json({ message: 'A valid email address is required.' });
+    }
+    if (!password || typeof password !== 'string' || password.length < 8) {
+      return res.status(400).json({ message: 'Password must be at least 8 characters.' });
+    }
 
     // Check if user exists
-    const userExists = await User.findOne({ email });
+    const userExists = await User.findOne({ email: email.toLowerCase().trim() });
     if (userExists) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create user
+    // role is always 'patient' on self-registration — doctors are assigned by admins
     const user = await User.create({
       email,
       password,
-      name,
-      role: role || 'patient'
+      name: name.trim(),
+      role: 'patient',
     });
 
-    // Generate token
     const token = generateToken(user._id);
 
     res.status(201).json({
@@ -40,10 +54,11 @@ router.post('/register', async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      token
+      token,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Register error:', error.message);
+    res.status(500).json({ message: 'Registration failed. Please try again.' });
   }
 });
 
@@ -54,8 +69,12 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required.' });
+    }
+
     // Check for user
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: String(email).toLowerCase().trim() });
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
@@ -66,7 +85,6 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Generate token
     const token = generateToken(user._id);
 
     res.json({
@@ -74,34 +92,19 @@ router.post('/login', async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      token
+      token,
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error('Login error:', error.message);
+    res.status(500).json({ message: 'Login failed. Please try again.' });
   }
 });
 
 // @route   GET /api/auth/me
 // @desc    Get current user
 // @access  Private
-router.get('/me', async (req, res) => {
-  try {
-    const token = req.headers.authorization?.split(' ')[1];
-    if (!token) {
-      return res.status(401).json({ message: 'Not authorized' });
-    }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
-    const user = await User.findById(decoded.id).select('-password');
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.json(user);
-  } catch (error) {
-    res.status(401).json({ message: 'Not authorized' });
-  }
+router.get('/me', authenticate, async (req, res) => {
+  res.json(req.user);
 });
 
 export default router;
