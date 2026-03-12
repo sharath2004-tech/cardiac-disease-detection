@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { AlertTriangle, CheckCircle, AlertCircle, XCircle } from "lucide-react";
+import { AlertCircle, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 
 type RiskLevel = "low" | "moderate" | "medium" | "high" | "critical";
 

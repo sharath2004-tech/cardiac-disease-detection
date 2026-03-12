@@ -1,16 +1,16 @@
-import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
-import PatientProfile from "./pages/PatientProfile";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Assessment from "./pages/Assessment";
 import Dashboard from "./pages/Dashboard";
 import DoctorDashboard from "./pages/DoctorDashboard";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import PatientProfile from "./pages/PatientProfile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
