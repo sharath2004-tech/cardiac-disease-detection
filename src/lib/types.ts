@@ -12,7 +12,7 @@ export interface RegisterData {
   email: string;
   password: string;
   name: string;
-  role?: 'patient' | 'doctor' | 'admin';
+  // role is intentionally omitted — server always assigns 'patient' on self-registration
 }
 
 export interface LoginData {
