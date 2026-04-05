@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import pickle
+import shutil
 import sys
 import time
 
@@ -27,8 +28,45 @@ import numpy as np
 import pandas as pd
 import torch
 
-# Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# ── Path resolution: works locally AND on Kaggle input datasets ────────────
+def _setup_path():
+    """
+    On Kaggle, input dataset files are read-only under /kaggle/input/.
+    We copy the cardiom3net/ package to /kaggle/working/ so Python can
+    import from it, then add /kaggle/working/ to sys.path.
+    """
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pkg_src = os.path.join(script_dir, 'cardiom3net')
+
+    # Already importable (local run) — just add script dir
+    if os.path.isdir(pkg_src):
+        if script_dir not in sys.path:
+            sys.path.insert(0, script_dir)
+        return script_dir
+
+    # Kaggle: script in /kaggle/input/... — copy package to /kaggle/working/
+    kaggle_working = '/kaggle/working'
+    if os.path.isdir(kaggle_working):
+        dst_pkg = os.path.join(kaggle_working, 'cardiom3net')
+        # Search for cardiom3net/ anywhere under /kaggle/input/
+        for root, dirs, _ in os.walk('/kaggle/input'):
+            if 'cardiom3net' in dirs:
+                src = os.path.join(root, 'cardiom3net')
+                if not os.path.isdir(dst_pkg):
+                    shutil.copytree(src, dst_pkg)
+                    print(f"[setup] Copied cardiom3net/ from {src} → {dst_pkg}")
+                if kaggle_working not in sys.path:
+                    sys.path.insert(0, kaggle_working)
+                return kaggle_working
+        print("[setup] WARNING: cardiom3net/ not found under /kaggle/input/")
+        print("[setup] Upload cardiom3net/ folder alongside train_cardiom3net.py in your dataset.")
+        sys.exit(1)
+
+    # Fallback: add cwd
+    sys.path.insert(0, os.getcwd())
+    return os.getcwd()
+
+_setup_path()
 
 from cardiom3net.config import Config
 from cardiom3net.utils import (seed_everything, get_device, plot_training_curves,
