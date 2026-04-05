@@ -1,0 +1,621 @@
+link,Data-Name,data type,default task,attribute-type,instances,attributes,year
+https://archive.ics.uci.edu/ml/datasets/Abalone,Abalone,Multivariate,Classification,"Categorical, Integer, Real",4177,8,1995
+https://archive.ics.uci.edu/ml/datasets/Adult,Adult,Multivariate,Classification,"Categorical, Integer",48842,14,1996
+https://archive.ics.uci.edu/ml/datasets/Annealing,Annealing,Multivariate,Classification,"Categorical, Integer, Real",798,38,
+https://archive.ics.uci.edu/ml/datasets/Anonymous+Microsoft+Web+Data,Anonymous Microsoft Web Data,Recommender-Systems,Categorical,,37711,294,1998
+https://archive.ics.uci.edu/ml/datasets/Arrhythmia,Arrhythmia,Multivariate,Classification,"Categorical, Integer, Real",452,279,1998
+https://archive.ics.uci.edu/ml/datasets/Artificial+Characters,Artificial Characters,Multivariate,Classification,"Categorical, Integer, Real",6000,7,1992
+https://archive.ics.uci.edu/ml/datasets/Audiology+%28Original%29,Audiology (Original),Multivariate,Classification,Categorical,226,,1987
+https://archive.ics.uci.edu/ml/datasets/Audiology+%28Standardized%29,Audiology (Standardized),Multivariate,Classification,Categorical,226,69,1992
+https://archive.ics.uci.edu/ml/datasets/Auto+MPG,Auto MPG,Multivariate,Regression,"Categorical, Real",398,8,1993
+https://archive.ics.uci.edu/ml/datasets/Automobile,Automobile,Multivariate,Regression,"Categorical, Integer, Real",205,26,1987
+https://archive.ics.uci.edu/ml/datasets/Badges,Badges,"Univariate, Text",Classification,,294,1,1994
+https://archive.ics.uci.edu/ml/datasets/Balance+Scale,Balance Scale,Multivariate,Classification,Categorical,625,4,1994
+https://archive.ics.uci.edu/ml/datasets/Balloons,Balloons,Multivariate,Classification,Categorical,16,4,
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer,Breast Cancer,Multivariate,Classification,Categorical,286,9,1988
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Original%29,Breast Cancer Wisconsin (Original),Multivariate,Classification,Integer,699,10,1992
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Prognostic%29,Breast Cancer Wisconsin (Prognostic),Multivariate,"Classification, Regression",Real,198,34,1995
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29,Breast Cancer Wisconsin (Diagnostic),Multivariate,Classification,Real,569,32,1995
+https://archive.ics.uci.edu/ml/datasets/Pittsburgh+Bridges,Pittsburgh Bridges,Multivariate,Classification,"Categorical, Integer",108,13,1990
+https://archive.ics.uci.edu/ml/datasets/Car+Evaluation,Car Evaluation,Multivariate,Classification,Categorical,1728,6,1997
+https://archive.ics.uci.edu/ml/datasets/Census+Income,Census Income,Multivariate,Classification,"Categorical, Integer",48842,14,1996
+https://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King-Knight%29,Chess (King-Rook vs. King-Knight),"Multivariate, Data-Generator",Classification,"Categorical, Integer",,22,1988
+https://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King-Pawn%29,Chess (King-Rook vs. King-Pawn),Multivariate,Classification,Categorical,3196,36,1989
+https://archive.ics.uci.edu/ml/datasets/Chess+%28King-Rook+vs.+King%29,Chess (King-Rook vs. King),Multivariate,Classification,"Categorical, Integer",28056,6,1994
+https://archive.ics.uci.edu/ml/datasets/Chess+%28Domain+Theories%29,Chess (Domain Theories),Domain-Theory,,,,,
+https://archive.ics.uci.edu/ml/datasets/Bach+Chorales,Bach Chorales,"Univariate, Time-Series","Categorical, Integer",,100,6,
+https://archive.ics.uci.edu/ml/datasets/Connect-4,Connect-4,"Multivariate, Spatial",Classification,Categorical,67557,42,1995
+https://archive.ics.uci.edu/ml/datasets/Credit+Approval,Credit Approval,Multivariate,Classification,"Categorical, Integer, Real",690,15,
+https://archive.ics.uci.edu/ml/datasets/Japanese+Credit+Screening,Japanese Credit Screening,"Multivariate, Domain-Theory",Classification,"Categorical, Real, Integer",125,,1992
+https://archive.ics.uci.edu/ml/datasets/Computer+Hardware,Computer Hardware,Multivariate,Regression,Integer,209,9,1987
+https://archive.ics.uci.edu/ml/datasets/Contraceptive+Method+Choice,Contraceptive Method Choice,Multivariate,Classification,"Categorical, Integer",1473,9,1997
+https://archive.ics.uci.edu/ml/datasets/Covertype,Covertype,Multivariate,Classification,"Categorical, Integer",581012,54,1998
+https://archive.ics.uci.edu/ml/datasets/Cylinder+Bands,Cylinder Bands,Multivariate,Classification,"Categorical, Integer, Real",512,39,1995
+https://archive.ics.uci.edu/ml/datasets/Dermatology,Dermatology,Multivariate,Classification,"Categorical, Integer",366,33,1998
+https://archive.ics.uci.edu/ml/datasets/Diabetes,Diabetes,"Multivariate, Time-Series",,"Categorical, Integer",,20,
+https://archive.ics.uci.edu/ml/datasets/DGP2+-+The+Second+Data+Generation+Program,DGP2 - The Second Data Generation Program,Data-Generator,Real,,,,
+https://archive.ics.uci.edu/ml/datasets/Echocardiogram,Echocardiogram,Multivariate,Classification,"Categorical, Integer, Real",132,12,1989
+https://archive.ics.uci.edu/ml/datasets/Ecoli,Ecoli,Multivariate,Classification,Real,336,8,1996
+https://archive.ics.uci.edu/ml/datasets/Flags,Flags,Multivariate,Classification,"Categorical, Integer",194,30,1990
+https://archive.ics.uci.edu/ml/datasets/Function+Finding,Function Finding,Function-Learning,Real,,352,,1990
+https://archive.ics.uci.edu/ml/datasets/Glass+Identification,Glass Identification,Multivariate,Classification,Real,214,10,1987
+https://archive.ics.uci.edu/ml/datasets/Haberman%27s+Survival,Haberman's Survival,Multivariate,Classification,Integer,306,3,1999
+https://archive.ics.uci.edu/ml/datasets/Hayes-Roth,Hayes-Roth,Multivariate,Classification,Categorical,160,5,1989
+https://archive.ics.uci.edu/ml/datasets/Heart+Disease,Heart Disease,Multivariate,Classification,"Categorical, Integer, Real",303,75,1988
+https://archive.ics.uci.edu/ml/datasets/Hepatitis,Hepatitis,Multivariate,Classification,"Categorical, Integer, Real",155,19,1988
+https://archive.ics.uci.edu/ml/datasets/Horse+Colic,Horse Colic,Multivariate,Classification,"Categorical, Integer, Real",368,27,1989
+https://archive.ics.uci.edu/ml/datasets/ICU,ICU,"Multivariate, Time-Series",Real,,,,
+https://archive.ics.uci.edu/ml/datasets/Image+Segmentation,Image Segmentation,Multivariate,Classification,Real,2310,19,1990
+https://archive.ics.uci.edu/ml/datasets/Internet+Advertisements,Internet Advertisements,Multivariate,Classification,"Categorical, Integer, Real",3279,1558,1998
+https://archive.ics.uci.edu/ml/datasets/Ionosphere,Ionosphere,Multivariate,Classification,"Integer, Real",351,34,1989
+https://archive.ics.uci.edu/ml/datasets/Iris,Iris,Multivariate,Classification,Real,150,4,1988
+https://archive.ics.uci.edu/ml/datasets/ISOLET,ISOLET,Multivariate,Classification,Real,7797,617,1994
+https://archive.ics.uci.edu/ml/datasets/Kinship,Kinship,Relational,Relational-Learning,Categorical,104,12,1990
+https://archive.ics.uci.edu/ml/datasets/Labor+Relations,Labor Relations,Multivariate,"Categorical, Integer, Real","Categorical, Integer, Real",57,16,1988
+https://archive.ics.uci.edu/ml/datasets/LED+Display+Domain,LED Display Domain,"Multivariate, Data-Generator",Classification,Categorical,,7,1988
+https://archive.ics.uci.edu/ml/datasets/Lenses,Lenses,Multivariate,Classification,Categorical,24,4,1990
+https://archive.ics.uci.edu/ml/datasets/Letter+Recognition,Letter Recognition,Multivariate,Classification,Integer,20000,16,1991
+https://archive.ics.uci.edu/ml/datasets/Liver+Disorders,Liver Disorders,Multivariate,"Categorical, Integer, Real","Categorical, Integer, Real",345,7,1990
+https://archive.ics.uci.edu/ml/datasets/Logic+Theorist,Logic Theorist,Domain-Theory,,,,,
+https://archive.ics.uci.edu/ml/datasets/Lung+Cancer,Lung Cancer,Multivariate,Classification,Integer,32,56,1992
+https://archive.ics.uci.edu/ml/datasets/Lymphography,Lymphography,Multivariate,Classification,Categorical,148,18,1988
+https://archive.ics.uci.edu/ml/datasets/Mechanical+Analysis,Mechanical Analysis,Multivariate,Classification,"Categorical, Integer, Real",209,8,1990
+https://archive.ics.uci.edu/ml/datasets/Meta-data,Meta-data,Multivariate,Classification,"Categorical, Integer, Real",528,22,1996
+https://archive.ics.uci.edu/ml/datasets/Mobile+Robots,Mobile Robots,Domain-Theory,,,,,1995
+https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Promoter+Gene+Sequences%29,Molecular Biology (Promoter Gene Sequences),"Sequential, Domain-Theory",Classification,Categorical,106,58,1990
+https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Protein+Secondary+Structure%29,Molecular Biology (Protein Secondary Structure),Sequential,Classification,Categorical,128,,
+https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29,Molecular Biology (Splice-junction Gene Sequences),"Sequential, Domain-Theory",Classification,Categorical,3190,61,1992
+https://archive.ics.uci.edu/ml/datasets/MONK%27s+Problems,MONK's Problems,Multivariate,Classification,Categorical,432,7,1992
+https://archive.ics.uci.edu/ml/datasets/Moral+Reasoner,Moral Reasoner,Domain-Theory,,,202,,1994
+https://archive.ics.uci.edu/ml/datasets/Multiple+Features,Multiple Features,Multivariate,Classification,"Integer, Real",2000,649,
+https://archive.ics.uci.edu/ml/datasets/Mushroom,Mushroom,Multivariate,Classification,Categorical,8124,22,1987
+https://archive.ics.uci.edu/ml/datasets/Musk+%28Version+1%29,Musk (Version 1),Multivariate,Classification,Integer,476,168,1994
+https://archive.ics.uci.edu/ml/datasets/Musk+%28Version+2%29,Musk (Version 2),Multivariate,Classification,Integer,6598,168,1994
+https://archive.ics.uci.edu/ml/datasets/Nursery,Nursery,Multivariate,Classification,Categorical,12960,8,1997
+https://archive.ics.uci.edu/ml/datasets/Othello+Domain+Theory,Othello Domain Theory,Domain-Theory,,,,,1991
+https://archive.ics.uci.edu/ml/datasets/Page+Blocks+Classification,Page Blocks Classification,Multivariate,Classification,"Integer, Real",5473,10,1995
+https://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits,Optical Recognition of Handwritten Digits,Multivariate,Classification,Integer,5620,64,1998
+https://archive.ics.uci.edu/ml/datasets/Pen-Based+Recognition+of+Handwritten+Digits,Pen-Based Recognition of Handwritten Digits,Multivariate,Classification,Integer,10992,16,1998
+https://archive.ics.uci.edu/ml/datasets/Post-Operative+Patient,Post-Operative Patient,Multivariate,Classification,"Categorical, Integer",90,8,1993
+https://archive.ics.uci.edu/ml/datasets/Primary+Tumor,Primary Tumor,Multivariate,Classification,Categorical,339,17,1988
+https://archive.ics.uci.edu/ml/datasets/Prodigy,Prodigy,Domain-Theory,,,,,
+https://archive.ics.uci.edu/ml/datasets/Qualitative+Structure+Activity+Relationships,Qualitative Structure Activity Relationships,Domain-Theory,,,,,
+https://archive.ics.uci.edu/ml/datasets/Quadruped+Mammals,Quadruped Mammals,"Multivariate, Data-Generator",Classification,Real,,72,1992
+https://archive.ics.uci.edu/ml/datasets/Servo,Servo,Multivariate,Regression,"Categorical, Integer",167,4,1993
+https://archive.ics.uci.edu/ml/datasets/Shuttle+Landing+Control,Shuttle Landing Control,Multivariate,Classification,Categorical,15,6,1988
+https://archive.ics.uci.edu/ml/datasets/Solar+Flare,Solar Flare,Multivariate,Regression,Categorical,1389,10,1989
+https://archive.ics.uci.edu/ml/datasets/Soybean+%28Large%29,Soybean (Large),Multivariate,Classification,Categorical,307,35,1988
+https://archive.ics.uci.edu/ml/datasets/Soybean+%28Small%29,Soybean (Small),Multivariate,Classification,Categorical,47,35,1987
+https://archive.ics.uci.edu/ml/datasets/Challenger+USA+Space+Shuttle+O-Ring,Challenger USA Space Shuttle O-Ring,Multivariate,Regression,Integer,23,4,1993
+https://archive.ics.uci.edu/ml/datasets/Low+Resolution+Spectrometer,Low Resolution Spectrometer,Multivariate,Classification,"Integer, Real",531,102,1988
+https://archive.ics.uci.edu/ml/datasets/Spambase,Spambase,Multivariate,Classification,"Integer, Real",4601,57,1999
+https://archive.ics.uci.edu/ml/datasets/SPECT+Heart,SPECT Heart,Multivariate,Classification,Categorical,267,22,2001
+https://archive.ics.uci.edu/ml/datasets/SPECTF+Heart,SPECTF Heart,Multivariate,Classification,Integer,267,44,2001
+https://archive.ics.uci.edu/ml/datasets/Sponge,Sponge,Multivariate,Clustering,"Categorical, Integer",76,45,
+https://archive.ics.uci.edu/ml/datasets/Statlog+Project,Statlog Project,,,,,,1992
+https://archive.ics.uci.edu/ml/datasets/Student+Loan+Relational,Student Loan Relational,Domain-Theory,,,1000,,1993
+https://archive.ics.uci.edu/ml/datasets/Teaching+Assistant+Evaluation,Teaching Assistant Evaluation,Multivariate,Classification,"Categorical, Integer",151,5,1997
+https://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame,Tic-Tac-Toe Endgame,Multivariate,Classification,Categorical,958,9,1991
+https://archive.ics.uci.edu/ml/datasets/Thyroid+Disease,Thyroid Disease,"Multivariate, Domain-Theory",Classification,"Categorical, Real",7200,21,1987
+https://archive.ics.uci.edu/ml/datasets/Trains,Trains,Multivariate,Classification,Categorical,10,32,1994
+https://archive.ics.uci.edu/ml/datasets/University,University,Multivariate,Classification,"Categorical, Integer",285,17,1988
+https://archive.ics.uci.edu/ml/datasets/Congressional+Voting+Records,Congressional Voting Records,Multivariate,Classification,Categorical,435,16,1987
+https://archive.ics.uci.edu/ml/datasets/Water+Treatment+Plant,Water Treatment Plant,Multivariate,Clustering,"Integer, Real",527,38,1993
+https://archive.ics.uci.edu/ml/datasets/Waveform+Database+Generator+%28Version+1%29,Waveform Database Generator (Version 1),"Multivariate, Data-Generator",Classification,Real,5000,21,1988
+https://archive.ics.uci.edu/ml/datasets/Waveform+Database+Generator+%28Version+2%29,Waveform Database Generator (Version 2),"Multivariate, Data-Generator",Classification,Real,5000,40,1988
+https://archive.ics.uci.edu/ml/datasets/Wine,Wine,Multivariate,Classification,"Integer, Real",178,13,1991
+https://archive.ics.uci.edu/ml/datasets/Yeast,Yeast,Multivariate,Classification,Real,1484,8,1996
+https://archive.ics.uci.edu/ml/datasets/Zoo,Zoo,Multivariate,Classification,"Categorical, Integer",101,17,1990
+https://archive.ics.uci.edu/ml/datasets/Undocumented,Undocumented,,,,,,
+https://archive.ics.uci.edu/ml/datasets/Twenty+Newsgroups,Twenty Newsgroups,Text,,,20000,,1999
+https://archive.ics.uci.edu/ml/datasets/Australian+Sign+Language+signs,Australian Sign Language signs,"Multivariate, Time-Series",Classification,"Categorical, Real",6650,15,1999
+https://archive.ics.uci.edu/ml/datasets/Australian+Sign+Language+signs+%28High+Quality%29,Australian Sign Language signs (High Quality),"Multivariate, Time-Series",Classification,Real,2565,22,2002
+https://archive.ics.uci.edu/ml/datasets/US+Census+Data+%281990%29,US Census Data (1990),Multivariate,Clustering,Categorical,2458285,68,
+https://archive.ics.uci.edu/ml/datasets/Census-Income+%28KDD%29,Census-Income (KDD),Multivariate,Classification,"Categorical, Integer",299285,40,2000
+https://archive.ics.uci.edu/ml/datasets/Coil+1999+Competition+Data,Coil 1999 Competition Data,Multivariate,"Categorical, Real",,340,17,1999
+https://archive.ics.uci.edu/ml/datasets/Corel+Image+Features,Corel Image Features,Multivariate,Real,,68040,89,1999
+https://archive.ics.uci.edu/ml/datasets/E.+Coli+Genes,E. Coli Genes,Relational,,,,,2001
+https://archive.ics.uci.edu/ml/datasets/EEG+Database,EEG Database,"Multivariate, Time-Series","Categorical, Integer, Real",,122,,1999
+https://archive.ics.uci.edu/ml/datasets/El+Nino,El Nino,Spatio-temporal,"Integer, Real",,178080,12,1999
+https://archive.ics.uci.edu/ml/datasets/Entree+Chicago+Recommendation+Data,Entree Chicago Recommendation Data,"Transactional, Sequential",Recommender-Systems,Categorical,50672,,2000
+https://archive.ics.uci.edu/ml/datasets/CMU+Face+Images,CMU Face Images,Image,Classification,Integer,640,,1999
+https://archive.ics.uci.edu/ml/datasets/Insurance+Company+Benchmark+%28COIL+2000%29,Insurance Company Benchmark (COIL 2000),Multivariate,"Regression, Description","Categorical, Integer",9000,86,2000
+https://archive.ics.uci.edu/ml/datasets/Internet+Usage+Data,Internet Usage Data,Multivariate,"Categorical, Integer",,10104,72,1999
+https://archive.ics.uci.edu/ml/datasets/IPUMS+Census+Database,IPUMS Census Database,Multivariate,"Categorical, Integer",,256932,61,1999
+https://archive.ics.uci.edu/ml/datasets/Japanese+Vowels,Japanese Vowels,"Multivariate, Time-Series",Classification,Real,640,12,
+https://archive.ics.uci.edu/ml/datasets/KDD+Cup+1998+Data,KDD Cup 1998 Data,Multivariate,Regression,"Categorical, Integer",191779,481,1998
+https://archive.ics.uci.edu/ml/datasets/KDD+Cup+1999+Data,KDD Cup 1999 Data,Multivariate,Classification,"Categorical, Integer",4000000,42,1999
+https://archive.ics.uci.edu/ml/datasets/M.+Tuberculosis+Genes,M. Tuberculosis Genes,Relational,,,,,2001
+https://archive.ics.uci.edu/ml/datasets/Movie,Movie,"Multivariate, Relational",,,10000,,1999
+https://archive.ics.uci.edu/ml/datasets/MSNBC.com+Anonymous+Web+Data,MSNBC.com Anonymous Web Data,Sequential,Categorical,,989818,,
+https://archive.ics.uci.edu/ml/datasets/NSF+Research+Award+Abstracts+1990-2003,NSF Research Award Abstracts 1990-2003,Text,,,129000,,2003
+https://archive.ics.uci.edu/ml/datasets/Pioneer-1+Mobile+Robot+Data,Pioneer-1 Mobile Robot Data,"Multivariate, Time-Series","Categorical, Real",,,,1999
+https://archive.ics.uci.edu/ml/datasets/Pseudo+Periodic+Synthetic+Time+Series,Pseudo Periodic Synthetic Time Series,"Univariate, Time-Series",,,100000,,1999
+https://archive.ics.uci.edu/ml/datasets/Reuters-21578+Text+Categorization+Collection,Reuters-21578 Text Categorization Collection,Text,Classification,Categorical,21578,5,1997
+https://archive.ics.uci.edu/ml/datasets/Robot+Execution+Failures,Robot Execution Failures,"Multivariate, Time-Series",Classification,Integer,463,90,1999
+https://archive.ics.uci.edu/ml/datasets/Synthetic+Control+Chart+Time+Series,Synthetic Control Chart Time Series,Time-Series,"Classification, Clustering",Real,600,,1999
+https://archive.ics.uci.edu/ml/datasets/Syskill+and+Webert+Web+Page+Ratings,Syskill and Webert Web Page Ratings,"Multivariate, Text",Classification,Categorical,332,5,1998
+https://archive.ics.uci.edu/ml/datasets/UNIX+User+Data,UNIX User Data,"Text, Sequential",,,,,
+https://archive.ics.uci.edu/ml/datasets/Volcanoes+on+Venus+-+JARtool+experiment,Volcanoes on Venus - JARtool experiment,Image,Classification,,,,
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Australian+Credit+Approval%29,Statlog (Australian Credit Approval),Multivariate,Classification,"Categorical, Integer, Real",690,14,
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29,Statlog (German Credit Data),Multivariate,Classification,"Categorical, Integer",1000,20,1994
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Heart%29,Statlog (Heart),Multivariate,Classification,"Categorical, Real",270,13,
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Landsat+Satellite%29,Statlog (Landsat Satellite),Multivariate,Classification,Integer,6435,36,1993
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Image+Segmentation%29,Statlog (Image Segmentation),Multivariate,Classification,Real,2310,19,1990
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Shuttle%29,Statlog (Shuttle),Multivariate,Classification,Integer,58000,9,
+https://archive.ics.uci.edu/ml/datasets/Statlog+%28Vehicle+Silhouettes%29,Statlog (Vehicle Silhouettes),Multivariate,Classification,Integer,946,18,
+https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+%28Nettalk+Corpus%29,Connectionist Bench (Nettalk Corpus),Multivariate,Categorical,,20008,4,
+https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+%28Sonar%2C+Mines+vs.+Rocks%29,"Connectionist Bench (Sonar, Mines vs. Rocks)",Multivariate,Classification,Real,208,60,
+https://archive.ics.uci.edu/ml/datasets/Connectionist+Bench+%28Vowel+Recognition+-+Deterding+Data%29,Connectionist Bench (Vowel Recognition - Deterding Data),Classification,Real,,528,10,
+https://archive.ics.uci.edu/ml/datasets/Economic+Sanctions,Economic Sanctions,Domain-Theory,,,,,
+https://archive.ics.uci.edu/ml/datasets/Protein+Data,Protein Data,,,,,,
+https://archive.ics.uci.edu/ml/datasets/Cloud,Cloud,Multivariate,Real,,1024,10,1989
+https://archive.ics.uci.edu/ml/datasets/CalIt2+Building+People+Counts,CalIt2 Building People Counts,"Multivariate, Time-Series","Categorical, Integer",,10080,4,2006
+https://archive.ics.uci.edu/ml/datasets/Dodgers+Loop+Sensor,Dodgers Loop Sensor,"Multivariate, Time-Series","Categorical, Integer",,50400,3,2006
+https://archive.ics.uci.edu/ml/datasets/Poker+Hand,Poker Hand,Multivariate,Classification,"Categorical, Integer",1025010,11,2007
+https://archive.ics.uci.edu/ml/datasets/MAGIC+Gamma+Telescope,MAGIC Gamma Telescope,Multivariate,Classification,Real,19020,11,2007
+https://archive.ics.uci.edu/ml/datasets/UJI+Pen+Characters,UJI Pen Characters,"Multivariate, Sequential",Classification,Integer,1364,,2007
+https://archive.ics.uci.edu/ml/datasets/Mammographic+Mass,Mammographic Mass,Multivariate,Classification,Integer,961,6,2007
+https://archive.ics.uci.edu/ml/datasets/Forest+Fires,Forest Fires,Multivariate,Regression,Real,517,13,2008
+https://archive.ics.uci.edu/ml/datasets/Reuters+Transcribed+Subset,Reuters Transcribed Subset,Text,Classification,,200,,2008
+https://archive.ics.uci.edu/ml/datasets/Bag+of+Words,Bag of Words,Text,Clustering,Integer,8000000,100000,2008
+https://archive.ics.uci.edu/ml/datasets/Concrete+Compressive+Strength,Concrete Compressive Strength,Multivariate,Regression,Real,1030,9,2007
+https://archive.ics.uci.edu/ml/datasets/Hill-Valley,Hill-Valley,Sequential,Classification,Real,606,101,2008
+https://archive.ics.uci.edu/ml/datasets/Arcene,Arcene,Multivariate,Classification,Real,900,10000,2008
+https://archive.ics.uci.edu/ml/datasets/Dexter,Dexter,Multivariate,Classification,Integer,2600,20000,2008
+https://archive.ics.uci.edu/ml/datasets/Dorothea,Dorothea,Multivariate,Classification,Integer,1950,100000,2008
+https://archive.ics.uci.edu/ml/datasets/Gisette,Gisette,Multivariate,Classification,Integer,13500,5000,2008
+https://archive.ics.uci.edu/ml/datasets/Madelon,Madelon,Multivariate,Classification,Real,4400,500,2008
+https://archive.ics.uci.edu/ml/datasets/Ozone+Level+Detection,Ozone Level Detection,"Multivariate, Sequential, Time-Series",Classification,Real,2536,73,2008
+https://archive.ics.uci.edu/ml/datasets/Abscisic+Acid+Signaling+Network,Abscisic Acid Signaling Network,Multivariate,Causal-Discovery,Integer,300,43,2008
+https://archive.ics.uci.edu/ml/datasets/Parkinsons,Parkinsons,Multivariate,Classification,Real,197,23,2008
+https://archive.ics.uci.edu/ml/datasets/Character+Trajectories,Character Trajectories,Time-Series,"Classification, Clustering",Real,2858,3,2008
+https://archive.ics.uci.edu/ml/datasets/Blood+Transfusion+Service+Center,Blood Transfusion Service Center,Multivariate,Classification,Real,748,5,2008
+https://archive.ics.uci.edu/ml/datasets/UJI+Pen+Characters+%28Version+2%29,UJI Pen Characters (Version 2),"Multivariate, Sequential",Classification,Integer,11640,,2009
+https://archive.ics.uci.edu/ml/datasets/Semeion+Handwritten+Digit,Semeion Handwritten Digit,Multivariate,Classification,Integer,1593,256,2008
+https://archive.ics.uci.edu/ml/datasets/SECOM,SECOM,Multivariate,"Classification, Causal-Discovery",Real,1567,591,2008
+https://archive.ics.uci.edu/ml/datasets/Plants,Plants,Multivariate,Clustering,Categorical,22632,70,2008
+https://archive.ics.uci.edu/ml/datasets/Libras+Movement,Libras Movement,"Multivariate, Sequential","Classification, Clustering",Real,360,91,2009
+https://archive.ics.uci.edu/ml/datasets/Concrete+Slump+Test,Concrete Slump Test,Multivariate,Regression,Real,103,10,2009
+https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime,Communities and Crime,Multivariate,Regression,Real,1994,128,2009
+https://archive.ics.uci.edu/ml/datasets/Acute+Inflammations,Acute Inflammations,Multivariate,Classification,"Categorical, Integer",120,6,2009
+https://archive.ics.uci.edu/ml/datasets/Wine+Quality,Wine Quality,Multivariate,"Classification, Regression",Real,4898,12,2009
+https://archive.ics.uci.edu/ml/datasets/URL+Reputation,URL Reputation,"Multivariate, Time-Series",Classification,"Integer, Real",2396130,3231961,2009
+https://archive.ics.uci.edu/ml/datasets/p53+Mutants,p53 Mutants,Multivariate,Classification,Real,16772,5409,2010
+https://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring,Parkinsons Telemonitoring,Multivariate,Regression,"Integer, Real",5875,26,2009
+https://archive.ics.uci.edu/ml/datasets/Demospongiae,Demospongiae,Multivariate,Classification,Integer,503,,2010
+https://archive.ics.uci.edu/ml/datasets/Opinosis+Opinion+%26frasl%3B+Review,Opinosis Opinion ⁄ Review,Text,,,,51,2010
+https://archive.ics.uci.edu/ml/datasets/Breast+Tissue,Breast Tissue,Multivariate,Classification,Real,106,10,2010
+https://archive.ics.uci.edu/ml/datasets/Cardiotocography,Cardiotocography,Multivariate,Classification,Real,2126,23,2010
+https://archive.ics.uci.edu/ml/datasets/Wall-Following+Robot+Navigation+Data,Wall-Following Robot Navigation Data,"Multivariate, Sequential",Classification,Real,5456,24,2010
+https://archive.ics.uci.edu/ml/datasets/Spoken+Arabic+Digit,Spoken Arabic Digit,"Multivariate, Time-Series",Classification,Real,8800,13,2010
+https://archive.ics.uci.edu/ml/datasets/Localization+Data+for+Person+Activity,Localization Data for Person Activity,"Univariate, Sequential, Time-Series",Classification,Real,164860,8,2010
+https://archive.ics.uci.edu/ml/datasets/AutoUniv,AutoUniv,Multivariate,Classification,"Categorical, Integer, Real",,,2010
+https://archive.ics.uci.edu/ml/datasets/Steel+Plates+Faults,Steel Plates Faults,Multivariate,Classification,"Integer, Real",1941,27,2010
+https://archive.ics.uci.edu/ml/datasets/MiniBooNE+particle+identification,MiniBooNE particle identification,Multivariate,Classification,Real,130065,50,2010
+https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD,YearPredictionMSD,Multivariate,Regression,Real,515345,90,2011
+https://archive.ics.uci.edu/ml/datasets/PEMS-SF,PEMS-SF,"Multivariate, Time-Series",Classification,Real,440,138672,2011
+https://archive.ics.uci.edu/ml/datasets/OpinRank+Review+Dataset,OpinRank Review Dataset,Text,,,,,2011
+https://archive.ics.uci.edu/ml/datasets/Relative+location+of+CT+slices+on+axial+axis,Relative location of CT slices on axial axis,Domain-Theory,Regression,Real,53500,386,2011
+https://archive.ics.uci.edu/ml/datasets/Online+Handwritten+Assamese+Characters+Dataset,Online Handwritten Assamese Characters Dataset,"Multivariate, Sequential",Classification,Integer,8235,2011,
+https://archive.ics.uci.edu/ml/datasets/PubChem+Bioassay+Data,PubChem Bioassay Data,Multivariate,Classification,"Integer, Real",2011,,
+https://archive.ics.uci.edu/ml/datasets/Record+Linkage+Comparison+Patterns,Record Linkage Comparison Patterns,Multivariate,Classification,Real,5749132,12,2011
+https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime+Unnormalized,Communities and Crime Unnormalized,Multivariate,Regression,Real,2215,147,2011
+https://archive.ics.uci.edu/ml/datasets/Vertebral+Column,Vertebral Column,Multivariate,Classification,Real,310,6,2011
+https://archive.ics.uci.edu/ml/datasets/EMG+Physical+Action+Data+Set,EMG Physical Action Data Set,Time-Series,Classification,Real,10000,8,2011
+https://archive.ics.uci.edu/ml/datasets/Vicon+Physical+Action+Data+Set,Vicon Physical Action Data Set,Time-Series,Classification,Real,3000,27,2011
+https://archive.ics.uci.edu/ml/datasets/Amazon+Commerce+reviews+set,Amazon Commerce reviews set,"Multivariate, Text, Domain-Theory",Classification,Real,1500,10000,2011
+https://archive.ics.uci.edu/ml/datasets/Amazon+Access+Samples,Amazon Access Samples,"Time-Series, Domain-Theory","Regression, Clustering, Causal-Discovery",,30000,20000,2011
+https://archive.ics.uci.edu/ml/datasets/Reuter_50_50,Reuter_50_50,"Multivariate, Text, Domain-Theory","Classification, Clustering",Real,2500,10000,2011
+https://archive.ics.uci.edu/ml/datasets/Farm+Ads,Farm Ads,Text,Classification,,4143,54877,2011
+https://archive.ics.uci.edu/ml/datasets/DBWorld+e-mails,DBWorld e-mails,Text,Classification,,64,4702,2011
+https://archive.ics.uci.edu/ml/datasets/KEGG+Metabolic+Relation+Network+%28Directed%29,KEGG Metabolic Relation Network (Directed),"Multivariate, Univariate, Text","Classification, Regression, Clustering","Integer, Real",53414,24,2011
+https://archive.ics.uci.edu/ml/datasets/KEGG+Metabolic+Reaction+Network+%28Undirected%29,KEGG Metabolic Reaction Network (Undirected),"Multivariate, Univariate, Text","Classification, Regression, Clustering","Integer, Real",65554,29,2011
+https://archive.ics.uci.edu/ml/datasets/Bank+Marketing,Bank Marketing,Multivariate,Classification,Real,45211,17,2012
+https://archive.ics.uci.edu/ml/datasets/YouTube+Comedy+Slam+Preference+Data,YouTube Comedy Slam Preference Data,Text,Classification,,1138562,3,2012
+https://archive.ics.uci.edu/ml/datasets/Gas+Sensor+Array+Drift+Dataset,Gas Sensor Array Drift Dataset,Multivariate,Classification,Real,13910,128,2012
+https://archive.ics.uci.edu/ml/datasets/ILPD+%28Indian+Liver+Patient+Dataset%29,ILPD (Indian Liver Patient Dataset),Multivariate,Classification,"Integer, Real",583,10,2012
+https://archive.ics.uci.edu/ml/datasets/OPPORTUNITY+Activity+Recognition,OPPORTUNITY Activity Recognition,"Multivariate, Time-Series",Classification,Real,2551,242,2012
+https://archive.ics.uci.edu/ml/datasets/Nomao,Nomao,Univariate,Classification,Real,34465,120,2012
+https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection,SMS Spam Collection,"Multivariate, Text, Domain-Theory","Classification, Clustering",Real,5574,,2012
+https://archive.ics.uci.edu/ml/datasets/Skin+Segmentation,Skin Segmentation,Univariate,Classification,Real,245057,4,2012
+https://archive.ics.uci.edu/ml/datasets/Planning+Relax,Planning Relax,Univariate,Classification,Real,182,13,2012
+https://archive.ics.uci.edu/ml/datasets/PAMAP2+Physical+Activity+Monitoring,PAMAP2 Physical Activity Monitoring,"Multivariate, Time-Series",Classification,Real,3850505,52,2012
+https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data,Restaurant & consumer data,Multivariate,,,138,47,2012
+https://archive.ics.uci.edu/ml/datasets/CNAE-9,CNAE-9,"Multivariate, Text",Classification,Integer,1080,857,2012
+https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption,Individual household electric power consumption,"Multivariate, Time-Series","Regression, Clustering",Real,2075259,9,2012
+https://archive.ics.uci.edu/ml/datasets/seeds,seeds,Multivariate,"Classification, Clustering",Real,210,7,2012
+https://archive.ics.uci.edu/ml/datasets/Northix,Northix,"Multivariate, Univariate, Text",Classification,"Integer, Real",115,200,2012
+https://archive.ics.uci.edu/ml/datasets/QtyT40I10D100K,QtyT40I10D100K,Sequential,Integer,,3960456,4,2012
+https://archive.ics.uci.edu/ml/datasets/Legal+Case+Reports,Legal Case Reports,Text,Classification,,,,2012
+https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones,Human Activity Recognition Using Smartphones,"Multivariate, Time-Series","Classification, Clustering",,10299,561,2012
+https://archive.ics.uci.edu/ml/datasets/One-hundred+plant+species+leaves+data+set,One-hundred plant species leaves data set,Classification,Real,,1600,64,2012
+https://archive.ics.uci.edu/ml/datasets/Energy+efficiency,Energy efficiency,Multivariate,"Classification, Regression","Integer, Real",768,8,2012
+https://archive.ics.uci.edu/ml/datasets/Yacht+Hydrodynamics,Yacht Hydrodynamics,Multivariate,Regression,Real,308,7,2013
+https://archive.ics.uci.edu/ml/datasets/Fertility,Fertility,Multivariate,"Classification, Regression",Real,100,10,2013
+https://archive.ics.uci.edu/ml/datasets/Daphnet+Freezing+of+Gait,Daphnet Freezing of Gait,"Multivariate, Time-Series",Classification,Real,237,9,2013
+https://archive.ics.uci.edu/ml/datasets/3D+Road+Network+%28North+Jutland%2C+Denmark%29,"3D Road Network (North Jutland, Denmark)","Sequential, Text","Regression, Clustering",Real,434874,4,2013
+https://archive.ics.uci.edu/ml/datasets/ISTANBUL+STOCK+EXCHANGE,ISTANBUL STOCK EXCHANGE,"Multivariate, Univariate, Time-Series","Classification, Regression",Real,536,8,2013
+https://archive.ics.uci.edu/ml/datasets/Buzz+in+social+media+,Buzz in social media,"Time-Series, Multivariate","Regression, Classification","Integer, Real",140000,77,2013
+https://archive.ics.uci.edu/ml/datasets/First-order+theorem+proving,First-order theorem proving,Multivariate,Classification,Real,6118,51,2013
+https://archive.ics.uci.edu/ml/datasets/Wearable+Computing%3A+Classification+of+Body+Postures+and+Movements+%28PUC-Rio%29,Wearable Computing: Classification of Body Postures and Movements (PUC-Rio),Sequential,Classification,"Integer, Real",165632,18,2013
+https://archive.ics.uci.edu/ml/datasets/Gas+sensor+arrays+in+open+sampling+settings,Gas sensor arrays in open sampling settings,"Multivariate, Time-Series",Classification,Real,18000,1950000,2013
+https://archive.ics.uci.edu/ml/datasets/Climate+Model+Simulation+Crashes,Climate Model Simulation Crashes,Multivariate,Classification,Real,540,18,2013
+https://archive.ics.uci.edu/ml/datasets/MicroMass,MicroMass,Multivariate,Classification,Real,931,1300,2013
+https://archive.ics.uci.edu/ml/datasets/QSAR+biodegradation,QSAR biodegradation,Multivariate,Classification,"Integer, Real",1055,41,2013
+https://archive.ics.uci.edu/ml/datasets/BLOGGER,BLOGGER,Multivariate,Classification,,100,6,2013
+https://archive.ics.uci.edu/ml/datasets/Daily+and+Sports+Activities,Daily and Sports Activities,"Multivariate, Time-Series","Classification, Clustering",Real,9120,5625,2013
+https://archive.ics.uci.edu/ml/datasets/User+Knowledge+Modeling,User Knowledge Modeling,Multivariate,"Classification, Clustering",Integer,403,5,2013
+https://archive.ics.uci.edu/ml/datasets/Reuters+RCV1+RCV2+Multilingual%2C+Multiview+Text+Categorization+Test+collection,"Reuters RCV1 RCV2 Multilingual, Multiview Text Categorization Test collection",Multivariate,Classification,Real,111740,,2013
+https://archive.ics.uci.edu/ml/datasets/NYSK,NYSK,"Multivariate, Sequential, Text",Clustering,,10421,7,2013
+https://archive.ics.uci.edu/ml/datasets/Turkiye+Student+Evaluation,Turkiye Student Evaluation,Multivariate,"Classification, Clustering",,5820,33,2013
+https://archive.ics.uci.edu/ml/datasets/ser+Knowledge+Modeling+Data+%28Students%27+Knowledge+Levels+on+DC+Electrical+Machines%29,ser Knowledge Modeling Data (Students' Knowledge Levels on DC Electrical Machines),Multivariate,Classification,Real,403,5,2013
+https://archive.ics.uci.edu/ml/datasets/EEG+Eye+State,EEG Eye State,"Multivariate, Sequential, Time-Series",Classification,"Integer, Real",14980,15,2013
+https://archive.ics.uci.edu/ml/datasets/Physicochemical+Properties+of+Protein+Tertiary+Structure,Physicochemical Properties of Protein Tertiary Structure,Multivariate,Regression,Real,45730,9,2013
+https://archive.ics.uci.edu/ml/datasets/seismic-bumps,seismic-bumps,Multivariate,Classification,Real,2584,19,2013
+https://archive.ics.uci.edu/ml/datasets/banknote+authentication,banknote authentication,Multivariate,Classification,Real,1372,5,2013
+https://archive.ics.uci.edu/ml/datasets/USPTO+Algorithm+Challenge%2C+run+by+NASA-Harvard+Tournament+Lab+and+TopCoder++++Problem%3A+Pat,"USPTO Algorithm Challenge, run by NASA-Harvard Tournament Lab and TopCoder    Problem: Pat",Domain-Theory,Classification,Integer,306,5,2013
+https://archive.ics.uci.edu/ml/datasets/YouTube+Multiview+Video+Games+Dataset,YouTube Multiview Video Games Dataset,"Multivariate, Text","Classification, Clustering","Integer, Real",120000,1000000,2013
+https://archive.ics.uci.edu/ml/datasets/Gas+Sensor+Array+Drift+Dataset+at+Different+Concentrations,Gas Sensor Array Drift Dataset at Different Concentrations,"Multivariate, Time-Series","Classification, Regression, Clustering, Causa",Real,13910,129,2013
+https://archive.ics.uci.edu/ml/datasets/Activities+of+Daily+Living+%28ADLs%29+Recognition+Using+Binary+Sensors,Activities of Daily Living (ADLs) Recognition Using Binary Sensors,"Multivariate, Sequential, Time-Series","Classification, Clustering",,2747,,2013
+https://archive.ics.uci.edu/ml/datasets/SkillCraft1+Master+Table+Dataset,SkillCraft1 Master Table Dataset,Multivariate,Regression,"Integer, Real",3395,20,2013
+https://archive.ics.uci.edu/ml/datasets/Weight+Lifting+Exercises+monitored+with+Inertial+Measurement+Units,Weight Lifting Exercises monitored with Inertial Measurement Units,Multivariate,Classification,Real,39242,152,2013
+https://archive.ics.uci.edu/ml/datasets/SML2010,SML2010,"Multivariate, Sequential, Time-Series, Text",Regression,Real,4137,24,2014
+https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset,Bike Sharing Dataset,Univariate,Regression,"Integer, Real",17389,16,2013
+https://archive.ics.uci.edu/ml/datasets/Predict+keywords+activities+in+a+online+social+media,Predict keywords activities in a online social media,"Multivariate, Sequential, Time-Series","Integer, Real",,51,35,2013
+https://archive.ics.uci.edu/ml/datasets/Thoracic+Surgery+Data,Thoracic Surgery Data,Multivariate,Classification,"Integer, Real",470,17,2013
+https://archive.ics.uci.edu/ml/datasets/EMG+dataset+in+Lower+Limb,EMG dataset in Lower Limb,"Multivariate, Time-Series",Real,,132,5,2014
+https://archive.ics.uci.edu/ml/datasets/SUSY,SUSY,Classification,Real,,5000000,18,2014
+https://archive.ics.uci.edu/ml/datasets/HIGGS,HIGGS,Classification,Real,,11000000,28,2014
+https://archive.ics.uci.edu/ml/datasets/Qualitative_Bankruptcy,Qualitative_Bankruptcy,Multivariate,Classification,,250,7,2014
+https://archive.ics.uci.edu/ml/datasets/LSVT+Voice+Rehabilitation,LSVT Voice Rehabilitation,Multivariate,Classification,Real,126,309,2014
+https://archive.ics.uci.edu/ml/datasets/Dataset+for+ADL+Recognition+with+Wrist-worn+Accelerometer,Dataset for ADL Recognition with Wrist-worn Accelerometer,"Multivariate, Time-Series","Classification, Clustering",,,3,2014
+https://archive.ics.uci.edu/ml/datasets/Wilt,Wilt,Multivariate,Classification,,4889,6,2014
+https://archive.ics.uci.edu/ml/datasets/User+Identification+From+Walking+Activity,User Identification From Walking Activity,"Univariate, Sequential, Time-Series","Classification, Clustering",Real,,,2014
+https://archive.ics.uci.edu/ml/datasets/Activity+Recognition+from+Single+Chest-Mounted+Accelerometer,Activity Recognition from Single Chest-Mounted Accelerometer,"Univariate, Sequential, Time-Series","Classification, Clustering",Real,,,2014
+https://archive.ics.uci.edu/ml/datasets/Leaf,Leaf,Multivariate,Classification,Real,340,16,2014
+https://archive.ics.uci.edu/ml/datasets/Dresses_Attribute_Sales,Dresses_Attribute_Sales,Text,"Classification, Clustering",,501,13,2014
+https://archive.ics.uci.edu/ml/datasets/Tamilnadu+Electricity+Board+Hourly+Readings,Tamilnadu Electricity Board Hourly Readings,Multivariate,"Classification, Regression, Clustering",Real,45781,5,2013
+https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise,Airfoil Self-Noise,Multivariate,Regression,Real,1503,6,2014
+https://archive.ics.uci.edu/ml/datasets/Wholesale+customers,Wholesale customers,Multivariate,"Classification, Clustering",Integer,440,8,2014
+https://archive.ics.uci.edu/ml/datasets/Twitter+Data+set+for+Arabic+Sentiment+Analysis,Twitter Data set for Arabic Sentiment Analysis,Text,Classification,,2000,2,2014
+https://archive.ics.uci.edu/ml/datasets/Combined+Cycle+Power+Plant,Combined Cycle Power Plant,Multivariate,Regression,Real,9568,4,2014
+https://archive.ics.uci.edu/ml/datasets/Urban+Land+Cover,Urban Land Cover,Multivariate,Classification,,168,148,2014
+https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008,Diabetes 130-US hospitals for years 1999-2008,Multivariate,"Classification, Clustering",Integer,100000,55,2014
+https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony,Bach Choral Harmony,Sequential,Classification,,5665,17,2014
+https://archive.ics.uci.edu/ml/datasets/StoneFlakes,StoneFlakes,Multivariate,"Classification, Clustering, Causal-Discovery",Real,79,8,2014
+https://archive.ics.uci.edu/ml/datasets/Tennis+Major+Tournament+Match+Statistics,Tennis Major Tournament Match Statistics,Multivariate,"Classification, Regression, Clustering","Integer, Real",127,42,2014
+https://archive.ics.uci.edu/ml/datasets/Parkinson+Speech+Dataset+with++Multiple+Types+of+Sound+Recordings,Parkinson Speech Dataset with  Multiple Types of Sound Recordings,Multivariate,"Classification, Regression","Integer, Real",1040,26,2014
+https://archive.ics.uci.edu/ml/datasets/Gesture+Phase+Segmentation,Gesture Phase Segmentation,"Multivariate, Sequential, Time-Series","Classification, Clustering",Real,9900,50,2014
+https://archive.ics.uci.edu/ml/datasets/Perfume+Data,Perfume Data,"Univariate, Domain-Theory","Classification, Clustering",Integer,560,2,2014
+https://archive.ics.uci.edu/ml/datasets/BlogFeedback,BlogFeedback,Multivariate,Regression,"Integer, Real",60021,281,2014
+https://archive.ics.uci.edu/ml/datasets/REALDISP+Activity+Recognition+Dataset,REALDISP Activity Recognition Dataset,"Multivariate, Time-Series",Classification,Real,1419,120,2014
+https://archive.ics.uci.edu/ml/datasets/Newspaper+and+magazine+images+segmentation+dataset,Newspaper and magazine images segmentation dataset,Classification,,,,101,2014
+https://archive.ics.uci.edu/ml/datasets/AAAI+2014+Accepted+Papers,AAAI 2014 Accepted Papers,Multivariate,Clustering,,399,6,2014
+https://archive.ics.uci.edu/ml/datasets/Gas+sensor+array+under+flow+modulation,Gas sensor array under flow modulation,"Multivariate, Time-Series","Classification, Regression",Real,58,120432,2014
+https://archive.ics.uci.edu/ml/datasets/Gas+sensor+array+exposed+to+turbulent+gas+mixtures,Gas sensor array exposed to turbulent gas mixtures,"Multivariate, Time-Series","Classification, Regression",Real,180,150000,2014
+https://archive.ics.uci.edu/ml/datasets/UJIIndoorLoc,UJIIndoorLoc,Multivariate,"Classification, Regression","Integer, Real",21048,529,2014
+https://archive.ics.uci.edu/ml/datasets/Sentence+Classification,Sentence Classification,Text,Classification,Integer,,,2014
+https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index,Dow Jones Index,Time-Series,"Classification, Clustering","Integer, Real",750,16,2014
+https://archive.ics.uci.edu/ml/datasets/sEMG+for+Basic+Hand+movements,sEMG for Basic Hand movements,Time-Series,Classification,Real,3000,2500,2014
+https://archive.ics.uci.edu/ml/datasets/AAAI+2013+Accepted+Papers,AAAI 2013 Accepted Papers,Multivariate,Clustering,,150,5,2014
+https://archive.ics.uci.edu/ml/datasets/Geographical+Original+of+Music,Geographical Original of Music,Multivariate,"Classification, Regression",Real,1059,68,2014
+https://archive.ics.uci.edu/ml/datasets/Condition+Based+Maintenance+of+Naval+Propulsion+Plants,Condition Based Maintenance of Naval Propulsion Plants,Multivariate,Regression,Real,11934,16,2014
+https://archive.ics.uci.edu/ml/datasets/Grammatical+Facial+Expressions,Grammatical Facial Expressions,"Multivariate, Sequential","Classification, Clustering",Real,27965,100,2014
+https://archive.ics.uci.edu/ml/datasets/NoisyOffice,NoisyOffice,Multivariate,"Classification, Regression",Real,216,216,2015
+https://archive.ics.uci.edu/ml/datasets/MHEALTH+Dataset,MHEALTH Dataset,"Multivariate, Time-Series",Classification,Real,120,23,2014
+https://archive.ics.uci.edu/ml/datasets/Student+Performance,Student Performance,Multivariate,"Classification, Regression",Integer,649,33,2014
+https://archive.ics.uci.edu/ml/datasets/ElectricityLoadDiagrams20112014,ElectricityLoadDiagrams20112014,Time-Series,"Regression, Clustering",Real,370,140256,2015
+https://archive.ics.uci.edu/ml/datasets/Gas+sensor+array+under+dynamic+gas+mixtures,Gas sensor array under dynamic gas mixtures,"Multivariate, Time-Series","Classification, Regression",Real,4178504,19,2015
+https://archive.ics.uci.edu/ml/datasets/microblogPCU,microblogPCU,"Multivariate, Univariate, Sequential, Text","Classification, Causal-Discovery","Integer, Real",221579,20,2015
+https://archive.ics.uci.edu/ml/datasets/Firm-Teacher_Clave-Direction_Classification,Firm-Teacher_Clave-Direction_Classification,Multivariate,Classification,,10800,20,2015
+https://archive.ics.uci.edu/ml/datasets/Dataset+for+Sensorless+Drive+Diagnosis,Dataset for Sensorless Drive Diagnosis,Multivariate,Classification,Real,58509,49,2015
+https://archive.ics.uci.edu/ml/datasets/TV+News+Channel+Commercial+Detection+Dataset,TV News Channel Commercial Detection Dataset,Multivariate,"Classification, Clustering",Real,129685,12,2015
+https://archive.ics.uci.edu/ml/datasets/Phishing+Websites,Phishing Websites,Classification,Integer,,2456,30,2015
+https://archive.ics.uci.edu/ml/datasets/Greenhouse+Gas+Observing+Network,Greenhouse Gas Observing Network,"Multivariate, Time-Series",Regression,Real,2921,5232,2015
+https://archive.ics.uci.edu/ml/datasets/Diabetic+Retinopathy+Debrecen+Data+Set,Diabetic Retinopathy Debrecen Data Set,Multivariate,Classification,"Integer, Real",1151,20,2014
+https://archive.ics.uci.edu/ml/datasets/HIV-1+protease+cleavage,HIV-1 protease cleavage,Multivariate,Classification,Categorical,6590,1,2015
+https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences,Sentiment Labelled Sentences,Text,Classification,,3000,,2015
+https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity,Online News Popularity,Multivariate,"Classification, Regression","Integer, Real",39797,61,2015
+https://archive.ics.uci.edu/ml/datasets/Forest+type+mapping,Forest type mapping,Multivariate,Classification,,326,27,2015
+https://archive.ics.uci.edu/ml/datasets/wiki4HE,wiki4HE,Multivariate,"Regression, Clustering, Causal-Discovery",,913,53,2015
+https://archive.ics.uci.edu/ml/datasets/Online+Video+Characteristics+and+Transcoding+Time+Dataset,Online Video Characteristics and Transcoding Time Dataset,Multivariate,Regression,"Integer, Real",168286,11,2015
+https://archive.ics.uci.edu/ml/datasets/Chronic_Kidney_Disease,Chronic_Kidney_Disease,Multivariate,Classification,Real,400,25,2015
+https://archive.ics.uci.edu/ml/datasets/Machine+Learning+based+ZZAlpha+Ltd.+Stock+Recommendations+2012-2014,Machine Learning based ZZAlpha Ltd. Stock Recommendations 2012-2014,"Sequential, Time-Series",Classification,Real,314080,0,2015
+https://archive.ics.uci.edu/ml/datasets/Folio,Folio,Multivariate,"Classification, Clustering",,637,20,2015
+https://archive.ics.uci.edu/ml/datasets/Taxi+Service+Trajectory+-+Prediction+Challenge%2C+ECML+PKDD+2015,"Taxi Service Trajectory - Prediction Challenge, ECML PKDD 2015","Multivariate, Sequential, Time-Series, Domain-Theory","Clustering, Causal-Discovery",Real,1710671,9,2015
+https://archive.ics.uci.edu/ml/datasets/Cuff-Less+Blood+Pressure+Estimation,Cuff-Less Blood Pressure Estimation,Multivariate,"Classification, Regression",Real,12000,3,2015
+https://archive.ics.uci.edu/ml/datasets/Smartphone-Based+Recognition+of+Human+Activities+and+Postural+Transitions,Smartphone-Based Recognition of Human Activities and Postural Transitions,"Multivariate, Time-Series",Classification,Real,10929,561,2015
+https://archive.ics.uci.edu/ml/datasets/Mice+Protein+Expression,Mice Protein Expression,Multivariate,"Classification, Clustering",Real,1080,82,2015
+https://archive.ics.uci.edu/ml/datasets/UJIIndoorLoc-Mag,UJIIndoorLoc-Mag,"Multivariate, Sequential, Time-Series","Classification, Regression, Clustering","Integer, Real",40000,13,2015
+https://archive.ics.uci.edu/ml/datasets/Heterogeneity+Activity+Recognition,Heterogeneity Activity Recognition,"Multivariate, Time-Series","Classification, Clustering",Real,43930257,16,2015
+https://archive.ics.uci.edu/ml/datasets/Educational+Process+Mining+%28EPM%29%3A+A+Learning+Analytics+Data+Set,Educational Process Mining (EPM): A Learning Analytics Data Set,"Multivariate, Sequential, Time-Series","Classification, Regression, Clustering",Integer,230318,13,2015
+https://archive.ics.uci.edu/ml/datasets/HEPMASS,HEPMASS,Multivariate,Classification,Real,10500000,28,2016
+https://archive.ics.uci.edu/ml/datasets/Indoor+User+Movement+Prediction+from+RSS+data,Indoor User Movement Prediction from RSS data,"Multivariate, Sequential, Time-Series",Classification,Real,13197,4,2016
+https://archive.ics.uci.edu/ml/datasets/Open+University+Learning+Analytics+dataset,Open University Learning Analytics dataset,"Multivariate, Sequential, Time-Series","Classification, Regression, Clustering",Integer,,,2015
+https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients,default of credit card clients,Multivariate,Classification,"Integer, Real",30000,24,2016
+https://archive.ics.uci.edu/ml/datasets/Mesothelioma%E2%80%99s+disease+data+set+,Mesothelioma’s disease data set,Multivariate,Classification,Real,324,34,2016
+https://archive.ics.uci.edu/ml/datasets/Online+Retail,Online Retail,"Multivariate, Sequential, Time-Series","Classification, Clustering","Integer, Real",541909,8,2015
+https://archive.ics.uci.edu/ml/datasets/SIFT10M,SIFT10M,Multivariate,Causal-Discovery,Integer,11164866,128,2016
+https://archive.ics.uci.edu/ml/datasets/GPS+Trajectories,GPS Trajectories,Multivariate,"Classification, Regression",Real,163,15,2016
+https://archive.ics.uci.edu/ml/datasets/Detect+Malacious+Executable%28AntiVirus%29,Detect Malacious Executable(AntiVirus),Multivariate,Classification,Real,373,513,2016
+https://archive.ics.uci.edu/ml/datasets/Occupancy+Detection+,Occupancy Detection,"Multivariate, Time-Series",Classification,Real,20560,7,2016
+https://archive.ics.uci.edu/ml/datasets/Improved+Spiral+Test+Using+Digitized+Graphics+Tablet+for+Monitoring+Parkinson%E2%80%99s+Disease,Improved Spiral Test Using Digitized Graphics Tablet for Monitoring Parkinson’s Disease,Multivariate,"Classification, Regression, Clustering",Real,40,7,2016
+https://archive.ics.uci.edu/ml/datasets/News+Aggregator,News Aggregator,Multivariate,"Classification, Clustering",,422937,5,2016
+https://archive.ics.uci.edu/ml/datasets/Air+Quality,Air Quality,"Multivariate, Time-Series",Regression,Real,9358,15,2016
+https://archive.ics.uci.edu/ml/datasets/Twin+gas+sensor+arrays,Twin gas sensor arrays,"Multivariate, Time-Series, Domain-Theory","Classification, Regression",Real,640,480000,2016
+https://archive.ics.uci.edu/ml/datasets/Gas+sensors+for+home+activity+monitoring,Gas sensors for home activity monitoring,"Multivariate, Time-Series",Classification,Real,919438,11,2016
+https://archive.ics.uci.edu/ml/datasets/Facebook+Comment+Volume+Dataset,Facebook Comment Volume Dataset,Multivariate,Regression,"Integer, Real",40949,54,2016
+https://archive.ics.uci.edu/ml/datasets/Smartphone+Dataset+for+Human+Activity+Recognition+%28HAR%29+in+Ambient+Assisted+Living+%28AAL%29,Smartphone Dataset for Human Activity Recognition (HAR) in Ambient Assisted Living (AAL),Time-Series,Classification,Real,5744,561,2016
+https://archive.ics.uci.edu/ml/datasets/Polish+companies+bankruptcy+data,Polish companies bankruptcy data,Multivariate,Classification,Real,10503,64,2016
+https://archive.ics.uci.edu/ml/datasets/Activity+Recognition+system+based+on+Multisensor+data+fusion+%28AReM%29,Activity Recognition system based on Multisensor data fusion (AReM),"Multivariate, Sequential, Time-Series",Classification,Real,42240,6,2016
+https://archive.ics.uci.edu/ml/datasets/Dota2+Games+Results,Dota2 Games Results,Multivariate,Classification,,102944,116,2016
+https://archive.ics.uci.edu/ml/datasets/Facebook+metrics,Facebook metrics,Multivariate,Regression,Integer,500,19,2016
+https://archive.ics.uci.edu/ml/datasets/UbiqLog+%28smartphone+lifelogging%29,UbiqLog (smartphone lifelogging),Multivariate,Causal-Discovery,,9782222,,2016
+https://archive.ics.uci.edu/ml/datasets/NIPS+Conference+Papers+1987-2015,NIPS Conference Papers 1987-2015,Text,Clustering,Integer,11463,5812,2016
+https://archive.ics.uci.edu/ml/datasets/HTRU2,HTRU2,Multivariate,"Classification, Clustering",Real,17898,9,2017
+https://archive.ics.uci.edu/ml/datasets/Drug+consumption+%28quantified%29,Drug consumption (quantified),Multivariate,Classification,Real,1885,32,2016
+https://archive.ics.uci.edu/ml/datasets/Appliances+energy+prediction,Appliances energy prediction,"Multivariate, Time-Series",Regression,Real,19735,29,2017
+https://archive.ics.uci.edu/ml/datasets/Miskolc+IIS+Hybrid+IPS,Miskolc IIS Hybrid IPS,Text,"Classification, Clustering, Causal-Discovery",Integer,1540,67,2016
+https://archive.ics.uci.edu/ml/datasets/KDC-4007+dataset+Collection,KDC-4007 dataset Collection,"Multivariate, Text","Classification, Regression",Integer,4007,,2017
+https://archive.ics.uci.edu/ml/datasets/Geo-Magnetic+field+and+WLAN+dataset+for+indoor+localisation+from+wristband+and+smartphone,Geo-Magnetic field and WLAN dataset for indoor localisation from wristband and smartphone,"Multivariate, Sequential, Time-Series","Classification, Regression, Clustering","Integer, Real",153540,25,2017
+https://archive.ics.uci.edu/ml/datasets/DrivFace,DrivFace,Multivariate,"Classification, Regression, Clustering",Real,606,6400,2016
+https://archive.ics.uci.edu/ml/datasets/Website+Phishing,Website Phishing,Multivariate,Classification,Integer,1353,10,2016
+https://archive.ics.uci.edu/ml/datasets/YouTube+Spam+Collection,YouTube Spam Collection,Text,Classification,,1956,5,2017
+https://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data,Beijing PM2.5 Data,"Multivariate, Time-Series",Regression,"Integer, Real",43824,13,2017
+https://archive.ics.uci.edu/ml/datasets/Cargo+2000+Freight+Tracking+and+Tracing,Cargo 2000 Freight Tracking and Tracing,"Multivariate, Sequential","Classification, Regression",Integer,3942,98,2016
+https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29,Cervical cancer (Risk Factors),Multivariate,Classification,"Integer, Real",858,36,2017
+https://archive.ics.uci.edu/ml/datasets/Quality+Assessment+of+Digital+Colposcopies,Quality Assessment of Digital Colposcopies,Multivariate,Classification,Real,287,69,2017
+https://archive.ics.uci.edu/ml/datasets/KASANDR,KASANDR,Multivariate,Causal-Discovery,Integer,17764280,2158859,2017
+https://archive.ics.uci.edu/ml/datasets/FMA%3A+A+Dataset+For+Music+Analysis,FMA: A Dataset For Music Analysis,"Multivariate, Time-Series","Classification, Clustering",Real,106574,518,2017
+https://archive.ics.uci.edu/ml/datasets/Air+quality,Air quality,"Multivariate, Time-Series",Regression,Real,9358,15,2016
+https://archive.ics.uci.edu/ml/datasets/Epileptic+Seizure+Recognition,Epileptic Seizure Recognition,"Multivariate, Time-Series","Classification, Clustering","Integer, Real",11500,179,2017
+https://archive.ics.uci.edu/ml/datasets/Devanagari+Handwritten+Character+Dataset,Devanagari Handwritten Character Dataset,Classification,Integer,,92000,,2016
+https://archive.ics.uci.edu/ml/datasets/Stock+portfolio+performance,Stock portfolio performance,Multivariate,Regression,Real,315,12,2016
+https://archive.ics.uci.edu/ml/datasets/MoCap+Hand+Postures,MoCap Hand Postures,Multivariate,"Classification, Clustering","Integer, Real",78095,38,2016
+https://archive.ics.uci.edu/ml/datasets/Early+biomarkers+of+Parkinson%92s+disease+based+on+natural+connected+speech,Early biomarkers of Parkinson�s disease based on natural connected speech,Multivariate,"Classification, Regression","Integer, Real",130,65,2017
+https://archive.ics.uci.edu/ml/datasets/Data+for+Software+Engineering+Teamwork+Assessment+in+Education+Setting,Data for Software Engineering Teamwork Assessment in Education Setting,"Sequential, Time-Series",Classification,"Integer, Real",74,102,2017
+https://archive.ics.uci.edu/ml/datasets/PM2.5+Data+of+Five+Chinese+Cities,PM2.5 Data of Five Chinese Cities,"Multivariate, Time-Series",Regression,"Integer, Real",52854,86,2017
+https://archive.ics.uci.edu/ml/datasets/Parkinson+Disease+Spiral+Drawings+Using+Digitized+Graphics+Tablet,Parkinson Disease Spiral Drawings Using Digitized Graphics Tablet,Multivariate,"Classification, Regression, Clustering",Integer,77,7,2017
+https://archive.ics.uci.edu/ml/datasets/Sales_Transactions_Dataset_Weekly,Sales_Transactions_Dataset_Weekly,"Multivariate, Time-Series",Clustering,"Integer, Real",811,53,2017
+https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip,Las Vegas Strip,"Classification, Regression",Integer,,504,20,2017
+https://archive.ics.uci.edu/ml/datasets/Eco-hotel,Eco-hotel,Text,,,401,1,2017
+https://archive.ics.uci.edu/ml/datasets/MEU-Mobile+KSD,MEU-Mobile KSD,Multivariate,Classification,"Integer, Real",2856,71,2016
+https://archive.ics.uci.edu/ml/datasets/Crowdsourced+Mapping,Crowdsourced Mapping,Multivariate,Classification,,10546,29,2016
+https://archive.ics.uci.edu/ml/datasets/gene+expression+cancer+RNA-Seq,gene expression cancer RNA-Seq,Multivariate,"Classification, Clustering",Real,801,20531,2016
+https://archive.ics.uci.edu/ml/datasets/Hybrid+Indoor+Positioning+Dataset+from+WiFi+RSSI%2C+Bluetooth+and+magnetometer,"Hybrid Indoor Positioning Dataset from WiFi RSSI, Bluetooth and magnetometer","Multivariate, Sequential, Time-Series",Classification,Real,1540,65,2016
+https://archive.ics.uci.edu/ml/datasets/chestnut+%E2%80%93+LARVIC,chestnut – LARVIC,"Classification, Clustering",,,1451,3,2017
+https://archive.ics.uci.edu/ml/datasets/Burst+Header+Packet+%28BHP%29+flooding+attack+on+Optical+Burst+Switching+%28OBS%29+Network,Burst Header Packet (BHP) flooding attack on Optical Burst Switching (OBS) Network,Text,Classification,Integer,1075,22,2017
+https://archive.ics.uci.edu/ml/datasets/Motion+Capture+Hand+Postures,Motion Capture Hand Postures,Multivariate,"Classification, Clustering",Real,78095,38,2017
+https://archive.ics.uci.edu/ml/datasets/Anuran+Calls+%28MFCCs%29,Anuran Calls (MFCCs),Multivariate,"Classification, Clustering",Real,7195,22,2017
+https://archive.ics.uci.edu/ml/datasets/TTC-3600%3A+Benchmark+dataset+for+Turkish+text+categorization,TTC-3600: Benchmark dataset for Turkish text categorization,Text,"Classification, Clustering",Integer,3600,4814,2017
+https://archive.ics.uci.edu/ml/datasets/Gastrointestinal+Lesions+in+Regular+Colonoscopy,Gastrointestinal Lesions in Regular Colonoscopy,Multivariate,Classification,Real,76,698,2016
+https://archive.ics.uci.edu/ml/datasets/Daily+Demand+Forecasting+Orders,Daily Demand Forecasting Orders,Time-Series,Regression,Integer,60,13,2017
+https://archive.ics.uci.edu/ml/datasets/Paper+Reviews,Paper Reviews,Text,"Classification, Regression",Integer,405,10,2017
+https://archive.ics.uci.edu/ml/datasets/extention+of+Z-Alizadeh+sani+dataset,extention of Z-Alizadeh sani dataset,Classification,"Integer, Real",,303,59,2017
+https://archive.ics.uci.edu/ml/datasets/Z-Alizadeh+Sani,Z-Alizadeh Sani,Classification,"Integer, Real",,303,56,2017
+https://archive.ics.uci.edu/ml/datasets/Dynamic+Features+of+VirusShare+Executables,Dynamic Features of VirusShare Executables,"Multivariate, Time-Series","Classification, Regression",Integer,107888,482,2017
+https://archive.ics.uci.edu/ml/datasets/IDA2016Challenge,IDA2016Challenge,Multivariate,Classification,Integer,76000,171,2017
+https://archive.ics.uci.edu/ml/datasets/DSRC+Vehicle+Communications,DSRC Vehicle Communications,"Sequential, Text",Clustering,Real,10000,5,2017
+https://archive.ics.uci.edu/ml/datasets/Mturk+User-Perceived+Clusters+over+Images,Mturk User-Perceived Clusters over Images,"Multivariate, Text",Clustering,Integer,180,500,2016
+https://archive.ics.uci.edu/ml/datasets/Character+Font+Images,Character Font Images,Multivariate,Classification,"Integer, Real",745000,411,2016
+https://archive.ics.uci.edu/ml/datasets/DeliciousMIL%3A+A+Data+Set+for+Multi-Label+Multi-Instance+Learning+with+Instance+Labels,DeliciousMIL: A Data Set for Multi-Label Multi-Instance Learning with Instance Labels,Text,Classification,Integer,12234,8519,2016
+https://archive.ics.uci.edu/ml/datasets/Autistic+Spectrum+Disorder+Screening+Data+for+Children++,Autistic Spectrum Disorder Screening Data for Children,Multivariate,Classification,Integer,292,21,2017
+https://archive.ics.uci.edu/ml/datasets/Autistic+Spectrum+Disorder+Screening+Data+for+Adolescent+++,Autistic Spectrum Disorder Screening Data for Adolescent,Multivariate,Classification,Integer,104,21,2017
+https://archive.ics.uci.edu/ml/datasets/APS+Failure+at+Scania+Trucks,APS Failure at Scania Trucks,Multivariate,Classification,"Integer, Real",60000,171,2017
+https://archive.ics.uci.edu/ml/datasets/Wireless+Indoor+Localization,Wireless Indoor Localization,Multivariate,Classification,Real,2000,7,2017
+https://archive.ics.uci.edu/ml/datasets/HCC+Survival,HCC Survival,Multivariate,Classification,"Integer, Real",165,49,2017
+https://archive.ics.uci.edu/ml/datasets/CSM+%28Conventional+and+Social+Media+Movies%29+Dataset+2014+and+2015,CSM (Conventional and Social Media Movies) Dataset 2014 and 2015,Multivariate,"Classification, Regression",Integer,217,12,2017
+https://archive.ics.uci.edu/ml/datasets/University+of+Tehran+Question+Dataset+2016+%28UTQD.2016%29,University of Tehran Question Dataset 2016 (UTQD.2016),Text,Classification,,1175,3,2017
+https://archive.ics.uci.edu/ml/datasets/Autism+Screening+Adult,Autism Screening Adult,Classification,Integer,,704,21,2017
+https://archive.ics.uci.edu/ml/datasets/Activity+recognition+with+healthy+older+people+using+a+batteryless+wearable+sensor,Activity recognition with healthy older people using a batteryless wearable sensor,Sequential,Classification,Real,75128,9,2016
+https://archive.ics.uci.edu/ml/datasets/Immunotherapy+Dataset,Immunotherapy Dataset,Univariate,Classification,"Integer, Real",90,8,2018
+https://archive.ics.uci.edu/ml/datasets/Cryotherapy+Dataset+,Cryotherapy Dataset,Univariate,Classification,"Integer, Real",90,7,2018
+https://archive.ics.uci.edu/ml/datasets/OCT+data+%26+Color+Fundus+Images+of+Left+%26+Right+Eyes,OCT data & Color Fundus Images of Left & Right Eyes,Multivariate,Classification,Real,50,2,2016
+https://archive.ics.uci.edu/ml/datasets/Discrete+Tone+Image+Dataset,Discrete Tone Image Dataset,Multivariate,Classification,,71,11,2018
+https://archive.ics.uci.edu/ml/datasets/News+Popularity+in+Multiple+Social+Media+Platforms,News Popularity in Multiple Social Media Platforms,"Multivariate, Time-Series, Text",Regression,"Integer, Real",93239,11,2018
+https://archive.ics.uci.edu/ml/datasets/Ultrasonic+flowmeter+diagnostics,Ultrasonic flowmeter diagnostics,Multivariate,Classification,Real,540,173,2018
+https://archive.ics.uci.edu/ml/datasets/ICMLA+2014+Accepted+Papers+Data+Set,ICMLA 2014 Accepted Papers Data Set,Multivariate,"Classification, Clustering",,105,5,2018
+https://archive.ics.uci.edu/ml/datasets/BLE+RSSI+Dataset+for+Indoor+localization+and+Navigation,BLE RSSI Dataset for Indoor localization and Navigation,"Multivariate, Sequential, Time-Series","Classification, Clustering",Integer,6611,15,2018
+https://archive.ics.uci.edu/ml/datasets/Container+Crane+Controller+Data+Set,Container Crane Controller Data Set,"Univariate, Domain-Theory","Classification, Regression",Real,15,3,2018
+https://archive.ics.uci.edu/ml/datasets/Residential+Building+Data+Set,Residential Building Data Set,Multivariate,Regression,Real,372,105,2018
+https://archive.ics.uci.edu/ml/datasets/Health+News+in+Twitter,Health News in Twitter,Text,Clustering,Real,58000,25000,2018
+https://archive.ics.uci.edu/ml/datasets/chipseq,chipseq,Sequential,Classification,Integer,4960,,2018
+https://archive.ics.uci.edu/ml/datasets/SGEMM+GPU+kernel+performance,SGEMM GPU kernel performance,Multivariate,Regression,Integer,241600,18,2018
+https://archive.ics.uci.edu/ml/datasets/Repeat+Consumption+Matrices,Repeat Consumption Matrices,Multivariate,Clustering,Real,130000,21000,2018
+https://archive.ics.uci.edu/ml/datasets/detection_of_IoT_botnet_attacks_N_BaIoT,detection_of_IoT_botnet_attacks_N_BaIoT,"Multivariate, Sequential","Classification, Clustering",Real,7062606,115,2018
+https://archive.ics.uci.edu/ml/datasets/Absenteeism+at+work,Absenteeism at work,"Multivariate, Time-Series","Classification, Clustering","Integer, Real",740,21,2018
+https://archive.ics.uci.edu/ml/datasets/SCADI,SCADI,Multivariate,"Classification, Clustering",,70,206,2018
+https://archive.ics.uci.edu/ml/datasets/Condition+monitoring+of+hydraulic+systems,Condition monitoring of hydraulic systems,"Multivariate, Time-Series","Classification, Regression",Real,2205,43680,2018
+https://archive.ics.uci.edu/ml/datasets/Carbon+Nanotubes,Carbon Nanotubes,Univariate,Regression,Real,10721,8,2018
+https://archive.ics.uci.edu/ml/datasets/Optical+Interconnection+Network+,Optical Interconnection Network,Multivariate,"Classification, Regression","Integer, Real",640,10,2018
+https://archive.ics.uci.edu/ml/datasets/Sports+articles+for+objectivity+analysis,Sports articles for objectivity analysis,"Multivariate, Text",Classification,Integer,1000,59,2018
+https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Coimbra,Breast Cancer Coimbra,Multivariate,Classification,Integer,116,10,2018
+https://archive.ics.uci.edu/ml/datasets/GNFUV+Unmanned+Surface+Vehicles+Sensor+Data,GNFUV Unmanned Surface Vehicles Sensor Data,"Multivariate, Time-Series",Regression,Real,1672,5,2018
+https://archive.ics.uci.edu/ml/datasets/Dishonest+Internet+users+Dataset,Dishonest Internet users Dataset,Multivariate,"Classification, Clustering",,322,5,2018
+https://archive.ics.uci.edu/ml/datasets/Victorian+Era+Authorship+Attribution,Victorian Era Authorship Attribution,Text,Classification,,93600,1000,2018
+https://archive.ics.uci.edu/ml/datasets/Simulated+Falls+and+Daily+Living+Activities+Data+Set,Simulated Falls and Daily Living Activities Data Set,Time-Series,Classification,Integer,3060,138,2018
+https://archive.ics.uci.edu/ml/datasets/Multimodal+Damage+Identification+for+Humanitarian+Computing,Multimodal Damage Identification for Humanitarian Computing,"Multivariate, Text",Classification,Integer,5879,,2018
+https://archive.ics.uci.edu/ml/datasets/EEG+Steady-State+Visual+Evoked+Potential+Signals,EEG Steady-State Visual Evoked Potential Signals,"Multivariate, Time-Series","Classification, Regression",Integer,9200,16,2018
+https://archive.ics.uci.edu/ml/datasets/Roman+Urdu+Data+Set,Roman Urdu Data Set,Text,Classification,,20000,2,2018
+https://archive.ics.uci.edu/ml/datasets/Avila,Avila,Multivariate,Classification,Real,20867,10,2018
+https://archive.ics.uci.edu/ml/datasets/PANDOR,PANDOR,Multivariate,Recommendation,Categorical,,,2018
+https://archive.ics.uci.edu/ml/datasets/Drug+Review+Dataset+%28Druglib.com%29,Drug Review Dataset (Druglib.com),"Multivariate, Text","Classification, Regression, Clustering",Integer,4143,8,2018
+https://archive.ics.uci.edu/ml/datasets/Drug+Review+Dataset+%28Drugs.com%29,Drug Review Dataset (Drugs.com),"Multivariate, Text","Classification, Regression, Clustering",Integer,215063,6,2018
+https://archive.ics.uci.edu/ml/datasets/Physical+Unclonable+Functions,Physical Unclonable Functions,Multivariate,Classification,Integer,6000000,129,2018
+https://archive.ics.uci.edu/ml/datasets/Superconductivty+Data,Superconductivty Data,Multivariate,Regression,Real,21263,81,2018
+https://archive.ics.uci.edu/ml/datasets/WESAD+%28Wearable+Stress+and+Affect+Detection%29,WESAD (Wearable Stress and Affect Detection),"Multivariate, Time-Series","Classification, Regression",Real,63000000,12,2018
+https://archive.ics.uci.edu/ml/datasets/GNFUV+Unmanned+Surface+Vehicles+Sensor+Data+Set+2,GNFUV Unmanned Surface Vehicles Sensor Data Set 2,"Multivariate, Sequential, Time-Series",Regression,Real,10190,6,2018
+https://archive.ics.uci.edu/ml/datasets/Student+Academics+Performance,Student Academics Performance,Multivariate,Classification,,300,22,2018
+https://archive.ics.uci.edu/ml/datasets/Online+Shoppers+Purchasing+Intention+Dataset,Online Shoppers Purchasing Intention Dataset,Multivariate,"Classification, Clustering","Integer, Real",12330,18,2018
+https://archive.ics.uci.edu/ml/datasets/PMU-UD,PMU-UD,Univariate,Classification,,5180,9,2018
+https://archive.ics.uci.edu/ml/datasets/Parkinson%27s+Disease+Classification,Parkinson's Disease Classification,Multivariate,Classification,"Integer, Real",756,754,2018
+https://archive.ics.uci.edu/ml/datasets/Electrical+Grid+Stability+Simulated+Data+,Electrical Grid Stability Simulated Data,Multivariate,"Classification, Regression",Real,10000,14,2018
+https://archive.ics.uci.edu/ml/datasets/Caesarian+Section+Classification+Dataset,Caesarian Section Classification Dataset,Univariate,Classification,Integer,80,5,2018
+https://archive.ics.uci.edu/ml/datasets/BAUM-1,BAUM-1,Time-Series,Classification,,1184,,2018
+https://archive.ics.uci.edu/ml/datasets/BAUM-2,BAUM-2,Time-Series,Classification,,1047,,2018
+https://archive.ics.uci.edu/ml/datasets/Audit+Data,Audit Data,Multivariate,Classification,Real,777,18,2018
+https://archive.ics.uci.edu/ml/datasets/BuddyMove+Data+Set,BuddyMove Data Set,"Multivariate, Text","Classification, Clustering",Real,249,7,2018
+https://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set,Real estate valuation data set,Multivariate,Regression,"Integer, Real",414,7,2018
+https://archive.ics.uci.edu/ml/datasets/Early+biomarkers+of+Parkinson%E2%80%99s+disease+based+on+natural+connected+speech+Data+Set+,Early biomarkers of Parkinson’s disease based on natural connected speech Data Set,Multivariate,Classification,Real,,,2018
+https://archive.ics.uci.edu/ml/datasets/Somerville+Happiness+Survey,Somerville Happiness Survey,Classification,Integer,,143,7,2018
+https://archive.ics.uci.edu/ml/datasets/2.4+GHZ+Indoor+Channel+Measurements,2.4 GHZ Indoor Channel Measurements,Multivariate,Classification,Real,7840,5,2018
+https://archive.ics.uci.edu/ml/datasets/EMG+data+for+gestures,EMG data for gestures,Time-Series,Classification,Real,30000,6,2019
+https://archive.ics.uci.edu/ml/datasets/Parking+Birmingham,Parking Birmingham,"Multivariate, Univariate, Sequential, Time-Series","Classification, Regression, Clustering",Real,35717,4,2019
+https://archive.ics.uci.edu/ml/datasets/Behavior+of+the+urban+traffic+of+the+city+of+Sao+Paulo+in+Brazil,Behavior of the urban traffic of the city of Sao Paulo in Brazil,"Multivariate, Time-Series","Classification, Regression","Integer, Real",135,18,2018
+https://archive.ics.uci.edu/ml/datasets/Travel+Reviews,Travel Reviews,"Multivariate, Text","Classification, Clustering",Real,980,11,2018
+https://archive.ics.uci.edu/ml/datasets/Tarvel+Review+Ratings,Tarvel Review Ratings,"Multivariate, Text","Classification, Clustering",Real,5456,25,2018
+https://archive.ics.uci.edu/ml/datasets/Rice+Leaf+Diseases,Rice Leaf Diseases,Multivariate,Classification,Integer,120,,2019
+https://archive.ics.uci.edu/ml/datasets/Gas+sensor+array+temperature+modulation,Gas sensor array temperature modulation,"Multivariate, Time-Series","Classification, Regression",Real,4095000,20,2019
+https://archive.ics.uci.edu/ml/datasets/Facebook+Live+Sellers+in+Thailand,Facebook Live Sellers in Thailand,Multivariate,Clustering,Integer,7051,12,2019
+https://archive.ics.uci.edu/ml/datasets/Parkinson+Dataset+with+replicated+acoustic+features+,Parkinson Dataset with replicated acoustic features,Multivariate,Classification,,240,46,2019
+https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume,Metro Interstate Traffic Volume,"Multivariate, Sequential, Time-Series",Regression,"Integer, Real",48204,9,2019
+https://archive.ics.uci.edu/ml/datasets/Query+Analytics+Workloads+Dataset,Query Analytics Workloads Dataset,Multivariate,"Regression, Clustering",Real,260000,8,2019
+https://archive.ics.uci.edu/ml/datasets/Wave+Energy+Converters,Wave Energy Converters,Multivariate,Regression,Real,288000,49,2019
+https://archive.ics.uci.edu/ml/datasets/PPG-DaLiA,PPG-DaLiA,"Multivariate, Time-Series",Regression,Real,8300000,11,2019
+https://archive.ics.uci.edu/ml/datasets/Alcohol+QCM+Sensor+Dataset,Alcohol QCM Sensor Dataset,Multivariate,"Classification, Regression, Clustering",Real,125,8,2019
+https://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set,Divorce Predictors data set,"Multivariate, Univariate",Classification,Integer,170,54,2019
+https://archive.ics.uci.edu/ml/datasets/Incident+management+process+enriched+event+log,Incident management process enriched event log,"Multivariate, Sequential","Regression, Clustering",Integer,141712,36,2019
+https://archive.ics.uci.edu/ml/datasets/Opinion+Corpus+for+Lebanese+Arabic+Reviews+%28OCLAR%29,Opinion Corpus for Lebanese Arabic Reviews (OCLAR),Text,Classification,Integer,3916,3916,2019
+https://archive.ics.uci.edu/ml/datasets/MEx,MEx,Time-Series,"Classification, Clustering",Real,6262,710,2019
+https://archive.ics.uci.edu/ml/datasets/Beijing+Multi-Site+Air-Quality+Data,Beijing Multi-Site Air-Quality Data,"Multivariate, Time-Series",Regression,"Integer, Real",420768,18,2019
+https://archive.ics.uci.edu/ml/datasets/Online+Retail+II,Online Retail II,"Multivariate, Sequential, Time-Series, Text","Classification, Regression, Clustering","Integer, Real",1067371,8,2019
+https://archive.ics.uci.edu/ml/datasets/Hepatitis+C+Virus+%28HCV%29+for+Egyptian+patients,Hepatitis C Virus (HCV) for Egyptian patients,Multivariate,Classification,"Integer, Real",1385,29,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+fish+toxicity,QSAR fish toxicity,Multivariate,Regression,Real,908,7,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+aquatic+toxicity,QSAR aquatic toxicity,Multivariate,Regression,Real,546,9,2019
+https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+from+Continuous+Ambient+Sensor+Data,Human Activity Recognition from Continuous Ambient Sensor Data,"Multivariate, Sequential, Time-Series",Classification,"Integer, Real",13956534,37,2019
+https://archive.ics.uci.edu/ml/datasets/WISDM+Smartphone+and+Smartwatch+Activity+and+Biometrics+Dataset+,WISDM Smartphone and Smartwatch Activity and Biometrics Dataset,"Multivariate, Time-Series",Classification,Real,15630426,6,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+oral+toxicity,QSAR oral toxicity,Multivariate,Classification,,8992,1024,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+androgen+receptor,QSAR androgen receptor,Multivariate,Classification,,1687,1024,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+Bioconcentration+classes+dataset,QSAR Bioconcentration classes dataset,Multivariate,"Classification, Regression",,779,14,2019
+https://archive.ics.uci.edu/ml/datasets/QSAR+fish+bioconcentration+factor+%28BCF%29,QSAR fish bioconcentration factor (BCF),Multivariate,Regression,"Integer, Real",1056,7,2019
+https://archive.ics.uci.edu/ml/datasets/A+study+of++Asian+Religious+and+Biblical+Texts,A study of  Asian Religious and Biblical Texts,"Multivariate, Text","Classification, Clustering",Integer,590,8265,2019
+https://archive.ics.uci.edu/ml/datasets/Real-time+Election+Results%3A+Portugal+2019,Real-time Election Results: Portugal 2019,"Multivariate, Time-Series, Text",Regression,"Integer, Real",21643,29,2019
+https://archive.ics.uci.edu/ml/datasets/Bias+correction+of+numerical+prediction+model+temperature+forecast,Bias correction of numerical prediction model temperature forecast,Multivariate,Regression,Real,7750,25,2020
+https://archive.ics.uci.edu/ml/datasets/Bar+Crawl%3A+Detecting+Heavy+Drinking,Bar Crawl: Detecting Heavy Drinking,"Multivariate, Time-Series","Classification, Regression",Real,14057567,3,2020
+https://archive.ics.uci.edu/ml/datasets/Kitsune+Network+Attack+Dataset,Kitsune Network Attack Dataset,"Multivariate, Sequential, Time-Series","Classification, Clustering, Causal-Discovery",Real,27170754,115,2019
+https://archive.ics.uci.edu/ml/datasets/Shoulder+Implant+X-Ray+Manufacturer+Classification,Shoulder Implant X-Ray Manufacturer Classification,Multivariate,Classification,Real,597,1,2020
+https://archive.ics.uci.edu/ml/datasets/Speaker+Accent+Recognition,Speaker Accent Recognition,Multivariate,Classification,Real,329,12,2020
+https://archive.ics.uci.edu/ml/datasets/Heart+failure+clinical+records,Heart failure clinical records,Multivariate,"Classification, Regression, Clustering","Integer, Real",299,13,2020
+https://archive.ics.uci.edu/ml/datasets/Deepfakes%3A+Medical+Image+Tamper+Detection,Deepfakes: Medical Image Tamper Detection,Multivariate,Classification,Real,20000,200000,2020
+https://archive.ics.uci.edu/ml/datasets/selfBACK,selfBACK,Time-Series,"Classification, Clustering",Real,26136,6,2020
+https://archive.ics.uci.edu/ml/datasets/South+German+Credit,South German Credit,Multivariate,"Classification, Regression, Clustering","Integer, Real",1000,21,2019
+https://archive.ics.uci.edu/ml/datasets/Exasens,Exasens,Multivariate,"Classification, Clustering",Integer,399,4,2020
+https://archive.ics.uci.edu/ml/datasets/Swarm+Behaviour,Swarm Behaviour,Multivariate,Classification,Real,24017,2400,2020
+https://archive.ics.uci.edu/ml/datasets/Crop+mapping+using+fused+optical-radar+data+set,Crop mapping using fused optical-radar data set,"Multivariate, Time-Series",Classification,Real,325834,175,2020
+https://archive.ics.uci.edu/ml/datasets/BitcoinHeistRansomwareAddressDataset,BitcoinHeistRansomwareAddressDataset,"Multivariate, Time-Series","Classification, Clustering","Integer, Real",2916697,10,2020
+https://archive.ics.uci.edu/ml/datasets/Facebook+Large+Page-Page+Network,Facebook Large Page-Page Network,Multivariate,Classification,,22470,4714,2020
+https://archive.ics.uci.edu/ml/datasets/Amphibians,Amphibians,Multivariate,Classification,"Integer, Real",189,23,2020
+https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset.,Early stage diabetes risk prediction dataset.,Multivariate,Classification,,520,17,2020
+https://archive.ics.uci.edu/ml/datasets/Turkish+Spam+V01,Turkish Spam V01,Text,Classification,,826,2,2019
+https://archive.ics.uci.edu/ml/datasets/Stock+keeping+units,Stock keeping units,Multivariate,Clustering,"Integer, Real",2279,9,2019
+https://archive.ics.uci.edu/ml/datasets/Demand+Forecasting+for+a+store,Demand Forecasting for a store,Multivariate,Regression,Integer,28764,8,2019
+https://archive.ics.uci.edu/ml/datasets/Detect+Malware+Types,Detect Malware Types,"Multivariate, Time-Series, Text",Classification,,7107,280,2019
+https://archive.ics.uci.edu/ml/datasets/Wave+Energy+Converters,Wave Energy Converters,Multivariate,Regression,Real,288000,49,2019
+https://archive.ics.uci.edu/ml/datasets/Youtube+cookery+channels+viewers+comments+in+Hinglish,Youtube cookery channels viewers comments in Hinglish,"Multivariate, Text",Classification,,9800,3,2019
+https://archive.ics.uci.edu/ml/datasets/Pedestrian+in+Traffic+Dataset,Pedestrian in Traffic Dataset,"Multivariate, Sequential, Time-Series","Classification, Regression, Causal-Discovery",Real,4760,14,2019
+https://archive.ics.uci.edu/ml/datasets/Cervical+Cancer+Behavior+Risk,Cervical Cancer Behavior Risk,"Multivariate, Univariate","Classification, Clustering",Integer,72,19,2019
+https://archive.ics.uci.edu/ml/datasets/Sattriya_Dance_Single_Hand_Gestures+Dataset,Sattriya_Dance_Single_Hand_Gestures Dataset,Multivariate,Classification,,1450,,2019
+https://archive.ics.uci.edu/ml/datasets/Divorce+Predictors+data+set,Divorce Predictors data set,"Multivariate, Univariate",Classification,Integer,170,54,2019
+https://archive.ics.uci.edu/ml/datasets/3W+dataset,3W dataset,"Multivariate, Time-Series","Classification, Clustering","Integer, Real",1984,8,2019
+https://archive.ics.uci.edu/ml/datasets/Malware+static+and+dynamic+features+VxHeaven+and+Virus+Total,Malware static and dynamic features VxHeaven and Virus Total,Multivariate,Classification,"Integer, Real",2955,1087,2019
+https://archive.ics.uci.edu/ml/datasets/Internet+Firewall+Data,Internet Firewall Data,Multivariate,Classification,,65532,12,2019
+https://archive.ics.uci.edu/ml/datasets/User+Profiling+and+Abusive+Language+Detection+Dataset,User Profiling and Abusive Language Detection Dataset,Classification,,,65919,3,2019
+https://archive.ics.uci.edu/ml/datasets/Estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition+,Estimation of obesity levels based on eating habits and physical condition,Multivariate,"Classification, Regression, Clustering",Integer,2111,17,2019
+https://archive.ics.uci.edu/ml/datasets/Rice+%28Cammeo+and+Osmancik%29,Rice (Cammeo and Osmancik),Multivariate,Classification,Real,3810,8,2019
+https://archive.ics.uci.edu/ml/datasets/Vehicle+routing+and+scheduling+problems,Vehicle routing and scheduling problems,Multivariate,Clustering,"Integer, Real",18,9,2019
+https://archive.ics.uci.edu/ml/datasets/Algerian+Forest+Fires+Dataset++,Algerian Forest Fires Dataset,Multivariate,"Classification, Regression",Real,244,12,2019
+https://archive.ics.uci.edu/ml/datasets/Breath+Metabolomics,Breath Metabolomics,"Multivariate, Time-Series","Classification, Clustering",Real,104,1656,2019
+https://archive.ics.uci.edu/ml/datasets/Horton+General+Hospital,Horton General Hospital,"Multivariate, Time-Series",Causal-Discovery,Integer,139,6,2019
+https://archive.ics.uci.edu/ml/datasets/UrbanGB%2C+urban+road+accidents+coordinates+labelled+by+the+urban+center,"UrbanGB, urban road accidents coordinates labelled by the urban center",Univariate,Clustering,Real,360177,2,2019
+https://archive.ics.uci.edu/ml/datasets/Gas+Turbine+CO+and+NOx+Emission+Data+Set,Gas Turbine CO and NOx Emission Data Set,Multivariate,"Regression, Clustering",Real,36733,11,2019
+https://archive.ics.uci.edu/ml/datasets/Activity+recognition+using+wearable+physiological+measurements,Activity recognition using wearable physiological measurements,Multivariate,Classification,Real,4480,533,2019
+https://archive.ics.uci.edu/ml/datasets/clickstream+data+for+online+shopping,clickstream data for online shopping,"Multivariate, Sequential","Classification, Regression, Clustering","Integer, Real",165474,14,2019
+https://archive.ics.uci.edu/ml/datasets/CNNpred%3A+CNN-based+stock+market+prediction+using+a+diverse+set+of+variables,CNNpred: CNN-based stock market prediction using a diverse set of variables,"Sequential, Time-Series","Classification, Regression",Real,1985,84,2019
+https://archive.ics.uci.edu/ml/datasets/Apartment+for+rent+classified,Apartment for rent classified,Multivariate,"Classification, Regression, Clustering",,10000,22,2019
+https://archive.ics.uci.edu/ml/datasets/%3A+Simulated+Data+set+of+Iraqi+tourism+places,: Simulated Data set of Iraqi tourism places,Multivariate,"Classification, Clustering",,232,16,2020
+https://archive.ics.uci.edu/ml/datasets/Nasarian+CAD+Dataset,Nasarian CAD Dataset,Multivariate,Classification,,150,52,2020
+https://archive.ics.uci.edu/ml/datasets/Monolithic+Columns+in+Troad+and+Mysia+Region,Monolithic Columns in Troad and Mysia Region,Multivariate,Classification,Real,11,19,2020
+https://archive.ics.uci.edu/ml/datasets/Bar+Crawl%3A+Detecting+Heavy+Drinking,Bar Crawl: Detecting Heavy Drinking,"Multivariate, Time-Series","Classification, Regression",Real,14057567,3,2020
+https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand,Seoul Bike Sharing Demand,Multivariate,Regression,"Integer, Real",8760,14,2020
+https://archive.ics.uci.edu/ml/datasets/Person+Classification+Gait+Data,Person Classification Gait Data,Multivariate,Classification,Real,48,321,2020
+https://archive.ics.uci.edu/ml/datasets/Shill+Bidding+Dataset,Shill Bidding Dataset,Multivariate,"Classification, Clustering",,6321,13,2020
+https://archive.ics.uci.edu/ml/datasets/Iranian+Churn+Dataset,Iranian Churn Dataset,Multivariate,"Classification, Regression",Integer,3150,13,2020
+https://archive.ics.uci.edu/ml/datasets/Unmanned+Aerial+Vehicle+%28UAV%29+Intrusion+Detection,Unmanned Aerial Vehicle (UAV) Intrusion Detection,Multivariate,Classification,Real,17256,55,2020
+https://archive.ics.uci.edu/ml/datasets/Bone+marrow+transplant%3A+children,Bone marrow transplant: children,Multivariate,"Classification, Regression","Integer, Real",187,39,2020
+https://archive.ics.uci.edu/ml/datasets/Exasens,Exasens,Multivariate,"Classification, Clustering",Integer,399,4,2020
+https://archive.ics.uci.edu/ml/datasets/COVID-19+Surveillance,COVID-19 Surveillance,Multivariate,Classification,,14,7,2020
+https://archive.ics.uci.edu/ml/datasets/Refractive+errors,Refractive errors,Multivariate,Classification,Integer,467,79,2020
+https://archive.ics.uci.edu/ml/datasets/Shoulder+Implant+X-Ray+Manufacturer+Classification,Shoulder Implant X-Ray Manufacturer Classification,Multivariate,Classification,Real,597,1,2020
+https://archive.ics.uci.edu/ml/datasets/CLINC150,CLINC150,Text,Classification,,23700,,2020
+https://archive.ics.uci.edu/ml/datasets/HCV+data,HCV data,Multivariate,"Classification, Clustering","Integer, Real",615,14,2020
+https://archive.ics.uci.edu/ml/datasets/Taiwanese+Bankruptcy+Prediction,Taiwanese Bankruptcy Prediction,Multivariate,Classification,Integer,6819,96,2020
+https://archive.ics.uci.edu/ml/datasets/South+German+Credit+%28UPDATE%29,South German Credit (UPDATE),Multivariate,"Classification, Regression, Clustering","Integer, Real",1000,21,2020
+https://archive.ics.uci.edu/ml/datasets/IIWA14-R820-Gazebo-Dataset-10Trajectories,IIWA14-R820-Gazebo-Dataset-10Trajectories,Regression,Integer,,,,2020
+https://archive.ics.uci.edu/ml/datasets/Guitar+Chords+finger+positions,Guitar Chords finger positions,Text,Classification,,2633,5,2020
+https://archive.ics.uci.edu/ml/datasets/Russian+Corpus+of+Biographical+Texts,Russian Corpus of Biographical Texts,Text,Classification,,200,2,2020
+https://archive.ics.uci.edu/ml/datasets/Codon+usage,Codon usage,Multivariate,"Classification, Clustering",,13028,69,2020
+https://archive.ics.uci.edu/ml/datasets/Intelligent+Media+Accelerometer+and+Gyroscope+%28IM-AccGyro%29+Dataset,Intelligent Media Accelerometer and Gyroscope (IM-AccGyro) Dataset,Time-Series,Classification,Real,800,9,2020
+https://archive.ics.uci.edu/ml/datasets/Myocardial+infarction+complications,Myocardial infarction complications,Multivariate,Classification,Real,1700,124,2020
+https://archive.ics.uci.edu/ml/datasets/Hungarian+Chickenpox+Cases,Hungarian Chickenpox Cases,Time-Series,Regression,Real,521,20,2021
+https://archive.ics.uci.edu/ml/datasets/Simulated+data+for+survival+modelling,Simulated data for survival modelling,"Multivariate, Time-Series",Regression,"Integer, Real",120000,25,2018
+https://archive.ics.uci.edu/ml/datasets/Student+Performance+on+an+entrance+examination,Student Performance on an entrance examination,Multivariate,Classification,,666,11,2018
+https://archive.ics.uci.edu/ml/datasets/Chemical+Composition+of+Ceramic+Samples,Chemical Composition of Ceramic Samples,Multivariate,"Classification, Clustering",Real,88,19,2019
+https://archive.ics.uci.edu/ml/datasets/Labeled+Text+Forum+Threads+Dataset,Labeled Text Forum Threads Dataset,Text,Classification,Integer,200,9,2019
+https://archive.ics.uci.edu/ml/datasets/Stock+keeping+units,Stock keeping units,Multivariate,Clustering,"Integer, Real",2279,9,2019
+https://archive.ics.uci.edu/ml/datasets/BLE+RSSI+dataset+for+Indoor+localization,BLE RSSI dataset for Indoor localization,"Sequential, Time-Series",Classification,Integer,23570,5,2019
+https://archive.ics.uci.edu/ml/datasets/Basketball+dataset,Basketball dataset,Time-Series,Classification,Integer,10000,7,2019
+https://archive.ics.uci.edu/ml/datasets/GitHub+MUSAE,GitHub MUSAE,Multivariate,Classification,,37700,4006,2019
+https://archive.ics.uci.edu/ml/datasets/Anticancer+peptides,Anticancer peptides,Sequential,Classification,,1850,2,2019
+https://archive.ics.uci.edu/ml/datasets/Monolithic+Columns+in+Troad+and+Mysia+Region,Monolithic Columns in Troad and Mysia Region,Multivariate,Classification,Real,11,19,2020
+https://archive.ics.uci.edu/ml/datasets/Gender+by+Name,Gender by Name,Text,"Classification, Clustering",,147270,4,2020
+https://archive.ics.uci.edu/ml/datasets/Iranian+Churn+Dataset,Iranian Churn Dataset,Multivariate,"Classification, Regression",Integer,3150,13,2020
+https://archive.ics.uci.edu/ml/datasets/Unmanned+Aerial+Vehicle+%28UAV%29+Intrusion+Detection,Unmanned Aerial Vehicle (UAV) Intrusion Detection,Multivariate,Classification,Real,17256,55,2020
+https://archive.ics.uci.edu/ml/datasets/Shoulder+Implant+Manufacture+Classification,Shoulder Implant Manufacture Classification,Multivariate,Classification,,597,1,2020
+https://archive.ics.uci.edu/ml/datasets/LastFM+Asia+Social+Network,LastFM Asia Social Network,Multivariate,Classification,,7624,7842,2020
+https://archive.ics.uci.edu/ml/datasets/Wheat+kernels,Wheat kernels,Multivariate,Classification,Real,314,15,2020
+https://archive.ics.uci.edu/ml/datasets/Productivity+Prediction+of+Garment+Employees,Productivity Prediction of Garment Employees,"Multivariate, Time-Series","Classification, Regression","Integer, Real",1197,15,2020
+https://archive.ics.uci.edu/ml/datasets/Multi-view+Brain+Networks,Multi-view Brain Networks,Multivariate,"Classification, Clustering",Integer,70,70,2020
+https://archive.ics.uci.edu/ml/datasets/LastFM+Asia+Social+Network,LastFM Asia Social Network,Multivariate,Classification,,7624,7842,2020
+https://archive.ics.uci.edu/ml/datasets/Wisesight+Sentiment+Corpus,Wisesight Sentiment Corpus,"Multivariate, Text",Classification,,26737,4,2020
+https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset,AI4I 2020 Predictive Maintenance Dataset,"Multivariate, Time-Series","Classification, Regression, Causal-Discovery",Real,10000,14,2020
+https://archive.ics.uci.edu/ml/datasets/Dry+Bean+Dataset,Dry Bean Dataset,Multivariate,Classification,"Integer, Real",13611,17,2020
+https://archive.ics.uci.edu/ml/datasets/in-vehicle+coupon+recommendation,in-vehicle coupon recommendation,Multivariate,Classification,,12684,23,2020
+https://archive.ics.uci.edu/ml/datasets/Gait+Classification,Gait Classification,Multivariate,Classification,Real,48,321,2020
+https://archive.ics.uci.edu/ml/datasets/Wikipedia+Math+Essentials,Wikipedia Math Essentials,Time-Series,Regression,Real,731,1068,2021
+https://archive.ics.uci.edu/ml/datasets/Wikipedia+Math+Essentials,Wikipedia Math Essentials,Time-Series,Regression,Real,731,1068,2021
+https://archive.ics.uci.edu/ml/datasets/Synchronous+Machine+Data+Set,Synchronous Machine Data Set,Multivariate,Regression,Real,557,5,2021
+https://archive.ics.uci.edu/ml/datasets/Average+Localization+Error+%28ALE%29+in+sensor+node+localization+process+in+WSNs,Average Localization Error (ALE) in sensor node localization process in WSNs,Multivariate,Regression,Real,107,6,2021
+https://archive.ics.uci.edu/ml/datasets/9mers+from+cullpdb,9mers from cullpdb,Sequential,"Classification, Regression",Real,158716,4,2021
+https://archive.ics.uci.edu/ml/datasets/TamilSentiMix,TamilSentiMix,Classification,,,15744,,2021
+https://archive.ics.uci.edu/ml/datasets/Accelerometer,Accelerometer,Multivariate,"Classification, Regression","Integer, Real",153000,5,2021
+https://archive.ics.uci.edu/ml/datasets/Synchronous+Machine+Data+Set,Synchronous Machine Data Set,Multivariate,Regression,Real,557,5,2021
+https://archive.ics.uci.edu/ml/datasets/Pedal+Me+Bicycle+Deliveries,Pedal Me Bicycle Deliveries,Time-Series,Regression,Real,36,15,2021
+https://archive.ics.uci.edu/ml/datasets/Turkish+Headlines+Dataset,Turkish Headlines Dataset,Text,"Classification, Clustering",,4200,7,2021
+https://archive.ics.uci.edu/ml/datasets/Secondary+Mushroom+Dataset,Secondary Mushroom Dataset,Univariate,Classification,Real,61069,21,2021
+https://archive.ics.uci.edu/ml/datasets/Power+consumption+of+Tetouan+city,Power consumption of Tetouan city,"Multivariate, Time-Series",Regression,"Integer, Real",52417,9,2021
+https://archive.ics.uci.edu/ml/datasets/Raisin+Dataset,Raisin Dataset,Multivariate,Classification,"Integer, Real",900,8,2021
+https://archive.ics.uci.edu/ml/datasets/Steel+Industry+Energy+Consumption+Dataset,Steel Industry Energy Consumption Dataset,Multivariate,Regression,,35040,11,2021
+https://archive.ics.uci.edu/ml/datasets/Gender+Gap+in+Spanish+WP,Gender Gap in Spanish WP,Multivariate,Classification,"Integer, Real",4746,21,2021
+https://archive.ics.uci.edu/ml/datasets/Non+verbal+tourists+data,Non verbal tourists data,Multivariate,"Classification, Clustering","Integer, Real",73,22,2021
+https://archive.ics.uci.edu/ml/datasets/Roman+Urdu+Sentiment+Analysis+Dataset+%28RUSAD%29,Roman Urdu Sentiment Analysis Dataset (RUSAD),Text,Classification,,11000,2,2021
+https://archive.ics.uci.edu/ml/datasets/TUANDROMD+%28+Tezpur+University+Android+Malware+Dataset%29,TUANDROMD ( Tezpur University Android Malware Dataset),Multivariate,Classification,Integer,4465,241,2021
+https://archive.ics.uci.edu/ml/datasets/Higher+Education+Students+Performance+Evaluation+Dataset,Higher Education Students Performance Evaluation Dataset,Multivariate,Classification,Integer,145,33,2021
+https://archive.ics.uci.edu/ml/datasets/Risk+Factor+prediction+of+Chronic+Kidney+Disease,Risk Factor prediction of Chronic Kidney Disease,Multivariate,"Classification, Regression",Real,202,29,2021
+https://archive.ics.uci.edu/ml/datasets/Lab+Test,Lab Test,Multivariate,"Classification, Regression, Clustering",,221,7,2021
+https://archive.ics.uci.edu/ml/datasets/Shoulder+Implant+Manufacture+Classification,Shoulder Implant Manufacture Classification,Multivariate,Classification,Real,597,1,2020
+https://archive.ics.uci.edu/ml/datasets/Rocket+League+Skillshots+Data+Set,Rocket League Skillshots Data Set,"Multivariate, Time-Series",Classification,Real,298,,2020
+https://archive.ics.uci.edu/ml/datasets/Sepsis+survival+minimal+clinical+records,Sepsis survival minimal clinical records,Multivariate,Classification,Integer,110341,4,2020
+https://archive.ics.uci.edu/ml/datasets/Water+Quality+Prediction,Water Quality Prediction,Multivariate,Regression,Real,705,11,2020
+https://archive.ics.uci.edu/ml/datasets/Traffic+Flow+Forecasting,Traffic Flow Forecasting,Multivariate,Regression,Real,2101,47,2020
+https://archive.ics.uci.edu/ml/datasets/sentiment+analysis+in+Saudi+Arabia+about+distance+education+during+Covid-19+,sentiment analysis in Saudi Arabia about distance education during Covid-19,Text,Classification,Integer,1765,10,2020
+https://archive.ics.uci.edu/ml/datasets/Kain+Tradisional+Sambas,Kain Tradisional Sambas,Multivariate,"Classification, Clustering",,150,3,2020
+https://archive.ics.uci.edu/ml/datasets/Image+Recognition+Task+Execution+Times+in+Mobile+Edge+Computing,Image Recognition Task Execution Times in Mobile Edge Computing,"Univariate, Sequential, Time-Series",Regression,Real,4000,2,2020
+https://archive.ics.uci.edu/ml/datasets/REWEMA,REWEMA,Multivariate,Classification,Integer,6272,632,2020
+https://archive.ics.uci.edu/ml/datasets/REJAFADA+,REJAFADA,Multivariate,Classification,Integer,1996,6826,2020
+https://archive.ics.uci.edu/ml/datasets/Steel+Industry+Energy+Consumption+Dataset,Steel Industry Energy Consumption Dataset,Multivariate,Regression,Integer,35040,11,2020
+https://archive.ics.uci.edu/ml/datasets/Influenza+outbreak+event+prediction+via+Twitter+data,Influenza outbreak event prediction via Twitter data,Multivariate,Classification,"Integer, Real",75840,525,2020
+https://archive.ics.uci.edu/ml/datasets/Turkish+Music+Emotion+Dataset,Turkish Music Emotion Dataset,Multivariate,Classification,"Integer, Real",400,50,2020
+https://archive.ics.uci.edu/ml/datasets/Maternal+Health+Risk+Data+Set,Maternal Health Risk Data Set,Classification,,,1014,7,2020
+https://archive.ics.uci.edu/ml/datasets/Room+Occupancy+Estimation,Room Occupancy Estimation,"Multivariate, Time-Series",Classification,Real,10129,16,2021
+https://archive.ics.uci.edu/ml/datasets/Image+Recognition+Task+Execution+Times+in+Mobile+Edge+Computing,Image Recognition Task Execution Times in Mobile Edge Computing,Univariate,Regression,Real,4000,2,2021
