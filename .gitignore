@@ -47,6 +47,8 @@ UCI-datset.csv
 # Trained model weights & caches
 models/
 cardiom3net_results/
+!cardiom3net_results/diagram1_architecture.png
+!cardiom3net_results/diagram2_pipeline.png
 local_test_results/
 *.pth
 *.pkl
