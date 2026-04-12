@@ -16,9 +16,11 @@ class Config:
     ecg_length: int = 1000              # 1000 for 100Hz, 5000 for 500Hz
     num_leads: int = 12
     test_size: float = 0.2
-    uci_feature_cols: List[str] = field(default_factory=lambda: [
-        'age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg',
-        'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal'
+    # PTB-XL clinical features — real 1:1 matched per ECG patient record.
+    # age/sex: always present. height/weight: ~40-57% missing (median-imputed).
+    # nurse/site: few missing. device_code: always present (label-encoded string).
+    ptbxl_clinical_cols: List[str] = field(default_factory=lambda: [
+        'age', 'sex', 'height', 'weight', 'nurse', 'site', 'device_code'
     ])
 
     # Multi-task label config
@@ -49,7 +51,7 @@ class Config:
     batch_size: int = 32
     lr: float = 1e-3
     weight_decay: float = 1e-5
-    patience: int = 7
+    patience: int = 10
     scheduler_factor: float = 0.5
     scheduler_patience: int = 3
 
@@ -61,8 +63,8 @@ class Config:
     # ── MAML Meta-Learning ────────────────────────────────────────────
     maml_inner_lr: float = 0.01
     maml_outer_lr: float = 1e-4
-    maml_inner_steps: int = 5
-    maml_episodes: int = 200
+    maml_inner_steps: int = 3
+    maml_episodes: int = 100
     maml_n_way: int = 5
     maml_k_shot: int = 5
     maml_q_query: int = 15
@@ -76,6 +78,12 @@ class Config:
     fed_rounds: int = 5
     fed_clients: int = 3
     fed_local_epochs: int = 2
+
+    # ── PCG (CinC 2016 heart sound dataset) ──────────────────────────
+    pcg_archive_dir:  str  = "archive"
+    pcg_cache_path:   str  = "cardiom3net_results/pcg_cache.npz"
+    pcg_embed_dim:    int  = 128
+    use_pcg:          bool = True
 
     # ── Output ────────────────────────────────────────────────────────
     output_dir: str = "cardiom3net_results"

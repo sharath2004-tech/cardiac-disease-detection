@@ -27,7 +27,7 @@ def get_device():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     if torch.cuda.is_available():
         print(f"  GPU: {torch.cuda.get_device_name(0)} "
-              f"({torch.cuda.get_device_properties(0).total_mem / 1e9:.1f} GB)")
+              f"({torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB)")
     else:
         print("  CPU mode (no CUDA GPU detected)")
     return device
@@ -36,6 +36,11 @@ def get_device():
 def compute_binary_metrics(y_true, y_prob):
     y_true = np.asarray(y_true, dtype=int)
     y_prob = np.asarray(y_prob, dtype=float)
+    # Replace NaN/Inf probs (can occur after MAML) with 0.5 (uninformative)
+    bad = ~np.isfinite(y_prob)
+    if bad.any():
+        y_prob = y_prob.copy()
+        y_prob[bad] = 0.5
     y_pred = (y_prob >= 0.5).astype(int)
     m = {
         'accuracy': accuracy_score(y_true, y_pred),
@@ -136,3 +141,93 @@ def plot_roc_curves(results_dict, output_dir):
     plt.savefig(path, dpi=200, bbox_inches='tight')
     plt.close()
     print(f"  Saved: {path}")
+
+
+def plot_model_comparison(comparison_results, output_dir):
+    """
+    Generate a grouped bar chart comparing all models across key metrics.
+
+    Args:
+        comparison_results : OrderedDict / dict {model_name: results_dict}
+                             Each results_dict must contain:
+                               binary   -> {accuracy, roc_auc, f1}
+                               disease  -> {accuracy, f1_weighted}
+                               severity -> {accuracy}
+        output_dir         : directory to save the figure
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    model_names = list(comparison_results.keys())
+    metrics = [
+        ('Binary Acc',       lambda r: r['binary']['accuracy']),
+        ('Binary AUC',       lambda r: r['binary']['roc_auc']),
+        ('Binary F1',        lambda r: r['binary']['f1']),
+        ('Disease Acc',      lambda r: r['disease']['accuracy']),
+        ('Disease F1(w)',     lambda r: r['disease']['f1_weighted']),
+        ('Severity Acc',     lambda r: r['severity']['accuracy']),
+    ]
+
+    metric_labels = [m[0] for m in metrics]
+    n_models      = len(model_names)
+    n_metrics     = len(metrics)
+
+    values = np.zeros((n_models, n_metrics))
+    for i, name in enumerate(model_names):
+        res = comparison_results[name]
+        for j, (_, extractor) in enumerate(metrics):
+            try:
+                v = extractor(res)
+                values[i, j] = v if np.isfinite(v) else 0.0
+            except (KeyError, TypeError):
+                values[i, j] = 0.0
+
+    # ── Figure: grouped bars ─────────────────────────────────────────
+    fig, ax = plt.subplots(figsize=(16, 6))
+    x          = np.arange(n_metrics)
+    bar_width  = 0.8 / n_models
+    # Use a distinguishable palette; last deep-learning proposed model gets a special colour
+    _palette = ['#607D8B', '#78909C', '#1976D2', '#43A047', '#FB8C00', '#E53935', '#8E24AA']
+    colors = (_palette + list(plt.cm.tab10(np.linspace(0, 0.9, max(0, n_models-len(_palette))))))[:n_models]
+
+    for i, (name, color) in enumerate(zip(model_names, colors)):
+        offset = (i - n_models / 2 + 0.5) * bar_width
+        bars   = ax.bar(x + offset, values[i], bar_width,
+                        label=name, color=color, alpha=0.85, edgecolor='white')
+        # Annotate bars
+        for bar in bars:
+            h = bar.get_height()
+            if h > 0.01:
+                ax.text(bar.get_x() + bar.get_width() / 2, h + 0.005,
+                        f'{h:.3f}', ha='center', va='bottom', fontsize=6.5,
+                        rotation=45)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(metric_labels, fontsize=10)
+    ax.set_ylabel('Score', fontsize=11)
+    ax.set_ylim(0, 1.12)
+    ax.set_title('Model Comparison — CardioM3Net vs Baselines', fontweight='bold', fontsize=13)
+    ax.legend(loc='lower right', fontsize=8.5, framealpha=0.9)
+    ax.grid(axis='y', alpha=0.3)
+    ax.axhline(y=0.9, color='red', linestyle='--', alpha=0.4, linewidth=1)
+
+    # Mark proposed model (last entry) with a star in the legend
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'model_comparison.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+    # ── Text table ───────────────────────────────────────────────────
+    header = f"{'Model':<42} " + "  ".join(f"{m:>12}" for m in metric_labels)
+    print("\n" + "=" * len(header))
+    print("MODEL COMPARISON TABLE")
+    print("=" * len(header))
+    print(header)
+    print("-" * len(header))
+    for i, name in enumerate(model_names):
+        tag     = " [*]" if 'Proposed' in name else "    "
+        row     = f"{name + tag:<42} " + "  ".join(f"{values[i, j]:>12.4f}" for j in range(n_metrics))
+        print(row)
+    print("-" * len(header))
+    print("[*] Proposed model")
+    print("=" * len(header))

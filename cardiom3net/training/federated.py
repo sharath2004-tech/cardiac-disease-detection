@@ -75,7 +75,7 @@ def run_federated(model, train_dataset, val_loader, config, device):
     # Final evaluation
     final = run_epoch(model, val_loader, criterion, device)
     print(f"\n  Federated final:")
-    print(f"    Binary  — Acc: {final['binary']['accuracy']:.4f} AUC: {final['binary']['roc_auc']:.4f}")
-    print(f"    Disease — Acc: {final['disease']['accuracy']:.4f}")
+    print(f"    Binary  -- Acc: {final['binary']['accuracy']:.4f} AUC: {final['binary']['roc_auc']:.4f}")
+    print(f"    Disease -- Acc: {final['disease']['accuracy']:.4f}")
 
     return model, fed_history, final

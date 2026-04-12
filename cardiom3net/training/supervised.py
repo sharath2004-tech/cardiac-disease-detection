@@ -1,12 +1,13 @@
 """
 Multi-task supervised training for CardioM3Net.
-Joint loss: L = λ1·L_binary + λ2·L_disease + λ3·L_severity + λ_da·L_domain
+Joint loss: L = λ1·L_binary + λ2·L_disease + λ3·L_severity + λ_da·L_domain + λ_div·L_diversity
 """
 import copy
 
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
 from ..utils import compute_binary_metrics, compute_multiclass_metrics
@@ -72,13 +73,27 @@ def run_epoch(model, loader, criterion, device, optimizer=None, use_domain=False
         if domain_targets is not None:
             domain_targets = domain_targets.to(device)
 
+        pcg = batch.get('pcg')
+        if pcg is not None:
+            pcg = pcg.to(device)
+
         with torch.set_grad_enabled(training):
             predictions, modality_w, domain_logits = model(
-                ecg, clinical, return_domain=use_domain
+                ecg, clinical, pcg=pcg, return_domain=use_domain
             )
             loss, _ = criterion(predictions, targets,
                                 domain_logits if use_domain else None,
                                 domain_targets if use_domain else None)
+            # Diversity regularisation: penalise gate weights that deviate from
+            # uniform by minimising KL(uniform || modality_w).  λ=0.1 nudges all
+            # modalities toward equal contribution without dominating the task loss.
+            if training and modality_w is not None:
+                n_mod = modality_w.shape[1]
+                uniform = torch.full_like(modality_w, 1.0 / n_mod)
+                diversity_loss = F.kl_div(
+                    modality_w.clamp(min=1e-8).log(), uniform, reduction='batchmean'
+                )
+                loss = loss + 0.1 * diversity_loss
             if training:
                 optimizer.zero_grad()
                 loss.backward()
@@ -119,7 +134,8 @@ def run_epoch(model, loader, criterion, device, optimizer=None, use_domain=False
     }
 
 
-def train_supervised(model, train_loader, val_loader, config, device, use_domain=False):
+def train_supervised(model, train_loader, val_loader, config, device, use_domain=False,
+                     disease_weights=None, severity_weights=None):
     """Full supervised training loop with early stopping."""
     print("\n" + "=" * 60)
     print("PHASE 2: Multi-Task Supervised Training")
@@ -129,6 +145,8 @@ def train_supervised(model, train_loader, val_loader, config, device, use_domain
         lambda_binary=config.lambda_binary,
         lambda_disease=config.lambda_disease,
         lambda_severity=config.lambda_severity,
+        disease_weights=disease_weights,
+        severity_weights=severity_weights,
     )
 
     optimizer = torch.optim.AdamW(
@@ -187,11 +205,11 @@ def train_supervised(model, train_loader, val_loader, config, device, use_domain
     final = run_epoch(model, val_loader, criterion, device, use_domain=use_domain)
 
     print(f"\n  Best model results:")
-    print(f"    Binary  — Acc: {final['binary']['accuracy']:.4f} | "
+    print(f"    Binary  -- Acc: {final['binary']['accuracy']:.4f} | "
           f"AUC: {final['binary']['roc_auc']:.4f} | F1: {final['binary']['f1']:.4f}")
-    print(f"    Disease — Acc: {final['disease']['accuracy']:.4f} | "
+    print(f"    Disease -- Acc: {final['disease']['accuracy']:.4f} | "
           f"F1(w): {final['disease']['f1_weighted']:.4f}")
-    print(f"    Severity— Acc: {final['severity']['accuracy']:.4f} | "
+    print(f"    Severity-- Acc: {final['severity']['accuracy']:.4f} | "
           f"F1(w): {final['severity']['f1_weighted']:.4f}")
 
     return model, history, final

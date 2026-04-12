@@ -21,7 +21,7 @@ def run_shap_analysis(train_clinical, train_labels, test_clinical,
                       feature_names, output_dir, max_samples=200):
     """Train RF surrogate on clinical features and compute SHAP values."""
     if not SHAP_AVAILABLE:
-        print("  SHAP not installed — skipping. Install with: pip install shap")
+        print("  SHAP not installed -- skipping. Install with: pip install shap")
         return
 
     os.makedirs(output_dir, exist_ok=True)
@@ -36,10 +36,11 @@ def run_shap_analysis(train_clinical, train_labels, test_clinical,
 
     shap_to_plot = shap_values[1] if isinstance(shap_values, list) else shap_values
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, max(5, len(feature_names) * 0.6)))
     shap.summary_plot(shap_to_plot, test_clinical[:n],
-                      feature_names=feature_names, plot_type='bar', show=False)
-    plt.title('Clinical Feature Importance (SHAP)', fontweight='bold')
+                      feature_names=feature_names, plot_type='bar',
+                      max_display=len(feature_names), show=False)
+    plt.suptitle('Clinical Feature Importance (SHAP)', fontweight='bold', y=1.02)
     plt.tight_layout()
     path = os.path.join(output_dir, 'shap_clinical.png')
     plt.savefig(path, dpi=200, bbox_inches='tight')
@@ -47,10 +48,11 @@ def run_shap_analysis(train_clinical, train_labels, test_clinical,
     print(f"  Saved: {path}")
 
     # Detailed summary plot
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, max(5, len(feature_names) * 0.6)))
     shap.summary_plot(shap_to_plot, test_clinical[:n],
-                      feature_names=feature_names, show=False)
-    plt.title('SHAP Feature Impact (detailed)', fontweight='bold')
+                      feature_names=feature_names,
+                      max_display=len(feature_names), show=False)
+    plt.suptitle('SHAP Feature Impact (detailed)', fontweight='bold', y=1.02)
     plt.tight_layout()
     path2 = os.path.join(output_dir, 'shap_clinical_detail.png')
     plt.savefig(path2, dpi=200, bbox_inches='tight')
@@ -59,12 +61,19 @@ def run_shap_analysis(train_clinical, train_labels, test_clinical,
 
 
 def plot_modality_weights(modality_weights, output_dir):
-    """Visualize average ECG vs Clinical modality contributions."""
+    """Visualize average modality contribution weights (bimodal or trimodal)."""
     os.makedirs(output_dir, exist_ok=True)
     avg = modality_weights.mean(axis=0)
 
-    plt.figure(figsize=(6, 4))
-    bars = plt.bar(['ECG', 'Clinical'], avg, color=['#2196F3', '#FF9800'], edgecolor='black')
+    # Derive labels and colours from the actual number of modalities
+    n = len(avg)
+    _labels = ['ECG', 'Clinical', 'PCG']
+    _colors = ['#2196F3', '#FF9800', '#4CAF50']
+    labels = _labels[:n]
+    colors = _colors[:n]
+
+    plt.figure(figsize=(max(5, n * 2), 4))
+    bars = plt.bar(labels, avg, color=colors, edgecolor='black')
     for bar, val in zip(bars, avg):
         plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.01,
                  f'{val:.3f}', ha='center', fontweight='bold')

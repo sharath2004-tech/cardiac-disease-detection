@@ -3,11 +3,20 @@ PTB-XL ECG data loader with multi-task label extraction.
 Produces: ecg_array, binary_labels, disease_labels, severity_labels
 """
 import ast
+import hashlib
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import wfdb
+try:
+    from tqdm import tqdm
+except ImportError:
+    def tqdm(iterable, **kwargs):
+        total = kwargs.get('total', '?')
+        desc = kwargs.get('desc', '')
+        print(f"  {desc}: loading {total} records (install tqdm for a progress bar)...")
+        return iterable
 
 
 def find_ptbxl_root():
@@ -40,6 +49,11 @@ def normalize_ecg(signal):
 DISEASE_MAP = {'NORM': 0, 'MI': 1, 'STTC': 2, 'CD': 3, 'HYP': 4}
 
 
+def _cache_path(dataset_root: Path, max_records: int, use_100hz: bool) -> Path:
+    key = hashlib.md5(f"{dataset_root}{max_records}{use_100hz}".encode()).hexdigest()[:8]
+    return dataset_root / f"_cache_{key}.npz"
+
+
 def load_ptbxl(max_records=21837, use_100hz=True):
     """
     Load PTB-XL and create multi-task labels.
@@ -57,6 +71,28 @@ def load_ptbxl(max_records=21837, use_100hz=True):
         return None
 
     print(f"  PTB-XL root: {dataset_root}")
+
+    # ── Cache check ───────────────────────────────────────────────────
+    cache_file = _cache_path(dataset_root, max_records, use_100hz)
+    if cache_file.exists():
+        print(f"  Loading from cache: {cache_file.name}")
+        c = np.load(cache_file, allow_pickle=True)
+        meta_df = pd.DataFrame(c['clinical_array'],
+                               columns=list(c['meta_cols']))
+        return {
+            'ecg_array':       c['ecg_array'],
+            'binary_labels':   c['binary_labels'],
+            'disease_labels':  c['disease_labels'],
+            'severity_labels': c['severity_labels'],
+            'domain_labels':   c['domain_labels'],
+            'meta_df':         meta_df,
+            'meta_cols':       list(c['meta_cols']),
+            'clinical_array':  c['clinical_array'],
+            'signal_length':   int(c['signal_length']),
+            'num_leads':       int(c['num_leads']),
+            'loaded_ids':      list(c['loaded_ids']),
+        }
+
     df = pd.read_csv(dataset_root / 'ptbxl_database.csv', index_col='ecg_id')
     df['scp_codes'] = df['scp_codes'].apply(ast.literal_eval)
 
@@ -132,7 +168,7 @@ def load_ptbxl(max_records=21837, use_100hz=True):
         record_field = 'filename_hr' if use_hr else 'filename_lr'
         target_length = 5000 if use_hr else 1000
 
-    print(f"  Sampling rate: {'100' if use_100hz else '500'} Hz → {target_length} timesteps")
+    print(f"  Sampling rate: {'100' if use_100hz else '500'} Hz -> {target_length} timesteps")
 
     # ── Load ECG signals ──────────────────────────────────────────────
     ecg_signals, binary_list, disease_list, severity_list = [], [], [], []
@@ -141,7 +177,7 @@ def load_ptbxl(max_records=21837, use_100hz=True):
     # Domain labels: derive from strat_fold (1-10) as proxy for recording site
     domain_list = []
 
-    for ecg_id in sampled_ids:
+    for ecg_id in tqdm(sampled_ids, desc="Loading ECG files", unit="rec"):
         row = df.loc[ecg_id]
         try:
             signal, _ = wfdb.rdsamp(str(dataset_root / row[record_field]))
@@ -163,8 +199,23 @@ def load_ptbxl(max_records=21837, use_100hz=True):
             skipped += 1
 
     ecg_array = np.stack(ecg_signals)
-    meta_cols = [c for c in ['age', 'sex', 'height', 'weight'] if c in df.columns]
+
+    # ── Extract real per-patient clinical features from PTB-XL ───────
+    # Encode string 'device' column as integer category code
+    if 'device' in df.columns:
+        df['device_code'] = pd.Categorical(df['device']).codes.astype(float)
+    else:
+        df['device_code'] = 0.0
+
+    # Prefer: age, sex (no nulls), then height/weight (many nulls — impute later),
+    # nurse (few nulls), site (few nulls), device_code (no nulls)
+    wanted_cols = ['age', 'sex', 'height', 'weight', 'nurse', 'site', 'device_code']
+    meta_cols = [c for c in wanted_cols if c in df.columns]
     meta_df = df.loc[loaded_ids, meta_cols].apply(pd.to_numeric, errors='coerce')
+
+    # clinical_array is a float32 matrix (N, len(meta_cols)), 1-to-1 with ECG records
+    # NaN values will be imputed by the training script (median imputer)
+    clinical_array = meta_df.values.astype(np.float32)
 
     result = {
         'ecg_array': ecg_array,
@@ -174,6 +225,7 @@ def load_ptbxl(max_records=21837, use_100hz=True):
         'domain_labels': np.array(domain_list, dtype=np.int64),
         'meta_df': meta_df,
         'meta_cols': meta_cols,
+        'clinical_array': clinical_array,   # real 1:1 paired clinical features
         'signal_length': target_length,
         'num_leads': ecg_array.shape[1],
         'loaded_ids': loaded_ids,
@@ -181,7 +233,25 @@ def load_ptbxl(max_records=21837, use_100hz=True):
 
     print(f"  Loaded: {len(loaded_ids)} records | skipped: {skipped}")
     print(f"  ECG shape: {ecg_array.shape}")
+    print(f"  Clinical features ({len(meta_cols)}): {meta_cols}")
     print(f"  Binary dist: {np.bincount(result['binary_labels'])}")
     print(f"  Disease dist: {np.bincount(result['disease_labels'], minlength=5)}")
     print(f"  Severity dist: {np.bincount(result['severity_labels'], minlength=3)}")
+
+    # ── Save cache ────────────────────────────────────────────────────
+    print(f"  Saving cache → {cache_file.name}")
+    np.savez_compressed(
+        cache_file,
+        ecg_array=result['ecg_array'],
+        binary_labels=result['binary_labels'],
+        disease_labels=result['disease_labels'],
+        severity_labels=result['severity_labels'],
+        domain_labels=result['domain_labels'],
+        clinical_array=result['clinical_array'],
+        meta_cols=np.array(meta_cols),
+        signal_length=np.array(result['signal_length']),
+        num_leads=np.array(result['num_leads']),
+        loaded_ids=np.array(loaded_ids),
+    )
+
     return result

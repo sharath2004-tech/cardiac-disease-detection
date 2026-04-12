@@ -37,6 +37,13 @@ class GradCAM1D:
         cam = cam / (cam.max() + 1e-6)
         return cam
 
+    def upsample(self, cam, target_length):
+        """Linearly interpolate saliency map to the full ECG signal length."""
+        from scipy.interpolate import interp1d
+        x_old = np.linspace(0, 1, len(cam))
+        x_new = np.linspace(0, 1, target_length)
+        return interp1d(x_old, cam, kind='linear')(x_new)
+
     def close(self):
         self._fh.remove()
         self._bh.remove()
@@ -66,9 +73,12 @@ def plot_ecg_saliency(model, ecg_sample, clinical_sample, device, output_dir, sa
     axes[0].legend(loc='upper right')
     axes[0].grid(True, alpha=0.3)
 
-    # Plot saliency
-    sal_time = np.linspace(0, ecg_sample.shape[1], len(saliency))
-    axes[1].fill_between(sal_time, saliency, alpha=0.7, color='crimson')
+    # Plot saliency — upsample from conv output resolution to full signal length
+    signal_length = ecg_sample.shape[1]
+    saliency_full = gradcam.upsample(saliency, signal_length)
+    time = np.arange(signal_length)
+    axes[1].fill_between(time, saliency_full, alpha=0.7, color='crimson')
+    axes[1].set_ylim(0, 1.05)
     axes[1].set_title('Grad-CAM Saliency (importance)', fontweight='bold')
     axes[1].set_xlabel('Time Step')
     axes[1].set_ylabel('Importance')
