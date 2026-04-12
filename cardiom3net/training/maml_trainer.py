@@ -74,8 +74,13 @@ def train_maml(model, task_dataset, config, device):
             for orig_param, adapted_param in zip(model.parameters(), adapted_model.parameters()):
                 if orig_param.requires_grad:
                     diff = orig_param.data - adapted_param.data
-                    orig_param.grad = diff * config.maml_outer_lr
+                    grad = diff * config.maml_outer_lr
+                    # Clip per-parameter gradient to avoid NaN blow-up
+                    grad = torch.clamp(grad, -1.0, 1.0)
+                    orig_param.grad = grad
 
+        # Global gradient norm clipping before optimizer step
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         meta_optimizer.step()
         meta_losses.append(query_loss.item())
 

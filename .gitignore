@@ -38,13 +38,23 @@ __pycache__/
 .ipynb_checkpoints
 *.backup
 
-# Dataset (too large for git)
+# Datasets (too large for git — download separately)
 ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3/
+archive/
+heart_disease_uci.csv
+UCI-datset.csv
 
-# Models
+# Trained model weights & caches
 models/
+cardiom3net_results/
+local_test_results/
 *.pth
 *.pkl
+*.npz
+
+# Reports / generated documents
+*.pdf
+*.docx
 
 # Virtual Environment
 venv/

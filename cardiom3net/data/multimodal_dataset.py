@@ -9,16 +9,24 @@ from .augmentation import SimCLRAugmentation, random_augment
 
 
 class MultimodalCardiacDataset(Dataset):
-    """Dataset for multi-task supervised training."""
+    """
+    Dataset for multi-task supervised training.
+
+    Supports bimodal (ECG + Clinical) and trimodal (ECG + PCG + Clinical)
+    configurations.  Pass ``pcg=<numpy array>`` to enable PCG.
+    """
     def __init__(self, ecg, clinical, binary_labels, disease_labels,
-                 severity_labels, domain_labels=None, augment=False):
-        self.ecg = torch.tensor(ecg, dtype=torch.float32)
+                 severity_labels, domain_labels=None, pcg=None, augment=False):
+        self.ecg      = torch.tensor(ecg,      dtype=torch.float32)
         self.clinical = torch.tensor(clinical, dtype=torch.float32)
-        self.binary = torch.tensor(binary_labels, dtype=torch.long)
-        self.disease = torch.tensor(disease_labels, dtype=torch.long)
+        self.binary   = torch.tensor(binary_labels,   dtype=torch.long)
+        self.disease  = torch.tensor(disease_labels,  dtype=torch.long)
         self.severity = torch.tensor(severity_labels, dtype=torch.long)
-        self.domain = torch.tensor(domain_labels, dtype=torch.long) if domain_labels is not None else None
-        self.augment = augment
+        self.domain   = (torch.tensor(domain_labels, dtype=torch.long)
+                         if domain_labels is not None else None)
+        self.pcg      = (torch.tensor(pcg, dtype=torch.float32)
+                         if pcg is not None else None)
+        self.augment  = augment
 
     def __len__(self):
         return len(self.binary)
@@ -28,17 +36,19 @@ class MultimodalCardiacDataset(Dataset):
         if self.augment:
             ecg_np = ecg.numpy()
             ecg_np = random_augment(ecg_np)
-            ecg = torch.tensor(ecg_np, dtype=torch.float32)
+            ecg    = torch.tensor(ecg_np, dtype=torch.float32)
 
         sample = {
-            'ecg': ecg,
+            'ecg':      ecg,
             'clinical': self.clinical[idx],
-            'binary': self.binary[idx],
-            'disease': self.disease[idx],
+            'binary':   self.binary[idx],
+            'disease':  self.disease[idx],
             'severity': self.severity[idx],
         }
         if self.domain is not None:
             sample['domain'] = self.domain[idx]
+        if self.pcg is not None:
+            sample['pcg'] = self.pcg[idx]
         return sample
 
 

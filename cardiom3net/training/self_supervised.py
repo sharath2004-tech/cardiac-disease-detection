@@ -55,7 +55,7 @@ def pretrain_ecg_encoder(ecg_array, config, device):
 
     dataset = SimCLRDataset(ecg_array)
     loader = DataLoader(dataset, batch_size=config.ssl_batch_size,
-                        shuffle=True, num_workers=2, pin_memory=True, drop_last=True)
+                        shuffle=True, num_workers=0, pin_memory=True, drop_last=True)
 
     optimizer = torch.optim.Adam(
         list(encoder.parameters()) + list(projection.parameters()),
