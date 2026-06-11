@@ -57,7 +57,7 @@ def run_epoch(model, loader, criterion, device, optimizer=None, use_domain=False
 
     total_loss = 0.0
     all_binary_labels, all_binary_probs = [], []
-    all_disease_labels, all_disease_preds = [], []
+    all_disease_labels, all_disease_preds, all_disease_probs = [], [], []
     all_severity_labels, all_severity_preds = [], []
     n_samples = 0
 
@@ -110,8 +110,10 @@ def run_epoch(model, loader, criterion, device, optimizer=None, use_domain=False
         all_binary_probs.extend(binary_prob.detach().cpu().numpy().tolist())
 
         disease_pred = predictions['disease'].argmax(dim=1)
+        disease_prob = torch.softmax(predictions['disease'], dim=1)
         all_disease_labels.extend(targets['disease'].cpu().numpy().tolist())
         all_disease_preds.extend(disease_pred.detach().cpu().numpy().tolist())
+        all_disease_probs.extend(disease_prob.detach().cpu().numpy().tolist())
 
         severity_pred = predictions['severity'].argmax(dim=1)
         all_severity_labels.extend(targets['severity'].cpu().numpy().tolist())
@@ -131,6 +133,7 @@ def run_epoch(model, loader, criterion, device, optimizer=None, use_domain=False
         'binary_probs': all_binary_probs,
         'disease_labels': all_disease_labels,
         'disease_preds': all_disease_preds,
+        'disease_probs': all_disease_probs,
     }
 
 

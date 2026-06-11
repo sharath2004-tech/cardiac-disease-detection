@@ -89,3 +89,84 @@ def plot_ecg_saliency(model, ecg_sample, clinical_sample, device, output_dir, sa
     plt.savefig(path, dpi=200, bbox_inches='tight')
     plt.close()
     print(f"  Saved: {path}")
+
+
+def plot_multi_sample_saliency(model, ecg_samples, clinical_samples, disease_labels,
+                               class_names, device, output_dir):
+    """Grad-CAM saliency grid: one ECG sample per disease class side-by-side with
+    a saliency overlay and per-lead mean importance bar chart."""
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Select one representative sample per class
+    disease_labels = np.asarray(disease_labels, dtype=int)
+    selected_idx, selected_cls = [], []
+    for c in range(len(class_names)):
+        cls_idx = np.where(disease_labels == c)[0]
+        if len(cls_idx) > 0:
+            selected_idx.append(int(cls_idx[0]))
+            selected_cls.append(c)
+
+    n = len(selected_idx)
+    if n == 0:
+        return
+
+    target_layer = model.ecg_encoder.layer3[-1].conv2
+    gradcam = GradCAM1D(model, target_layer)
+
+    fig, axes = plt.subplots(n, 2, figsize=(16, 3.5 * n),
+                              gridspec_kw={'width_ratios': [4, 1]})
+    if n == 1:
+        axes = axes[None, :]
+
+    colors_lead = ['#1976D2', '#43A047', '#FB8C00']
+
+    for row, (idx, cls) in enumerate(zip(selected_idx, selected_cls)):
+        ecg_s = ecg_samples[idx]
+        clin_s = clinical_samples[idx]
+
+        ecg_t = torch.tensor(ecg_s[None, ...], dtype=torch.float32, device=device)
+        clin_t = torch.tensor(clin_s[None, ...], dtype=torch.float32, device=device)
+
+        saliency_raw = gradcam.generate(ecg_t, clin_t)
+        signal_length = ecg_s.shape[1]
+        saliency_full = gradcam.upsample(saliency_raw, signal_length)
+        time = np.arange(signal_length)
+
+        ax_ecg = axes[row, 0]
+        n_leads_shown = min(3, ecg_s.shape[0])
+        for lead in range(n_leads_shown):
+            ax_ecg.plot(time, ecg_s[lead], alpha=0.65, linewidth=0.9,
+                        color=colors_lead[lead], label=f'Lead {lead + 1}')
+        ax2 = ax_ecg.twinx()
+        ax2.fill_between(time, saliency_full, alpha=0.28, color='crimson')
+        ax2.set_ylim(0, 1.5)
+        ax2.set_ylabel('Saliency', fontsize=8, color='crimson')
+        ax2.tick_params(axis='y', colors='crimson', labelsize=7)
+        ax_ecg.set_title(f'Class: {class_names[cls]}', fontweight='bold')
+        ax_ecg.set_ylabel('Amplitude')
+        ax_ecg.legend(loc='upper right', fontsize=7)
+        ax_ecg.grid(True, alpha=0.2)
+
+        # Per-lead mean saliency bar (approximated: same saliency map per lead)
+        ax_bar = axes[row, 1]
+        lead_saliency = []
+        for lead in range(n_leads_shown):
+            # Weight saliency by absolute signal amplitude of each lead
+            lead_weight = np.abs(ecg_s[lead]) / (np.abs(ecg_s[:n_leads_shown]).sum(axis=0) + 1e-8)
+            lead_saliency.append(float((saliency_full * lead_weight).mean()))
+        ax_bar.barh(range(n_leads_shown), lead_saliency,
+                    color=colors_lead[:n_leads_shown], edgecolor='white')
+        ax_bar.set_yticks(range(n_leads_shown))
+        ax_bar.set_yticklabels([f'Lead {i + 1}' for i in range(n_leads_shown)])
+        ax_bar.set_xlabel('Weighted Saliency')
+        ax_bar.set_title('Lead Importance', fontweight='bold')
+        ax_bar.grid(True, alpha=0.3, axis='x')
+
+    gradcam.close()
+    plt.suptitle('Grad-CAM ECG Saliency — One Sample per Disease Class',
+                 fontweight='bold', fontsize=13, y=1.01)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'ecg_saliency_grid.png')
+    plt.savefig(path, dpi=180, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")

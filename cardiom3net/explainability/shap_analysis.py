@@ -86,3 +86,57 @@ def plot_modality_weights(modality_weights, output_dir):
     plt.savefig(path, dpi=200, bbox_inches='tight')
     plt.close()
     print(f"  Saved: {path}")
+
+
+def plot_modality_weight_distribution(modality_weights, labels, class_names, output_dir):
+    """Violin plot of per-sample modality gate weights grouped by disease class."""
+    os.makedirs(output_dir, exist_ok=True)
+
+    modality_weights = np.asarray(modality_weights)
+    labels = np.asarray(labels, dtype=int)
+    n_modalities = modality_weights.shape[1]
+    _labels = ['ECG', 'Clinical', 'PCG']
+    _colors = ['#2196F3', '#FF9800', '#4CAF50']
+    modality_labels = _labels[:n_modalities]
+    modality_colors = _colors[:n_modalities]
+
+    fig, axes = plt.subplots(1, n_modalities, figsize=(5 * n_modalities, 5),
+                              sharey=True)
+    if n_modalities == 1:
+        axes = [axes]
+
+    for m_idx, (ax, m_label, m_color) in enumerate(
+        zip(axes, modality_labels, modality_colors)
+    ):
+        data_per_class = [
+            modality_weights[labels == c, m_idx]
+            for c in range(len(class_names))
+        ]
+        positions = [i for i, d in enumerate(data_per_class) if len(d) > 0]
+        data_non_empty = [d for d in data_per_class if len(d) > 0]
+        labels_non_empty = [class_names[i] for i in positions]
+
+        if data_non_empty:
+            vp = ax.violinplot(data_non_empty, positions=positions,
+                               showmedians=True, showextrema=True)
+            for body in vp['bodies']:
+                body.set_facecolor(m_color)
+                body.set_alpha(0.55)
+            vp['cmedians'].set_color('black')
+            vp['cmedians'].set_linewidth(2)
+
+        ax.set_xticks(positions)
+        ax.set_xticklabels(labels_non_empty, rotation=30, ha='right')
+        ax.set_title(f'{m_label} Gate Weight', fontweight='bold')
+        if m_idx == 0:
+            ax.set_ylabel('Weight')
+        ax.set_ylim(0, 1)
+        ax.grid(True, alpha=0.3, axis='y')
+
+    plt.suptitle('Modality Gate Weight Distribution per Disease Class',
+                 fontweight='bold', fontsize=13)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'modality_weight_distribution.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")

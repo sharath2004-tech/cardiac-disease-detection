@@ -231,3 +231,221 @@ def plot_model_comparison(comparison_results, output_dir):
     print("-" * len(header))
     print("[*] Proposed model")
     print("=" * len(header))
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+#  Additional visualizations for research papers
+# ──────────────────────────────────────────────────────────────────────────────
+
+def plot_per_class_roc(y_true_disease, y_score_disease, class_names, output_dir):
+    """One-vs-rest ROC curve for each disease class with individual AUC scores."""
+    from sklearn.preprocessing import label_binarize
+
+    os.makedirs(output_dir, exist_ok=True)
+    n_classes = len(class_names)
+    y_true = np.asarray(y_true_disease, dtype=int)
+    y_score = np.asarray(y_score_disease, dtype=float)
+    y_bin = label_binarize(y_true, classes=list(range(n_classes)))
+
+    cols = min(3, n_classes)
+    rows = (n_classes + cols - 1) // cols
+    fig, axes = plt.subplots(rows, cols, figsize=(6 * cols, 5 * rows))
+    axes = np.array(axes).flatten()
+
+    for i, name in enumerate(class_names):
+        fpr, tpr, _ = roc_curve(y_bin[:, i], y_score[:, i])
+        roc_auc_val = auc(fpr, tpr)
+        axes[i].plot(fpr, tpr, linewidth=2.5, color='#1976D2',
+                     label=f'AUC = {roc_auc_val:.3f}')
+        axes[i].fill_between(fpr, tpr, alpha=0.12, color='#1976D2')
+        axes[i].plot([0, 1], [0, 1], 'k--', alpha=0.4)
+        axes[i].set_title(f'Class: {name}', fontweight='bold')
+        axes[i].set_xlabel('False Positive Rate')
+        axes[i].set_ylabel('True Positive Rate')
+        axes[i].legend(loc='lower right')
+        axes[i].grid(True, alpha=0.3)
+
+    for j in range(n_classes, len(axes)):
+        axes[j].set_visible(False)
+
+    plt.suptitle('Per-Class ROC Curves (One-vs-Rest)', fontweight='bold', fontsize=14)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'per_class_roc.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_precision_recall_curves(results_dict, output_dir):
+    """Precision-Recall curves for binary classification across model variants."""
+    from sklearn.metrics import precision_recall_curve, average_precision_score
+
+    os.makedirs(output_dir, exist_ok=True)
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    baseline_pos_rate = None
+    for name, (y_true, y_prob) in results_dict.items():
+        y_true = np.asarray(y_true, dtype=int)
+        y_prob = np.asarray(y_prob, dtype=float)
+        if baseline_pos_rate is None:
+            baseline_pos_rate = y_true.mean()
+        precision, recall, _ = precision_recall_curve(y_true, y_prob)
+        ap = average_precision_score(y_true, y_prob)
+        ax.plot(recall, precision, linewidth=2, label=f'{name} (AP={ap:.3f})')
+
+    if baseline_pos_rate is not None:
+        ax.axhline(y=baseline_pos_rate, color='k', linestyle='--', alpha=0.5,
+                   label=f'Random baseline (P={baseline_pos_rate:.3f})')
+
+    ax.set_xlabel('Recall')
+    ax.set_ylabel('Precision')
+    ax.set_title('Precision-Recall Curves', fontweight='bold')
+    ax.legend(loc='lower left')
+    ax.grid(True, alpha=0.3)
+    ax.set_xlim([0, 1])
+    ax.set_ylim([0, 1.05])
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'precision_recall_curves.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_normalized_confusion_matrix(y_true_disease, y_pred_disease, disease_names, output_dir):
+    """Side-by-side count and row-normalized confusion matrices for disease classification."""
+    import seaborn as sns
+
+    os.makedirs(output_dir, exist_ok=True)
+    cm = confusion_matrix(y_true_disease, y_pred_disease)
+    cm_norm = cm.astype(float) / cm.sum(axis=1, keepdims=True)
+    cm_norm = np.nan_to_num(cm_norm)
+
+    fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=axes[0],
+                xticklabels=disease_names, yticklabels=disease_names)
+    axes[0].set_title('Confusion Matrix (Counts)', fontweight='bold')
+    axes[0].set_xlabel('Predicted')
+    axes[0].set_ylabel('True')
+
+    sns.heatmap(cm_norm, annot=True, fmt='.2f', cmap='RdYlGn', ax=axes[1],
+                xticklabels=disease_names, yticklabels=disease_names,
+                vmin=0, vmax=1)
+    axes[1].set_title('Confusion Matrix (Row-Normalized)', fontweight='bold')
+    axes[1].set_xlabel('Predicted')
+    axes[1].set_ylabel('True')
+
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'confusion_matrix_normalized.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_maml_loss(maml_losses, output_dir):
+    """MAML meta-training loss over episodes with a smoothed moving-average overlay."""
+    if not maml_losses:
+        return
+    os.makedirs(output_dir, exist_ok=True)
+
+    losses = np.asarray(maml_losses, dtype=float)
+    episodes = np.arange(1, len(losses) + 1)
+    win = max(5, len(losses) // 10)
+    ma = np.convolve(losses, np.ones(win) / win, mode='valid')
+    ma_x = np.arange(win, len(losses) + 1)
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(episodes, losses, alpha=0.3, color='#90CAF9', linewidth=1,
+            label='Episode loss')
+    ax.plot(ma_x, ma, color='#1565C0', linewidth=2.5,
+            label=f'Moving avg (window={win})')
+    ax.set_title('MAML Meta-Learning Loss per Episode', fontweight='bold')
+    ax.set_xlabel('Episode')
+    ax.set_ylabel('Query Loss')
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'maml_loss.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_federated_convergence(fed_history, central_results, output_dir):
+    """Round-by-round federated metrics vs central training final performance."""
+    if not fed_history:
+        return
+    os.makedirs(output_dir, exist_ok=True)
+
+    rounds = range(1, len(fed_history) + 1)
+    bin_acc = [r['binary']['accuracy'] for r in fed_history]
+    bin_auc = [r['binary']['roc_auc'] for r in fed_history]
+    dis_acc = [r['disease']['accuracy'] for r in fed_history]
+
+    c_bin_acc = central_results['binary']['accuracy']
+    c_bin_auc = central_results['binary']['roc_auc']
+    c_dis_acc = central_results['disease']['accuracy']
+
+    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+    for ax, fed_vals, c_val, label in zip(
+        axes,
+        [bin_acc, bin_auc, dis_acc],
+        [c_bin_acc, c_bin_auc, c_dis_acc],
+        ['Binary Accuracy', 'Binary AUC', 'Disease Accuracy'],
+    ):
+        ax.plot(list(rounds), fed_vals, marker='o', linewidth=2.5,
+                color='#43A047', label='Federated', markersize=7)
+        ax.axhline(y=c_val, color='#E53935', linestyle='--', linewidth=2,
+                   label=f'Central ({c_val:.3f})')
+        ax.set_title(label, fontweight='bold')
+        ax.set_xlabel('Communication Round')
+        ax.set_ylabel(label)
+        ax.legend()
+        ax.grid(True, alpha=0.3)
+        ax.set_xticks(list(rounds))
+
+    plt.suptitle('Federated vs Central Learning Convergence',
+                 fontweight='bold', fontsize=13)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'federated_convergence.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")
+
+
+def plot_class_metrics_radar(y_true_disease, y_pred_disease, class_names, output_dir):
+    """Radar chart comparing per-class precision, recall, and F1-score."""
+    from sklearn.metrics import precision_recall_fscore_support
+
+    os.makedirs(output_dir, exist_ok=True)
+    precision, recall, f1, _ = precision_recall_fscore_support(
+        y_true_disease, y_pred_disease,
+        average=None, labels=list(range(len(class_names))), zero_division=0,
+    )
+
+    metrics = [('Precision', precision), ('Recall', recall), ('F1', f1)]
+    n = len(class_names)
+    angles = np.linspace(0, 2 * np.pi, n, endpoint=False).tolist()
+    angles += angles[:1]
+
+    colors = ['#1976D2', '#43A047', '#FB8C00']
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5), subplot_kw={'polar': True})
+
+    for ax, (metric_name, values), color in zip(axes, metrics, colors):
+        vals = values.tolist() + values[:1].tolist()
+        ax.plot(angles, vals, linewidth=2.5, color=color)
+        ax.fill(angles, vals, alpha=0.2, color=color)
+        ax.set_xticks(angles[:-1])
+        ax.set_xticklabels(class_names, size=9)
+        ax.set_ylim(0, 1)
+        ax.set_yticks([0.25, 0.5, 0.75, 1.0])
+        ax.set_yticklabels(['0.25', '0.50', '0.75', '1.00'], size=7)
+        ax.set_title(metric_name, fontweight='bold', pad=15)
+        ax.grid(True, alpha=0.3)
+
+    plt.suptitle('Per-Class Metrics Radar — Disease Classification',
+                 fontweight='bold', fontsize=13)
+    plt.tight_layout()
+    path = os.path.join(output_dir, 'class_metrics_radar.png')
+    plt.savefig(path, dpi=200, bbox_inches='tight')
+    plt.close()
+    print(f"  Saved: {path}")

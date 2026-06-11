@@ -78,7 +78,11 @@ _setup_path()
 from cardiom3net.config import Config
 from cardiom3net.utils import (seed_everything, get_device, plot_training_curves,
                                 plot_confusion_matrices, plot_roc_curves,
-                                plot_model_comparison)
+                                plot_model_comparison, plot_per_class_roc,
+                                plot_precision_recall_curves,
+                                plot_normalized_confusion_matrix,
+                                plot_maml_loss, plot_federated_convergence,
+                                plot_class_metrics_radar)
 from cardiom3net.data.ecg_loader import load_ptbxl
 from cardiom3net.data.pcg_loader import (load_pcg_cinc2016, build_pcg_pool,
                                           assign_pcg_to_ecg)
@@ -91,8 +95,9 @@ from cardiom3net.training.self_supervised import pretrain_ecg_encoder
 from cardiom3net.training.supervised import train_supervised, run_epoch, MultiTaskLoss
 from cardiom3net.training.maml_trainer  import train_maml
 from cardiom3net.training.federated     import run_federated
-from cardiom3net.explainability.gradcam_1d    import plot_ecg_saliency
-from cardiom3net.explainability.shap_analysis import run_shap_analysis, plot_modality_weights
+from cardiom3net.explainability.gradcam_1d    import plot_ecg_saliency, plot_multi_sample_saliency
+from cardiom3net.explainability.shap_analysis import (run_shap_analysis, plot_modality_weights,
+                                                       plot_modality_weight_distribution)
 
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler
@@ -372,6 +377,7 @@ def main():
         )
         if len(maml_task_ds.available_classes) >= 2:
             model, maml_losses = train_maml(model, maml_task_ds, cfg, device)
+            plot_maml_loss(maml_losses, cfg.output_dir)
         else:
             print("  Insufficient classes for MAML -- skipping")
     else:
@@ -409,6 +415,7 @@ def main():
         fed_model, fed_history, fed_results = run_federated(
             fed_model_init, train_ds, test_loader, cfg, device
         )
+        plot_federated_convergence(fed_history, supervised_results, cfg.output_dir)
     else:
         print("\n  Skipping Federated Learning (--skip_fed)")
 
@@ -419,8 +426,15 @@ def main():
     print("PHASE 6: Explainability Analysis")
     print("=" * 60)
 
-    # Grad-CAM ECG saliency
+    # Grad-CAM: single sample
     plot_ecg_saliency(model, test_ecg[0], test_clinical[0], device, cfg.output_dir)
+
+    # Grad-CAM: multi-sample grid (one per disease class)
+    plot_multi_sample_saliency(
+        model, test_ecg, test_clinical,
+        np.array(supervised_results['disease_labels']),
+        cfg.disease_classes, device, cfg.output_dir,
+    )
 
     # SHAP clinical feature importance
     run_shap_analysis(
@@ -428,7 +442,7 @@ def main():
         clinical_names, cfg.output_dir
     )
 
-    # Modality weights
+    # Modality weights (average bar) + per-class distribution
     model.eval()
     all_weights = []
     with torch.no_grad():
@@ -437,11 +451,35 @@ def main():
             all_weights.append(mw.cpu().numpy())
     all_weights = np.vstack(all_weights)
     plot_modality_weights(all_weights, cfg.output_dir)
+    plot_modality_weight_distribution(
+        all_weights,
+        np.array(supervised_results['disease_labels']),
+        cfg.disease_classes, cfg.output_dir,
+    )
 
-    # Confusion matrices
+    # Confusion matrices (counts + normalized)
     plot_confusion_matrices(
         supervised_results['binary_labels'],
         (np.array(supervised_results['binary_probs']) >= 0.5).astype(int),
+        supervised_results['disease_labels'],
+        supervised_results['disease_preds'],
+        cfg.disease_classes, cfg.output_dir,
+    )
+    plot_normalized_confusion_matrix(
+        supervised_results['disease_labels'],
+        supervised_results['disease_preds'],
+        cfg.disease_classes, cfg.output_dir,
+    )
+
+    # Per-class disease ROC (one-vs-rest)
+    plot_per_class_roc(
+        supervised_results['disease_labels'],
+        np.array(supervised_results['disease_probs']),
+        cfg.disease_classes, cfg.output_dir,
+    )
+
+    # Per-class radar chart (precision / recall / F1)
+    plot_class_metrics_radar(
         supervised_results['disease_labels'],
         supervised_results['disease_preds'],
         cfg.disease_classes, cfg.output_dir,
@@ -460,6 +498,9 @@ def main():
             fed_results['binary_probs'],
         )
     plot_roc_curves(roc_data, cfg.output_dir)
+
+    # Precision-Recall curves
+    plot_precision_recall_curves(roc_data, cfg.output_dir)
 
     # ══════════════════════════════════════════════════════════════════
     #  PHASE 7: BASELINE MODEL COMPARISON
