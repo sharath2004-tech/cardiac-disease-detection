@@ -1,105 +1,64 @@
-# CardioM3Net — Multimodal Meta-Learning Framework for Cardiovascular Disease Diagnosis
+# ACRMF-Net: Adaptive Clinically-aware Reliability-aware Multimodal Fusion Network
 
-> **HeartSense AI** · End-to-end cardiac risk assessment combining ECG, PCG (heart sounds) and clinical tabular data with self-supervised pretraining, MAML meta-learning, federated learning and explainable AI.
-
----
-
-## Architecture Overview
-
-### Diagram 1 — Full Model Architecture
-
-![CardioM3Net Architecture](cardiom3net_results/diagram1_architecture.png)
-
-### Diagram 2 — Training Pipeline, Deployment & Key Novelty
-
-![CardioM3Net Pipeline](cardiom3net_results/diagram2_pipeline.png)
+> **Cardiac Disease Detection** using Clinical Features, ECG, and PCG (Phonocardiogram) data with Adaptive Multimodal Fusion
 
 ---
 
-## Key Contributions
+## Overview
 
-| Component | Details |
-|---|---|
-| **Trimodal Fusion** | ECG (256-d) + PCG (128-d) + Clinical (64-d) fused via CrossAttention + learned ModalityGate (floor=0.20, diversity λ=0.1) |
-| **ECG Encoder** | ResNet1D + Self-Attention `(B, 12, T) → 256-dim` |
-| **PCG Encoder** | 4-layer 2D CNN on log-mel spectrogram `(B, 1, 64, 99) → 128-dim` |
-| **Clinical Encoder** | MLP with BatchNorm + Dropout `→ 64-dim` |
-| **SimCLR Pretraining** | Contrastive self-supervised ECG encoder with NT-Xent loss (Phase 1) |
-| **MAML** | 5-way 5-shot fast cross-dataset adaptation · inner SGD + outer Adam (Phase 3) |
-| **Federated Learning** | Weighted FedAvg across 3 simulated hospital clients · 5 rounds (Phase 4) |
-| **Domain Adaptation** | GRL-based adversarial discriminator on ECG features (Phase 2) |
-| **Explainable AI** | SHAP clinical importance + ECG saliency + modality gate weight visualization (Phase 5) |
+ACRMF-Net is a novel multimodal deep learning architecture for cardiac disease detection that intelligently fuses:
+- **Clinical Features** (tabular patient data)
+- **ECG Signals** (electrocardiography)
+- **PCG Signals** (phonocardiography - heart sounds)
+
+The model uses adaptive fusion with reliability and confidence estimation to handle modality quality variations in real-world clinical scenarios.
 
 ---
 
-## 5-Phase Training Pipeline
+## Architecture Components
 
-```
-Phase 1 → SimCLR ECG Pretraining      (self-supervised, NT-Xent loss)
-Phase 2 → Supervised Multi-Task       (Binary + Disease + Severity + GRL Domain Adaptation)
-Phase 3 → MAML Meta-Learning          (fast cross-dataset adaptation)
-Phase 4 → Federated Learning          (Weighted FedAvg, 3 hospital clients)
-Phase 5 → Explainability              (SHAP + saliency + modality weights)
-```
+### Core Modules (30 Total)
 
----
+<cite index="1-1,1-2,1-3,1-4,1-5">**Stage 1 — Project Initialization**
+- Module 1-4: Project Folder Structure, Configuration, Requirements, Logging</cite>
 
-## Datasets
+<cite index="1-5,1-6,1-7,1-8,1-9">**Stage 2 — Dataset Preparation**
+- Module 5-8: Clinical Dataset Loader, ECG Dataset Loader, PCG Dataset Loader, Dataset Split Module</cite>
 
-> **Datasets are NOT included in this repository** due to size. Download them separately:
+<cite index="1-9,1-10,1-11,1-12">**Stage 3 — Data Preprocessing**
+- Module 9-12: Clinical Preprocessor, ECG Preprocessor, PCG Preprocessor, Data Quality Assessment Module</cite>
 
-| Dataset | Use | Download |
-|---|---|---|
-| **PTB-XL** (21,837 ECGs, 12-lead, 100/500 Hz) | ECG + clinical features | [physionet.org/content/ptb-xl](https://physionet.org/content/ptb-xl/1.0.3/) |
-| **CinC 2016** (heart sound recordings) | PCG branch | [physionet.org/content/challenge-2016](https://physionet.org/content/challenge-2016/1.0.0/) |
+<cite index="1-13">**Stage 4 — Clinical Feature Learning**
+- Module 13: Clinical Encoder → (B,128)</cite>
 
-After downloading, place them at:
-```
-cardiac-disease-detection/
-  ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3/
-  archive/          ← CinC 2016 training-a .. training-f folders
-```
+<cite index="1-14">**Stage 5 — ECG Feature Learning**
+- Module 14: ECG Encoder → (B,128)</cite>
 
----
+<cite index="1-15">**Stage 6 — PCG Feature Learning**
+- Module 15: PCG Encoder → (B,128)</cite>
 
-## Quick Start
+<cite index="1-16">**Stage 7 — Reliability Learning**
+- Module 16: Reliability Estimation Network (REN) → Rc, Re, Rp</cite>
 
-### Python (Model Training)
+<cite index="1-17">**Stage 8 — Confidence Learning**
+- Module 17: Confidence Estimation Network (CEN) → Cc, Ce, Cp, Cf</cite>
 
-```sh
-# Install dependencies
-pip install torch numpy pandas scikit-learn wfdb scipy matplotlib shap tqdm
+<cite index="1-18">**Stage 9 — Adaptive Decision Making**
+- Module 18: Adaptive Weight Generator (AWG) → Wc, We, Wp (sum=1)</cite>
 
-# Run full 5-phase training
-cd cardiac-disease-detection
-py train_cardiom3net.py --epochs 30 --pcg_archive_dir archive
+<cite index="1-19">**Stage 10 — Proposed Fusion (Main Contribution)**
+- Module 19: ACRMF Fusion Module → Fusion Feature (B,128)</cite>
 
-# Skip PCG (bimodal ECG + Clinical only)
-py train_cardiom3net.py --epochs 30 --skip_pcg
+<cite index="1-20,1-21">**Stage 11 — Disease Prediction**
+- Module 20-21: Decision Head, Probability Estimator</cite>
 
-# Regenerate architecture diagrams
-py generate_diagrams.py
-```
+<cite index="1-21,1-22,1-23,1-24">**Stage 12 — Model Optimization**
+- Module 22-25: Composite Loss, Training Engine, Validation Engine, Testing Engine
+- Includes: AdamW, Scheduler, Early Stopping, Checkpoint Saving</cite>
 
-### Web Application (Frontend + Backend)
-
-```sh
-# Install frontend dependencies
-npm install
-
-# Install backend dependencies
-npm run server:install
-
-# Configure MongoDB Atlas — update server/.env:
-#   MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/heartsense-ai
-#   JWT_SECRET=your-secure-random-string
-
-# Start backend (terminal 1)
-npm run server
-
-# Start frontend (terminal 2)
-npm run dev
-```
+<cite index="1-24,1-25,1-26,1-27,1-28,1-29">**Stage 13 — Experimental Evaluation**
+- Module 26-30: Performance Evaluation, Explainability, Ablation Study, Statistical Analysis, Result Visualization
+- Produces: ROC, PR Curve, SHAP, Confusion Matrix, Reliability plots, Calibration plots</cite>
 
 ---
 
@@ -107,74 +66,220 @@ npm run dev
 
 ```
 cardiac-disease-detection/
-  cardiom3net/
-    models/
-      cardiom3net.py          ← Full assembled model
-      ecg_encoder.py          ← ResNet1D + Self-Attention
-      pcg_encoder.py          ← 2D CNN on log-mel spectrogram
-      clinical_encoder.py     ← MLP encoder
-      fusion.py               ← CrossAttentionFusion + ModalityGate
-      multitask_head.py       ← Binary / Disease / Severity heads
-      domain_adaptation.py    ← GRL adversarial discriminator
-    training/
-      self_supervised.py      ← SimCLR pretraining
-      supervised.py           ← Multi-task training + diversity loss
-      maml_trainer.py         ← MAML meta-learning
-      federated.py            ← Weighted FedAvg
-    data/
-      ecg_loader.py           ← PTB-XL loader
-      pcg_loader.py           ← CinC 2016 loader + log-mel
-      clinical_loader.py      ← Clinical feature builder
-      multimodal_dataset.py   ← Unified dataset class
-    explainability/
-      shap_analysis.py        ← SHAP + modality weight plot
-      gradcam_1d.py           ← ECG saliency
-  train_cardiom3net.py        ← Master training script
-  generate_diagrams.py        ← Architecture diagram generator
-  CardioM3Net_Kaggle.ipynb    ← Kaggle-ready notebook
-  src/                        ← React frontend
-  server/                     ← Node.js + Express backend
+├── .env                          # Environment configuration
+├── .env.example                  # Environment template
+├── .gitignore                    # Git ignore rules
+├── LICENSE                       # Project license
+├── README.md                     # This file
+│
+├── config/                       # Stage 1: Configuration
+│   ├── __init__.py
+│   ├── config.py                 # Module 2: Configuration settings
+│   ├── requirements.txt          # Module 3: Dependencies
+│   └── logging_config.py         # Module 4: Logging setup
+│
+├── data/                         # Stage 2-3: Data handling
+│   ├── __init__.py
+│   ├── loaders/                  # Stage 2: Dataset loaders
+│   │   ├── __init__.py
+│   │   ├── clinical_loader.py    # Module 5
+│   │   ├── ecg_loader.py         # Module 6
+│   │   ├── pcg_loader.py         # Module 7
+│   │   └── dataset_split.py      # Module 8
+│   │
+│   └── preprocessing/            # Stage 3: Preprocessing
+│       ├── __init__.py
+│       ├── clinical_preprocessor.py  # Module 9
+│       ├── ecg_preprocessor.py       # Module 10
+│       ├── pcg_preprocessor.py       # Module 11
+│       └── quality_assessment.py     # Module 12
+│
+├── models/                       # Stage 4-11: Neural architectures
+│   ├── __init__.py
+│   ├── encoders/                 # Stage 4-6: Feature extractors
+│   │   ├── __init__.py
+│   │   ├── clinical_encoder.py   # Module 13
+│   │   ├── ecg_encoder.py        # Module 14
+│   │   └── pcg_encoder.py        # Module 15
+│   │
+│   ├── reliability/              # Stage 7-9: Adaptive components
+│   │   ├── __init__.py
+│   │   ├── ren.py                # Module 16: Reliability Estimation Network
+│   │   ├── cen.py                # Module 17: Confidence Estimation Network
+│   │   └── awg.py                # Module 18: Adaptive Weight Generator
+│   │
+│   ├── fusion/                   # Stage 10: Core contribution
+│   │   ├── __init__.py
+│   │   └── acrmf_fusion.py       # Module 19: ACRMF Fusion (MAIN)
+│   │
+│   ├── heads/                    # Stage 11: Output layers
+│   │   ├── __init__.py
+│   │   ├── decision_head.py      # Module 20
+│   │   └── probability_estimator.py  # Module 21
+│   │
+│   └── acrmf_net.py              # Complete assembled model
+│
+├── training/                     # Stage 12: Training pipeline
+│   ├── __init__.py
+│   ├── losses.py                 # Module 22: Composite loss
+│   ├── trainer.py                # Module 23: Training engine
+│   ├── validator.py              # Module 24: Validation engine
+│   └── tester.py                 # Module 25: Testing engine
+│
+├── evaluation/                   # Stage 13: Experiments
+│   ├── __init__.py
+│   ├── metrics.py                # Module 26: Performance evaluation
+│   ├── explainability.py         # Module 27: SHAP, saliency
+│   ├── ablation.py               # Module 28: Ablation studies
+│   ├── statistical_tests.py      # Module 29: Statistical analysis
+│   └── visualizations.py         # Module 30: Result plots
+│
+├── train_acrmf.py                # Main training script
+├── test_acrmf.py                 # Testing script
+├── infer_acrmf.py                # Inference script
+│
+├── notebooks/                    # Jupyter notebooks
+│   └── ACRMF_Net_Analysis.ipynb
+│
+├── results/                      # Experiment outputs
+│   ├── checkpoints/              # Saved models
+│   ├── logs/                     # Training logs
+│   ├── figures/                  # Thesis figures
+│   └── metrics/                  # Performance metrics
+│
+├── datasets/                     # Data storage (not in repo)
+│   ├── ptb-xl/                   # ECG dataset
+│   ├── cinc2016/                 # PCG dataset (archive/)
+│   └── clinical/                 # Clinical features
+│
+└── docs/                         # Documentation
+    ├── Final_Roadmap_Implementation_of_ACRMF-Net (1).pdf
+    └── Final_Model_Document_II.docx
 ```
 
 ---
 
-## Web Application Stack
+## Datasets
 
-### Frontend
-- React 18 · TypeScript · Vite · shadcn/ui · Tailwind CSS · React Router
+### Required Datasets (Download Separately)
 
-### Backend
-- Node.js · Express.js · MongoDB Atlas · Mongoose · JWT · bcryptjs
+1. **PTB-XL** (ECG Data)
+   - 21,837 ECG recordings, 12-lead, 100/500 Hz
+   - Download: https://physionet.org/content/ptb-xl/1.0.3/
+   - Place in: `datasets/ptb-xl/`
 
-### Environment Variables
+2. **CinC Challenge 2016** (PCG Data)
+   - Heart sound recordings from training-a through training-f
+   - Download: https://physionet.org/content/challenge-2016/1.0.0/
+   - Already in: `archive/` directory
 
-**Frontend** (`.env`):
-```
-VITE_API_URL=http://localhost:5000/api
-```
+3. **Clinical Features**
+   - UCI Heart Disease Dataset: `heart_disease_uci.csv`
+   - Already in project root
 
-**Backend** (`server/.env`):
-```
-PORT=5000
-MONGODB_URI=your-mongodb-connection-string
-JWT_SECRET=your-jwt-secret
-FRONTEND_URL=http://localhost:5173
+---
+
+## Installation
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd cardiac-disease-detection
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r config/requirements.txt
 ```
 
 ---
 
-## Available Scripts
+## Usage
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start frontend dev server |
-| `npm run build` | Build frontend for production |
-| `npm run test` | Run frontend tests |
-| `npm run server` | Start backend dev server |
-| `npm run server:install` | Install backend dependencies |
+### 1. Training
+
+```bash
+# Train complete ACRMF-Net model
+python train_acrmf.py --epochs 100 --batch_size 32 --lr 0.001
+
+# Train with specific configuration
+python train_acrmf.py --config config/config.py
+```
+
+### 2. Testing
+
+```bash
+# Test trained model
+python test_acrmf.py --checkpoint results/checkpoints/best_model.pth
+```
+
+### 3. Inference
+
+```bash
+# Run inference on new data
+python infer_acrmf.py --input <path-to-data> --checkpoint results/checkpoints/best_model.pth
+```
 
 ---
 
-## API Documentation
+## Key Features
 
-See [server/README.md](server/README.md) for full API reference.
+✅ <cite index="1-16">**Reliability Estimation Network (REN)** - Assesses quality of each modality</cite>
+
+✅ <cite index="1-17">**Confidence Estimation Network (CEN)** - Estimates prediction confidence per modality</cite>
+
+✅ <cite index="1-18">**Adaptive Weight Generator (AWG)** - Dynamically balances modality contributions (Wc+We+Wp=1)</cite>
+
+✅ <cite index="1-19">**ACRMF Fusion Module** - Novel adaptive fusion mechanism (Main Research Contribution)</cite>
+
+✅ <cite index="1-29">**Comprehensive Evaluation** - ROC, PR Curve, SHAP, Confusion Matrix, Reliability plots, Calibration plots</cite>
+
+---
+
+## Implementation Progress
+
+- [x] Stage 1: Project Initialization
+- [ ] Stage 2: Dataset Preparation
+- [ ] Stage 3: Data Preprocessing
+- [ ] Stage 4: Clinical Feature Learning
+- [ ] Stage 5: ECG Feature Learning
+- [ ] Stage 6: PCG Feature Learning
+- [ ] Stage 7: Reliability Learning
+- [ ] Stage 8: Confidence Learning
+- [ ] Stage 9: Adaptive Decision Making
+- [ ] Stage 10: Proposed Fusion (Main Contribution)
+- [ ] Stage 11: Disease Prediction
+- [ ] Stage 12: Model Optimization
+- [ ] Stage 13: Experimental Evaluation
+
+---
+
+## Citation
+
+If you use this code in your research, please cite:
+
+```bibtex
+@article{acrmf-net-2024,
+  title={ACRMF-Net: Adaptive Clinically-aware Reliability-aware Multimodal Fusion Network for Cardiac Disease Detection},
+  author={Your Name},
+  year={2024}
+}
+```
+
+---
+
+## License
+
+See LICENSE file for details.
+
+---
+
+## Contact
+
+For questions or collaboration, please open an issue or contact: [your-email]
+
+---
+
+**Note**: This is a research implementation. Follow the 13-stage roadmap systematically for complete implementation.
