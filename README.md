@@ -1,285 +1,223 @@
-# ACRMF-Net: Adaptive Clinically-aware Reliability-aware Multimodal Fusion Network
+# Cardiac Disease Detection Project
 
-> **Cardiac Disease Detection** using Clinical Features, ECG, and PCG (Phonocardiogram) data with Adaptive Multimodal Fusion
-
----
-
-## Overview
-
-ACRMF-Net is a novel multimodal deep learning architecture for cardiac disease detection that intelligently fuses:
-- **Clinical Features** (tabular patient data)
-- **ECG Signals** (electrocardiography)
-- **PCG Signals** (phonocardiography - heart sounds)
-
-The model uses adaptive fusion with reliability and confidence estimation to handle modality quality variations in real-world clinical scenarios.
+> **Multi-Model Cardiac Disease Detection System**  
+> Comparing different deep learning architectures for cardiac disease diagnosis using multimodal data.
 
 ---
 
-## Architecture Components
-
-### Core Modules (30 Total)
-
-<cite index="1-1,1-2,1-3,1-4,1-5">**Stage 1 — Project Initialization**
-- Module 1-4: Project Folder Structure, Configuration, Requirements, Logging</cite>
-
-<cite index="1-5,1-6,1-7,1-8,1-9">**Stage 2 — Dataset Preparation**
-- Module 5-8: Clinical Dataset Loader, ECG Dataset Loader, PCG Dataset Loader, Dataset Split Module</cite>
-
-<cite index="1-9,1-10,1-11,1-12">**Stage 3 — Data Preprocessing**
-- Module 9-12: Clinical Preprocessor, ECG Preprocessor, PCG Preprocessor, Data Quality Assessment Module</cite>
-
-<cite index="1-13">**Stage 4 — Clinical Feature Learning**
-- Module 13: Clinical Encoder → (B,128)</cite>
-
-<cite index="1-14">**Stage 5 — ECG Feature Learning**
-- Module 14: ECG Encoder → (B,128)</cite>
-
-<cite index="1-15">**Stage 6 — PCG Feature Learning**
-- Module 15: PCG Encoder → (B,128)</cite>
-
-<cite index="1-16">**Stage 7 — Reliability Learning**
-- Module 16: Reliability Estimation Network (REN) → Rc, Re, Rp</cite>
-
-<cite index="1-17">**Stage 8 — Confidence Learning**
-- Module 17: Confidence Estimation Network (CEN) → Cc, Ce, Cp, Cf</cite>
-
-<cite index="1-18">**Stage 9 — Adaptive Decision Making**
-- Module 18: Adaptive Weight Generator (AWG) → Wc, We, Wp (sum=1)</cite>
-
-<cite index="1-19">**Stage 10 — Proposed Fusion (Main Contribution)**
-- Module 19: ACRMF Fusion Module → Fusion Feature (B,128)</cite>
-
-<cite index="1-20,1-21">**Stage 11 — Disease Prediction**
-- Module 20-21: Decision Head, Probability Estimator</cite>
-
-<cite index="1-21,1-22,1-23,1-24">**Stage 12 — Model Optimization**
-- Module 22-25: Composite Loss, Training Engine, Validation Engine, Testing Engine
-- Includes: AdamW, Scheduler, Early Stopping, Checkpoint Saving</cite>
-
-<cite index="1-24,1-25,1-26,1-27,1-28,1-29">**Stage 13 — Experimental Evaluation**
-- Module 26-30: Performance Evaluation, Explainability, Ablation Study, Statistical Analysis, Result Visualization
-- Produces: ROC, PR Curve, SHAP, Confusion Matrix, Reliability plots, Calibration plots</cite>
-
----
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 cardiac-disease-detection/
-├── .env                          # Environment configuration
-├── .env.example                  # Environment template
-├── .gitignore                    # Git ignore rules
-├── LICENSE                       # Project license
-├── README.md                     # This file
 │
-├── config/                       # Stage 1: Configuration
-│   ├── __init__.py
-│   ├── config.py                 # Module 2: Configuration settings
-│   ├── requirements.txt          # Module 3: Dependencies
-│   └── logging_config.py         # Module 4: Logging setup
+├── 📊 SHARED RESOURCES
+│   ├── archive/                          # CinC 2016 PCG Dataset (Heart Sounds)
+│   ├── ptb-xl-.../                       # PTB-XL ECG Dataset
+│   ├── heart_disease_uci.csv             # UCI Clinical Features Dataset
+│   ├── results/                          # Shared results directory
+│   ├── local_test_results/               # Test outputs
+│   ├── papers/                           # Research papers
+│   └── diagrams/                         # Architecture diagrams
 │
-├── data/                         # Stage 2-3: Data handling
-│   ├── __init__.py
-│   ├── loaders/                  # Stage 2: Dataset loaders
-│   │   ├── __init__.py
-│   │   ├── clinical_loader.py    # Module 5
-│   │   ├── ecg_loader.py         # Module 6
-│   │   ├── pcg_loader.py         # Module 7
-│   │   └── dataset_split.py      # Module 8
+├── 🏗️ MODEL IMPLEMENTATIONS
+│   ├── CardioM3Net_Model/                # Original CardioM3Net implementation
+│   │   ├── cardiom3net/                  # Model code
+│   │   ├── train_cardiom3net.py          # Training script
+│   │   ├── CardioM3Net_Kaggle.ipynb      # Kaggle notebook
+│   │   └── *.pdf / *.docx                # Documentation
 │   │
-│   └── preprocessing/            # Stage 3: Preprocessing
-│       ├── __init__.py
-│       ├── clinical_preprocessor.py  # Module 9
-│       ├── ecg_preprocessor.py       # Module 10
-│       ├── pcg_preprocessor.py       # Module 11
-│       └── quality_assessment.py     # Module 12
+│   └── ACRMF_Net_Model/                  # ⭐ NEW: ACRMF-Net implementation
+│       ├── config/                       # Configuration system
+│       ├── data/                         # Data loaders & preprocessing
+│       ├── models/                       # Neural network architectures
+│       ├── training/                     # Training pipeline
+│       ├── evaluation/                   # Evaluation & metrics
+│       ├── notebooks/                    # Jupyter notebooks
+│       ├── results/                      # Model-specific results
+│       ├── setup_project.py              # Project setup & verification
+│       └── STAGE1_COMPLETE.md            # Implementation progress
 │
-├── models/                       # Stage 4-11: Neural architectures
-│   ├── __init__.py
-│   ├── encoders/                 # Stage 4-6: Feature extractors
-│   │   ├── __init__.py
-│   │   ├── clinical_encoder.py   # Module 13
-│   │   ├── ecg_encoder.py        # Module 14
-│   │   └── pcg_encoder.py        # Module 15
-│   │
-│   ├── reliability/              # Stage 7-9: Adaptive components
-│   │   ├── __init__.py
-│   │   ├── ren.py                # Module 16: Reliability Estimation Network
-│   │   ├── cen.py                # Module 17: Confidence Estimation Network
-│   │   └── awg.py                # Module 18: Adaptive Weight Generator
-│   │
-│   ├── fusion/                   # Stage 10: Core contribution
-│   │   ├── __init__.py
-│   │   └── acrmf_fusion.py       # Module 19: ACRMF Fusion (MAIN)
-│   │
-│   ├── heads/                    # Stage 11: Output layers
-│   │   ├── __init__.py
-│   │   ├── decision_head.py      # Module 20
-│   │   └── probability_estimator.py  # Module 21
-│   │
-│   └── acrmf_net.py              # Complete assembled model
-│
-├── training/                     # Stage 12: Training pipeline
-│   ├── __init__.py
-│   ├── losses.py                 # Module 22: Composite loss
-│   ├── trainer.py                # Module 23: Training engine
-│   ├── validator.py              # Module 24: Validation engine
-│   └── tester.py                 # Module 25: Testing engine
-│
-├── evaluation/                   # Stage 13: Experiments
-│   ├── __init__.py
-│   ├── metrics.py                # Module 26: Performance evaluation
-│   ├── explainability.py         # Module 27: SHAP, saliency
-│   ├── ablation.py               # Module 28: Ablation studies
-│   ├── statistical_tests.py      # Module 29: Statistical analysis
-│   └── visualizations.py         # Module 30: Result plots
-│
-├── train_acrmf.py                # Main training script
-├── test_acrmf.py                 # Testing script
-├── infer_acrmf.py                # Inference script
-│
-├── notebooks/                    # Jupyter notebooks
-│   └── ACRMF_Net_Analysis.ipynb
-│
-├── results/                      # Experiment outputs
-│   ├── checkpoints/              # Saved models
-│   ├── logs/                     # Training logs
-│   ├── figures/                  # Thesis figures
-│   └── metrics/                  # Performance metrics
-│
-├── datasets/                     # Data storage (not in repo)
-│   ├── ptb-xl/                   # ECG dataset
-│   ├── cinc2016/                 # PCG dataset (archive/)
-│   └── clinical/                 # Clinical features
-│
-└── docs/                         # Documentation
-    ├── Final_Roadmap_Implementation_of_ACRMF-Net (1).pdf
-    └── Final_Model_Document_II.docx
+└── 📄 DOCUMENTATION
+    ├── .env / .env.example               # Environment configuration
+    ├── .gitignore                        # Git ignore rules
+    ├── LICENSE                           # Project license
+    ├── Final_Roadmap_Implementation...   # ACRMF-Net roadmap PDF
+    ├── Final_Model_Document_II.docx      # Model documentation
+    ├── FAEDL_CVD_Implementation.ipynb    # Implementation notebook
+    └── README.md                         # This file
 ```
 
 ---
 
-## Datasets
+## 🔬 Models Overview
 
-### Required Datasets (Download Separately)
+### 1. CardioM3Net (Original)
+**Location:** `CardioM3Net_Model/`
 
-1. **PTB-XL** (ECG Data)
-   - 21,837 ECG recordings, 12-lead, 100/500 Hz
-   - Download: https://physionet.org/content/ptb-xl/1.0.3/
-   - Place in: `datasets/ptb-xl/`
+**Architecture:**
+- Multimodal Meta-Learning Framework
+- Components: SimCLR + MAML + Federated Learning
+- Features: ECG (ResNet1D) + PCG (2D CNN) + Clinical (MLP)
+- Fusion: CrossAttention + ModalityGate
 
-2. **CinC Challenge 2016** (PCG Data)
-   - Heart sound recordings from training-a through training-f
-   - Download: https://physionet.org/content/challenge-2016/1.0.0/
-   - Already in: `archive/` directory
-
-3. **Clinical Features**
-   - UCI Heart Disease Dataset: `heart_disease_uci.csv`
-   - Already in project root
+**Key Features:**
+- Self-supervised pretraining (SimCLR)
+- Meta-learning adaptation (MAML)
+- Federated learning across hospitals
+- Domain adaptation with GRL
 
 ---
 
-## Installation
+### 2. ACRMF-Net (New Implementation) ⭐
+**Location:** `ACRMF_Net_Model/`
+
+**Architecture:**
+- Adaptive Clinically-aware Reliability-aware Multimodal Fusion Network
+- Components: REN + CEN + AWG + ACRMF Fusion
+- Features: Clinical (13→128) + ECG (12×1000→128) + PCG (1×2000→128)
+
+**Key Innovation:**
+<cite index="1-16,1-17,1-18,1-19">
+- **REN** - Reliability Estimation Network (assesses modality quality)
+- **CEN** - Confidence Estimation Network (prediction confidence)
+- **AWG** - Adaptive Weight Generator (dynamic modality weights: Wc+We+Wp=1)
+- **ACRMF Fusion** - Main research contribution
+</cite>
+
+**Implementation Status:**
+- ✅ Stage 1 Complete: Project Initialization (4/4 modules)
+- ⏳ Stage 2-13 Pending: 26 modules remaining
+
+---
+
+## 📊 Shared Datasets
+
+All models use the same datasets (located in root directory):
+
+### 1. PTB-XL (ECG Data)
+- **Location:** `ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.3/`
+- **Size:** 21,837 ECG recordings
+- **Format:** 12-lead, 100/500 Hz
+- **Source:** https://physionet.org/content/ptb-xl/1.0.3/
+
+### 2. CinC 2016 (PCG Data)
+- **Location:** `archive/`
+- **Content:** Heart sound recordings (training-a through training-f)
+- **Format:** Audio files with annotations
+- **Source:** https://physionet.org/content/challenge-2016/1.0.0/
+
+### 3. UCI Heart Disease (Clinical Data)
+- **Location:** `heart_disease_uci.csv`
+- **Features:** 13 clinical features
+- **Format:** CSV
+
+---
+
+## 🚀 Getting Started
+
+### CardioM3Net (Original Model)
 
 ```bash
-# Clone repository
-git clone <repository-url>
-cd cardiac-disease-detection
+cd CardioM3Net_Model
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Install dependencies (if needed)
+pip install torch numpy pandas scikit-learn wfdb scipy matplotlib shap tqdm
+
+# Train model
+python train_cardiom3net.py --epochs 30
+
+# Or use Kaggle notebook
+jupyter notebook CardioM3Net_Kaggle.ipynb
+```
+
+### ACRMF-Net (New Implementation)
+
+```bash
+cd ACRMF_Net_Model
+
+# Verify setup
+python setup_project.py
 
 # Install dependencies
 pip install -r config/requirements.txt
+
+# Training will be available after Stage 2-12 implementation
+# python train_acrmf.py --epochs 100
 ```
 
 ---
 
-## Usage
+## 📈 Results
 
-### 1. Training
-
-```bash
-# Train complete ACRMF-Net model
-python train_acrmf.py --epochs 100 --batch_size 32 --lr 0.001
-
-# Train with specific configuration
-python train_acrmf.py --config config/config.py
-```
-
-### 2. Testing
-
-```bash
-# Test trained model
-python test_acrmf.py --checkpoint results/checkpoints/best_model.pth
-```
-
-### 3. Inference
-
-```bash
-# Run inference on new data
-python infer_acrmf.py --input <path-to-data> --checkpoint results/checkpoints/best_model.pth
-```
+Results from both models are stored in their respective directories:
+- **CardioM3Net:** Uses root `results/` folder
+- **ACRMF-Net:** Uses `ACRMF_Net_Model/results/` folder
 
 ---
 
-## Key Features
+## 🔄 Implementation Roadmap (ACRMF-Net)
 
-✅ <cite index="1-16">**Reliability Estimation Network (REN)** - Assesses quality of each modality</cite>
+<cite index="1-1,1-2,1-3,1-4,1-5,1-6,1-7,1-8,1-9,1-10,1-11,1-12">
+**13 Stages | 30 Modules**
 
-✅ <cite index="1-17">**Confidence Estimation Network (CEN)** - Estimates prediction confidence per modality</cite>
+- [x] **Stage 1:** Project Initialization (Modules 1-4) ✅
+- [ ] **Stage 2:** Dataset Preparation (Modules 5-8)
+- [ ] **Stage 3:** Data Preprocessing (Modules 9-12)
+- [ ] **Stage 4:** Clinical Feature Learning (Module 13)
+- [ ] **Stage 5:** ECG Feature Learning (Module 14)
+- [ ] **Stage 6:** PCG Feature Learning (Module 15)
+- [ ] **Stage 7:** Reliability Learning (Module 16)
+- [ ] **Stage 8:** Confidence Learning (Module 17)
+- [ ] **Stage 9:** Adaptive Decision Making (Module 18)
+- [ ] **Stage 10:** Proposed Fusion - Main Contribution (Module 19)
+- [ ] **Stage 11:** Disease Prediction (Modules 20-21)
+- [ ] **Stage 12:** Model Optimization (Modules 22-25)
+- [ ] **Stage 13:** Experimental Evaluation (Modules 26-30)
+</cite>
 
-✅ <cite index="1-18">**Adaptive Weight Generator (AWG)** - Dynamically balances modality contributions (Wc+We+Wp=1)</cite>
-
-✅ <cite index="1-19">**ACRMF Fusion Module** - Novel adaptive fusion mechanism (Main Research Contribution)</cite>
-
-✅ <cite index="1-29">**Comprehensive Evaluation** - ROC, PR Curve, SHAP, Confusion Matrix, Reliability plots, Calibration plots</cite>
-
----
-
-## Implementation Progress
-
-- [x] Stage 1: Project Initialization
-- [ ] Stage 2: Dataset Preparation
-- [ ] Stage 3: Data Preprocessing
-- [ ] Stage 4: Clinical Feature Learning
-- [ ] Stage 5: ECG Feature Learning
-- [ ] Stage 6: PCG Feature Learning
-- [ ] Stage 7: Reliability Learning
-- [ ] Stage 8: Confidence Learning
-- [ ] Stage 9: Adaptive Decision Making
-- [ ] Stage 10: Proposed Fusion (Main Contribution)
-- [ ] Stage 11: Disease Prediction
-- [ ] Stage 12: Model Optimization
-- [ ] Stage 13: Experimental Evaluation
+**Progress:** 4/30 modules (13.3%)
 
 ---
 
-## Citation
+## 📚 Documentation
 
-If you use this code in your research, please cite:
-
-```bibtex
-@article{acrmf-net-2024,
-  title={ACRMF-Net: Adaptive Clinically-aware Reliability-aware Multimodal Fusion Network for Cardiac Disease Detection},
-  author={Your Name},
-  year={2024}
-}
-```
+- **ACRMF-Net Roadmap:** `Final_Roadmap_Implementation_of_ACRMF-Net (1).pdf`
+- **Model Documentation:** `Final_Model_Document_II.docx`
+- **Stage 1 Complete:** `ACRMF_Net_Model/STAGE1_COMPLETE.md`
 
 ---
 
-## License
+## 🎯 Current Focus
+
+**Next Implementation:** Stage 2 - Dataset Preparation
+- Module 5: Clinical Dataset Loader
+- Module 6: ECG Dataset Loader  
+- Module 7: PCG Dataset Loader
+- Module 8: Dataset Split Module
+
+---
+
+## 🤝 Contributing
+
+Each model implementation is independent:
+- CardioM3Net: Maintains original architecture
+- ACRMF-Net: New implementation following roadmap
+
+---
+
+## 📝 License
 
 See LICENSE file for details.
 
 ---
 
-## Contact
+## 📧 Contact
 
-For questions or collaboration, please open an issue or contact: [your-email]
+For questions about specific implementations:
+- **CardioM3Net:** Check original documentation in `CardioM3Net_Model/`
+- **ACRMF-Net:** Follow roadmap in `ACRMF_Net_Model/`
 
 ---
 
-**Note**: This is a research implementation. Follow the 13-stage roadmap systematically for complete implementation.
+**Last Updated:** July 27, 2026  
+**Project Status:** Active Development - ACRMF-Net Implementation in Progress

@@ -1,0 +1,33 @@
+================================================================================
+MODEL PERFORMANCE REPORT: Exp1_SmoothedInvFreq
+Generated: 20260828_131719
+================================================================================
+
+MODEL INFORMATION
+--------------------------------------------------------------------------------
+Model Path: experiments\Exp1_SmoothedInvFreq\best_model.pth
+Training Epoch: 74
+Validation Accuracy: 84.74%
+Validation F1 Score: 0.7227
+
+Per-Class Accuracy:
+  [OK] Class 0: 93.82%
+  [WARN] Class 1: 73.42%
+  [WARN] Class 2: 78.33%
+  [WARN] Class 3: 78.52%
+  [FAIL] Class 4: 33.33%
+
+DATASET INFORMATION
+--------------------------------------------------------------------------------
+Total Samples: 914
+Number of Classes: 2
+
+VISUALIZATIONS GENERATED
+--------------------------------------------------------------------------------
+  - Training History: training_history.png
+  - Per-Class Performance: per_class_metrics.png
+  - Class Distribution: class_distribution.png
+
+================================================================================
+END OF REPORT
+================================================================================

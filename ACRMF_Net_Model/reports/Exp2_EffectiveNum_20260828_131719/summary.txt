@@ -1,0 +1,33 @@
+================================================================================
+MODEL PERFORMANCE REPORT: Exp2_EffectiveNum
+Generated: 20260828_131719
+================================================================================
+
+MODEL INFORMATION
+--------------------------------------------------------------------------------
+Model Path: experiments\Exp2_EffectiveNum_0.9999\best_model.pth
+Training Epoch: 34
+Validation Accuracy: 81.00%
+Validation F1 Score: 0.6891
+
+Per-Class Accuracy:
+  [OK] Class 0: 86.47%
+  [WARN] Class 1: 70.26%
+  [WARN] Class 2: 77.22%
+  [OK] Class 3: 87.11%
+  [FAIL] Class 4: 37.04%
+
+DATASET INFORMATION
+--------------------------------------------------------------------------------
+Total Samples: 914
+Number of Classes: 2
+
+VISUALIZATIONS GENERATED
+--------------------------------------------------------------------------------
+  - Training History: training_history.png
+  - Per-Class Performance: per_class_metrics.png
+  - Class Distribution: class_distribution.png
+
+================================================================================
+END OF REPORT
+================================================================================

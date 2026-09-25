@@ -1,0 +1,10 @@
+{
+  "start_time": "2026-08-31 19:34:59",
+  "results": {
+    "balanced_dataset": "True",
+    "advanced_training": "False",
+    "tta_evaluation": "False"
+  },
+  "overall_success": false,
+  "log_file": "D:\\heartsense-ai-main\\cardiac-disease-detection\\ACRMF_Net_Model\\experiments\\complete_pipeline\\pipeline_20260831_193445.log"
+}

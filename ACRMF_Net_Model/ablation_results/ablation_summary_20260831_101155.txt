@@ -1,0 +1,64 @@
+================================================================================
+ABLATION STUDY SUMMARY: REN, CEN, AWG Module Analysis
+================================================================================
+
+Date: 2026-08-31 10:11:55
+
+BEST CONFIGURATION:
+  Experiment: 4_REN_CEN
+  Modules: {'REN': True, 'CEN': True, 'AWG': False}
+  Accuracy: 0.2310
+  Loss: 1.6085
+
+ALL EXPERIMENTS:
+--------------------------------------------------------------------------------
+
+1_REN_Only:
+  Modules Active: REN=True, CEN=False, AWG=False
+  Accuracy: 0.1880
+  Loss: 1.6181
+  Per-Class Accuracy: ['0.005', '0.519', '0.055', '0.020', '0.365']
+  Weights: Wc=0.333, We=0.333, Wp=0.333
+
+2_CEN_Only:
+  Modules Active: REN=False, CEN=True, AWG=False
+  Accuracy: 0.1980
+  Loss: 1.6111
+  Per-Class Accuracy: ['0.098', '0.654', '0.030', '0.122', '0.036']
+  Weights: Wc=0.333, We=0.333, Wp=0.333
+
+3_AWG_Only:
+  Modules Active: REN=False, CEN=False, AWG=True
+  Accuracy: 0.1770
+  Loss: 1.6157
+  Per-Class Accuracy: ['0.200', '0.107', '0.050', '0.068', '0.521']
+  Weights: Wc=0.237, We=0.230, Wp=0.533
+
+4_REN_CEN:
+  Modules Active: REN=True, CEN=True, AWG=False
+  Accuracy: 0.2310
+  Loss: 1.6085
+  Per-Class Accuracy: ['0.409', '0.416', '0.010', '0.249', '0.006']
+  Weights: Wc=0.333, We=0.333, Wp=0.333
+
+5_CEN_AWG:
+  Modules Active: REN=False, CEN=True, AWG=True
+  Accuracy: 0.2050
+  Loss: 1.6119
+  Per-Class Accuracy: ['0.130', '0.593', '0.000', '0.059', '0.228']
+  Weights: Wc=0.368, We=0.233, Wp=0.399
+
+6_REN_AWG:
+  Modules Active: REN=True, CEN=False, AWG=True
+  Accuracy: 0.2020
+  Loss: 1.6116
+  Per-Class Accuracy: ['0.070', '0.453', '0.070', '0.024', '0.425']
+  Weights: Wc=0.226, We=0.411, Wp=0.364
+
+7_ALL_Modules:
+  Modules Active: REN=True, CEN=True, AWG=True
+  Accuracy: 0.1770
+  Loss: 1.6237
+  Per-Class Accuracy: ['0.270', '0.014', '0.000', '0.185', '0.467']
+  Weights: Wc=0.014, We=0.977, Wp=0.009
+

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Comparison Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 5px;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .best {
+            background-color: #d5f4e6;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>[OK] Model Comparison Report</h1>
+    <p>Generated: 20260828_131719</p>
+    
+    <div class="section">
+        <h2>Performance Comparison</h2>
+        <img src="model_comparison.png" alt="Model Comparison">
+    </div>
+    
+    <div class="section">
+        <h2>Detailed Comparison</h2>
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Validation Accuracy</th>
+                <th>Validation F1</th>
+                <th>Epoch</th>
+            </tr>
+        
+            <tr class="best">
+                <td>Exp1_SmoothedInvFreq</td>
+                <td>84.74%</td>
+                <td>0.7227</td>
+                <td>74</td>
+            </tr>
+            
+            <tr class="">
+                <td>Exp2_EffectiveNum</td>
+                <td>81.00%</td>
+                <td>0.6891</td>
+                <td>34</td>
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2>Links to Individual Reports</h2>
+        <ul>
+        
+            <li><a href="../Exp1_SmoothedInvFreq_20260828_131719/report.html">Exp1_SmoothedInvFreq Report</a></li>
+            
+            <li><a href="../Exp2_EffectiveNum_20260828_131719/report.html">Exp2_EffectiveNum Report</a></li>
+            
+        </ul>
+    </div>
+</body>
+</html>
+        

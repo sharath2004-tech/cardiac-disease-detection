@@ -1,0 +1,58 @@
+================================================================================
+EXPERIMENT COMPARISON SUMMARY
+================================================================================
+
+Total Experiments: 7
+
+BEST EXPERIMENT
+--------------------------------------------------------------------------------
+Name: Exp3_WeightedSampler
+Validation Accuracy: 89.95%
+Macro F1 Score: 0.7816
+Training Epochs: 98
+Train-Val Gap: 9.38%
+
+RANKING BY VALIDATION ACCURACY
+--------------------------------------------------------------------------------
+# 1 [WARN] Exp3_WeightedSampler                 89.95% (F1: 0.7816)
+# 2 [WARN] Exp4_BestWeights_HigherWD            89.54% (F1: 0.7745)
+# 3 [WARN] Exp2_EffectiveNum_0.9999             87.77% (F1: 0.7580)
+# 4 [WARN] Exp0_Baseline_NoWeights              87.77% (F1: 0.7600)
+# 5 [WARN] Exp7_BestConfig_MixUp                85.35% (F1: 0.7371)
+# 6 [WARN] Exp1_SmoothedInvFreq                 84.74% (F1: 0.7227)
+# 7 [WARN] Exp5_BestConfig_LabelSmooth          83.22% (F1: 0.7131)
+
+PER-CLASS ANALYSIS
+--------------------------------------------------------------------------------
+
+Class 0:
+  Best:  Exp4_BestWeights_HigherWD           99.19%
+  Worst: Exp5_BestConfig_LabelSmooth         92.06%
+  Mean:  96.14%
+  Std:   2.43%
+
+Class 1:
+  Best:  Exp0_Baseline_NoWeights             82.63%
+  Worst: Exp7_BestConfig_MixUp               72.37%
+  Mean:  76.84%
+  Std:   3.71%
+
+Class 2:
+  Best:  Exp3_WeightedSampler                85.00%
+  Worst: Exp5_BestConfig_LabelSmooth         73.06%
+  Mean:  78.25%
+  Std:   3.78%
+
+Class 3:
+  Best:  Exp3_WeightedSampler                82.03%
+  Worst: Exp0_Baseline_NoWeights             74.22%
+  Mean:  78.91%
+  Std:   2.33%
+
+Class 4:
+  Best:  Exp0_Baseline_NoWeights             51.85%
+  Worst: Exp1_SmoothedInvFreq                33.33%
+  Mean:  42.68%
+  Std:   5.44%
+
+================================================================================

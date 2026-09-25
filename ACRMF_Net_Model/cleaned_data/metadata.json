@@ -1,0 +1,30 @@
+{
+  "num_samples": 914,
+  "num_classes": 2,
+  "clinical_features": 8,
+  "ecg_shape": [
+    1000,
+    12
+  ],
+  "pcg_shape": [
+    2000
+  ],
+  "class_distribution": [
+    {
+      "class": 0,
+      "count": 408,
+      "percentage": 44.63894967177243
+    },
+    {
+      "class": 1,
+      "count": 506,
+      "percentage": 55.36105032822757
+    }
+  ],
+  "cleaning_stats": {
+    "clinical_missing_before": 4600,
+    "clinical_missing_after": 0,
+    "samples_final": 914,
+    "imbalance_ratio": 1.2401960784313726
+  }
+}

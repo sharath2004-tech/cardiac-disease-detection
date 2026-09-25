@@ -1,0 +1,26 @@
+{
+  "n_samples": 888,
+  "n_original": 914,
+  "n_synthetic": -26,
+  "class_distribution": {
+    "0": 444,
+    "1": 444
+  },
+  "shapes": {
+    "ecg": [
+      888,
+      1000,
+      12
+    ],
+    "pcg": [
+      888,
+      2000
+    ],
+    "clinical": [
+      888,
+      8
+    ]
+  },
+  "method": "SMOTE-Tomek",
+  "augmentation": "ECG: jitter+scaling+shift, PCG: freq+time masking"
+}
